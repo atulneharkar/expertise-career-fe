@@ -7,13 +7,13 @@ import {
 export const authentication = function(state = {}, action) {
   switch(action.type) {
     case AUTH_USER:
-      return { ...state, error: '', authenticated: true }
+      return { ...state, loginError: '', isAuthenticated: true }
 
     case UNAUTH_USER:
-      return { ...state, error: '', authenticated: false }
+      return { ...state, loginError: '', isAuthenticated: false }
 
     case AUTH_ERROR:
-      return { ...state, error: action.payload };
+      return { ...state, loginError: action.payload };
   }
 
   return state;

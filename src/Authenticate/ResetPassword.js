@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 
-import { resetPassword } from '../_actions';
+import * as actions from '../_actions';
 import { required } from '../_helpers';
-import { renderInputTextField, renderHiddenInputTextField } from '../_components';
+import { renderInputField, renderHiddenInputField } from '../_components';
 
 class ResetPasswordForm extends Component {
 	handleFormSubmit(props) {
-		const { dispatch } = this.props;
-		dispatch(resetPassword(props));
+		this.props.resetPassword(props);
   }
 
   componentWillMount() {
@@ -25,26 +24,26 @@ class ResetPasswordForm extends Component {
 	      <Field
 	        name="password"
 	        type="password"
-	        component={renderInputTextField}
+	        component={renderInputField}
 	        label="Password"
 	        validate={[required]}
 	      />
 	      <Field
 	        name="confirmPassword"
 	        type="password"
-	        component={renderInputTextField}
+	        component={renderInputField}
 	        label="Confirm Password"
 	        validate={[required]}
 	      />
 	      <Field
 	        name="otp"
 	        type="hidden"
-	        component={renderHiddenInputTextField}
+	        component={renderHiddenInputField}
 	      />
 	      <Field
 	        name="userId"
 	        type="hidden"
-	        component={renderHiddenInputTextField}
+	        component={renderHiddenInputField}
 	      />
 	      <div>
 	        <button type="submit">Reset</button>
@@ -57,4 +56,4 @@ class ResetPasswordForm extends Component {
 
 export default reduxForm({
   form: 'ResetPasswordForm'
-}, null, resetPassword)(ResetPasswordForm);
+}, null, actions)(ResetPasswordForm);

@@ -1,69 +1,57 @@
 import 'whatwg-fetch';
 
-import { authHeader } from '../_helpers';
+import { setHeader } from '../_helpers';
 import { SERVER_URL } from '../_constants';
 
 export const userService = {
     addUser,
-    // updateUser,
-    // deleteUser,
-    // getAllUsers,
-    // getUserById,
-    // setAvatar
+    updateUser,
+    getAllUsers,
+    getUserById,
+    getInterestOptionsList,
+    setAvatar
 };
 
 function addUser(user) {
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
-    };
-
-    return fetch(`${SERVER_URL}/user/create`, requestOptions).then(handleResponse);
+  return fetch(`${SERVER_URL}/user/create`, setHeader('POST', user)).then((response) => {
+    const token = response.headers.get('x-auth');
+    if(token) {
+      localStorage.setItem('userToken', token);
+    }
+    return response.json();
+  }).then((userInfo) => {
+      if(userInfo) {
+       localStorage.setItem('userInfo', JSON.stringify(userInfo));
+     }
+     return userInfo;
+  });
 }
 
-// function updateUser(user) {
-//     const requestOptions = {
-//         method: 'PUT',
-//         headers: { ...authHeader(), 'Content-Type': 'application/json' },
-//         body: JSON.stringify(user)
-//     };
+function updateUser(userId, user) {
+  return fetch(`${SERVER_URL}/user/${userId}`, setHeader('PUT', user, true)).then((response) => response.json());
+}
 
-//     return fetch('/users/' + user.id, requestOptions).then(handleResponse);;
-// }
+function getAllUsers() {
+  return fetch(`${SERVER_URL}/user/list/all`, setHeader('GET', null, true)).then((response) => response.json());
+}
 
-// // prefixed function name with underscore because delete is a reserved word in javascript
-// function deleteUser(id) {
-//     const requestOptions = {
-//         method: 'DELETE',
-//         headers: authHeader()
-//     };
+function getUserById(userId) {
+  return fetch(`${SERVER_URL}/user/${userId}`, setHeader('GET', null, true)).then((response) => response.json());
+}
 
-//     return fetch('/users/' + id, requestOptions).then(handleResponse);;
-// }
+function getInterestOptionsList() {
+  return (
+    [{
+      value: 'sports',
+      label: 'Sports'
+    },
+    {
+      value: 'politics',
+      label: 'Politics'
+    }]
+  );
+}
 
-// function getAllUsers() {
-//     const requestOptions = {
-//         method: 'GET',
-//         headers: authHeader()
-//     };
-
-//     return fetch('/users', requestOptions).then(handleResponse);
-// }
-
-// function getUserById(id) {
-//     const requestOptions = {
-//         method: 'GET',
-//         headers: authHeader()
-//     };
-
-//     return fetch('/users/' + _id, requestOptions).then(handleResponse);
-// }
-
-function handleResponse(response) {
-    if (!response.ok) { 
-        return Promise.reject(response.statusText);
-    }
-
-    return response.json();
+function setAvatar(data) {
+  return fetch(`${SERVER_URL}/user/avatar`, setHeader('POST', data, true, true)).then((response) => response.json());
 }

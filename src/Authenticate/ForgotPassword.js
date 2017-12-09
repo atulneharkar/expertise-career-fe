@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 
-import { forgotPassword } from '../_actions';
+import * as actions from '../_actions';
 import { required, email } from '../_helpers';
-import { renderInputTextField } from '../_components';
+import { renderInputField } from '../_components';
 
 class ForgotPasswordForm extends Component {
 	handleFormSubmit(props) {
-		const { dispatch } = this.props;
-		dispatch(forgotPassword(props));
+		this.props.forgotPassword(props);
   }
 
   render() {
@@ -20,7 +19,7 @@ class ForgotPasswordForm extends Component {
 	      <Field
 	        name="email"
 	        type="text"
-	        component={renderInputTextField}
+	        component={renderInputField}
 	        label="Email"
 	        validate={[required, email]}
 	      />
@@ -35,4 +34,4 @@ class ForgotPasswordForm extends Component {
 
 export default reduxForm({
   form: 'ForgotPasswordForm'
-}, null, forgotPassword)(ForgotPasswordForm);
+}, null, actions)(ForgotPasswordForm);

@@ -1,4 +1,4 @@
-import createHistory from 'history/createBrowserHistory';
+import { history } from '../_helpers';
 
 import {
   AUTH_USER,
@@ -11,13 +11,12 @@ import {
 } from '../_services';
 
 export const authenticateUser = function(user) {
-  const history = createHistory();
   return dispatch => {
     authenticationService.authenticateUser(user)
       .then(
         user => {
           dispatch({ type: AUTH_USER });
-        	history.push("/home");
+        	history.push("/");
         },
         error => {
           dispatch(authError('Please enter a valid Username and Password'));
@@ -26,25 +25,15 @@ export const authenticateUser = function(user) {
   };
 }
 
-export const logout = function(user) {
-  const history = createHistory();
+export const logout = function() {
   return dispatch => {
-    authenticationService.logout(user)
-      .then(
-        user => {
-          localStorage.removeItem('userToken');
-          localStorage.removeItem('userInfo');
-          history.push('/login');
-        },
-        error => {
-          dispatch(authError('Unable to logout.'));
-        }
-      );
+    dispatch({ type: UNAUTH_USER });
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('userInfo');
   };
 }
 
 export const forgotPassword = function(user) {
-  const history = createHistory();
   return dispatch => {
     authenticationService.forgotPassword(user)
       .then(
@@ -59,7 +48,6 @@ export const forgotPassword = function(user) {
 }
 
 export const resetPassword = function(user) {
-  const history = createHistory();
   return dispatch => {
     authenticationService.resetPassword(user)
       .then(
@@ -73,7 +61,7 @@ export const resetPassword = function(user) {
   };
 }
 
-export function authError(error) {
+function authError(error) {
   return {
     type: AUTH_ERROR,
     payload: error

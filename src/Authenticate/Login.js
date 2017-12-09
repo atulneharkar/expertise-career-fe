@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import { authenticateUser } from '../_actions';
-import { required, email } from '../_helpers';
-import { renderInputTextField } from '../_components';
+import * as actions from '../_actions';
+import { required, email, history } from '../_helpers';
+import { renderInputField } from '../_components';
 
 class LoginForm extends Component {
 
 	componentWillMount() {
-    if (this.props.authenticated) {
-      this.context.router.push('/');
+    if(this.props.authenticated) {
+      history.push('/');
     }
   }
 
 	handleFormSubmit(props) {
-		const { dispatch } = this.props;
-		dispatch(authenticateUser(props));
+		this.props.authenticateUser(props);
   }
 
   renderAlert() {
@@ -35,14 +35,14 @@ class LoginForm extends Component {
 	      <Field
 	        name="email"
 	        type="text"
-	        component={renderInputTextField}
+	        component={renderInputField}
 	        label="Email"
 	        validate={[required, email]}
 	      />
 	      <Field
 	        name="password"
 	        type="password"
-	        component={renderInputTextField}
+	        component={renderInputField}
 	        label="Password"
 	        validate={[required]}
 	      />
@@ -58,13 +58,16 @@ class LoginForm extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    errorMessage: state.error,
-    authenticated: state.authenticated
-  }
-}
+const mapStateToProps = (state) => ({
+  errorMessage: state.authentication.loginError,
+  authenticated: state.authentication.isAuthenticated
+});
+
+LoginForm = connect(
+  mapStateToProps,
+  actions
+)(LoginForm);
 
 export default reduxForm({
   form: 'LoginForm'
-}, mapStateToProps, authenticateUser)(LoginForm);
+}, null)(LoginForm);

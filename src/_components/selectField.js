@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
+
+const renderOptions = (lists) => {
+  return lists.map((list) => {
+    return <option key={list.key} value={list.key}>{list.value}</option>
+  });
+}
 
 export const renderSelectField = ({
-  select,
+  input,
   label,
+  optionList,
+  setValue,
+  onValueChange,
   meta: { touched, error }
 }) => (
   <div>
     <label>{label}</label>
     <div>
-      <select {...select}>
-        <option>Please Select</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
+      <Select
+        {...input} 
+        value={setValue}
+        options={optionList}  
+        onChange={(e) => onValueChange(e)} />
       {touched &&
         ((error && <p className="error">{error}</p>))}
     </div>

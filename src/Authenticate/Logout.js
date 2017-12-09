@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import * as actions from '../_actions';
 
 class Logout extends Component {
+	componentWillMount() {
+		this.props.logout();
+  }
+
   render() {
-    return (
-      <div>
-        You have successfully logged out from the application.
-      </div>
-    );
+  	return <Redirect to="/login" />;
   }
 }
 

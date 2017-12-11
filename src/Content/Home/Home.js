@@ -6,7 +6,7 @@ import * as actions from '../../_actions';
 class Home extends Component {
 	render() {
 		return (
-			<div>Photographers</div>
+			<div>Expertise Career</div>
 		);
 	}
 }

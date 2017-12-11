@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { history } from '../../_helpers';
 import * as actions from '../../_actions';
 
 class UserList extends Component {
@@ -37,7 +36,9 @@ class UserList extends Component {
         <img alt="Profile Piocture" src={avatar} width="50" height="50" />
       );
     } else {
-      <img alt="Profile Piocture" src="default.img" width="50" height="50" />
+      return (
+        <img alt="Profile Piocture" src="default.img" width="50" height="50" />
+      );
     }
   }
 
@@ -48,7 +49,6 @@ class UserList extends Component {
         defaultValue={role} 
         onChange={(e) => this.handleRoleChange(e)}>
         <option value="admin">Admin</option>
-        <option value="photographer">Photographer</option>
         <option value="user">User</option>
       </select>
     );

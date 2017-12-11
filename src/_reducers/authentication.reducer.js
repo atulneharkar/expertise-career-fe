@@ -14,7 +14,8 @@ export const authentication = function(state = {}, action) {
 
     case AUTH_ERROR:
       return { ...state, loginError: action.payload };
-  }
 
-  return state;
+    default:
+      return state;
+  }
 }

@@ -1,12 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-
-const renderOptions = (lists) => {
-  return lists.map((list) => {
-    return <option key={list.key} value={list.key}>{list.value}</option>
-  });
-}
 
 export const renderSelectField = ({
   input,

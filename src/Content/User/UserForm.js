@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as actions from '../../_actions';
-import { required, email, phoneNumber, history, setInputDate } from '../../_helpers';
-import { renderInputField, renderSelectField, renderFileInputField } from '../../_components';
+import { required, email, phoneNumber, history } from '../../_helpers';
+import { renderInputField, renderFileInputField } from '../../_components';
 
 class UserForm extends Component {
 	constructor(props) {
@@ -16,16 +16,12 @@ class UserForm extends Component {
 			userData: {
 				name: '',
 				phone: '',
-				email: '',
-				designation: '',
-				dob: ''
+				email: ''
 			}
 		}
 	}
 
 	componentWillMount() {
-		this.props.getInterestOptionsList();
-
 		const userId = this.props.match.params.userId;
     if(this.props.authenticated && !userId) {
       history.push('/');
@@ -65,9 +61,6 @@ class UserForm extends Component {
   }
 
 	handleFormSubmit(props) {
-		if(this.state.userData.designation) {
-			props['designation'] = this.state.userData.designation;
-		}
     if(this.props.authenticated) {
       this.props.updateUser(this.state.userId, props);
     } else {
@@ -87,7 +80,7 @@ class UserForm extends Component {
 	        label="Name"
 	        setValue={this.state.userData.name}
 	        onValueChange={(e) => this.handleInputChange(e)}
-	        //validate={[required]}
+	        validate={[required]}
 	      />
 	      <Field
 	        name="phone"
@@ -96,7 +89,7 @@ class UserForm extends Component {
 	        label="Phone"
 	        setValue={this.state.userData.phone}
 	        onValueChange={(e) => this.handleInputChange(e)}
-	        //validate={[required, phoneNumber]}
+	        validate={[required, phoneNumber]}
 	      />
 	      <Field
 	        name="email"
@@ -105,46 +98,27 @@ class UserForm extends Component {
 	        label="Email"
 	        setValue={this.state.userData.email}
 	        onValueChange={(e) => this.handleInputChange(e)}
-	        //validate={[required, email]}
+	        validate={[required, email]}
 	      />
 	      <Field
 	        name="password"
 	        type="password"
 	        component={renderInputField}
 	        label="Password"
-	        //validate={[required]}
+	        validate={[required]}
 	      />
 	      <Field
 	        name="confirmPassword"
 	        type="password"
 	        component={renderInputField}
 	        label="Confirm Password"
-	        //validate={[required]}
-	      />
-	      <Field
-	        name="designation"
-	        component={renderSelectField}
-	        label="Interest"
-	        optionList={this.props.interestList}
-	        setValue={this.state.userData.designation}
-	        onValueChange={(e) => this.handleInputChange(e, 'designation')}
-	        //validate={[required]}
+	        validate={[required]}
 	      />
 	      <Field
 	        name="avatar"
           component={renderFileInputField}
           label="Profile Picture"
-          //validate={[required]}
         />
-	      <Field
-	        name="dob"
-	        type="date"
-	        component={renderInputField}
-	        label="Date of Birth"
-	        setValue={setInputDate(this.state.userData.dob)}
-	        onValueChange={(e) => this.handleInputChange(e)}
-	        //validate={[required]}
-	      />
 	      <div>
 	        <button type="submit">Submit</button>
 	        <Link to="/login">Cancel</Link>

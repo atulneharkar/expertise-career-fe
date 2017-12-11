@@ -22,22 +22,37 @@ class Header extends Component {
   			  <NavLink to="/users" activeClassName="active">Users</NavLink>
   			</li>,
         <li key={2}>
-          <NavLink to={`/edit-user/${this.state.userId}`} activeClassName="active">Profile</NavLink>
+          <NavLink to="/course-admin" activeClassName="active">CourseAdmin</NavLink>
         </li>,
-  			<li key={3}>
-  			  <NavLink to="/logout">Logout</NavLink>
-  			</li>
+        <li key={3}>
+          <NavLink to="/about-us" activeClassName="active">About Us</NavLink>
+        </li>,
+        <li key={4}>
+          <NavLink to="/contact-us" activeClassName="active">Contact Us</NavLink>
+        </li>
   		];
   	}
+  }
+
+  renderProfileIcon() {
+    if(this.props.authenticated) {
+      return (
+        <div>
+          <NavLink to={`/edit-user/${this.state.userId}`} activeClassName="active">Profile</NavLink>
+          <NavLink to="/logout">Logout</NavLink>
+        </div>
+      );
+    }
   }
 
   render() {
     return (
       <div>
-        <h1><NavLink to="/">Photgraphy</NavLink></h1>
+        <h1><NavLink to="/">Expertise Career</NavLink></h1>
         <ul>
           {this.renderList()}
         </ul>
+        {this.renderProfileIcon()}
       </div>
     );
   }

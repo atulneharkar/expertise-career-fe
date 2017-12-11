@@ -8,7 +8,6 @@ export const userService = {
     updateUser,
     getAllUsers,
     getUserById,
-    getInterestOptionsList,
     setAvatar
 };
 
@@ -37,19 +36,6 @@ function getAllUsers() {
 
 function getUserById(userId) {
   return fetch(`${SERVER_URL}/user/${userId}`, setHeader('GET', null, true)).then((response) => response.json());
-}
-
-function getInterestOptionsList() {
-  return (
-    [{
-      value: 'sports',
-      label: 'Sports'
-    },
-    {
-      value: 'politics',
-      label: 'Politics'
-    }]
-  );
 }
 
 function setAvatar(data) {

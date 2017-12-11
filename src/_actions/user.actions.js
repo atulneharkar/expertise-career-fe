@@ -4,7 +4,6 @@ import {
   AUTH_USER,
   FETCH_USERS,
   FETCH_USER,
-  FETCH_INTEREST_LIST,
   USER_ERROR
 } from '../_constants';
 
@@ -72,36 +71,16 @@ export const updateUser = function(userId, user) {
         user => {
           if(_user.avatar) {
             dispatch(uploadProfilePicture(_user.avatar));
+          } else if(_user.role || _user.status) {
+            dispatch(getUserList());
           } else {
-            history.push("/users");
+            history.push("/");
           }
         },
         error => {
           dispatch(userError('Unable to connect to server.'));
         }
       );
-   };
-}
-
-export const getInterestOptionsList = function() {
-  return (dispatch) => {
-    // userService.getInterestOptionsList()
-    //   .then(
-    //     list => {
-    //       dispatch({ 
-    //         type: FETCH_INTEREST_LIST,
-    //         payload: list
-    //       });
-    //     },
-    //     error => {
-    //       dispatch(userError('Unable to connect to server.'));
-    //     }
-    //   );
-    const lists = userService.getInterestOptionsList();
-    dispatch({ 
-      type: FETCH_INTEREST_LIST,
-      payload: lists
-    }); 
    };
 }
 

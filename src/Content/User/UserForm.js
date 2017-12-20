@@ -12,6 +12,7 @@ class UserForm extends Component {
 		super(props);
 
 		this.state = {
+			submitButtonText: 'Register',
 			userId: '',
 			userData: {
 				name: '',
@@ -21,6 +22,20 @@ class UserForm extends Component {
 		}
 	}
 
+	renderUserResponse() {
+		if(this.props.loading) {
+			return <div class="loading">loading</div>;
+		} else if(this.props.errorMessage) {
+			return <div class="error-message">{this.props.errorMessage}</div>;
+		} else if(this.props.successMessage) {
+			if(this.state.userId) {
+				return <div class="success-message">User updated successfully!</div>;
+			} else {
+				return <div class="success-message">User registered successfully!</div>;
+			}
+		} 
+	}
+
 	componentWillMount() {
 		const userId = this.props.match.params.userId;
     if(this.props.authenticated && !userId) {
@@ -28,7 +43,7 @@ class UserForm extends Component {
     }
 
     if(userId) {
-    	this.setState({ userId });
+    	this.setState({ userId, submitButtonText: 'Update' });
     	this.props.getUserById(userId);
     }
   }
@@ -120,9 +135,11 @@ class UserForm extends Component {
           label="Profile Picture"
         />
 	      <div>
-	        <button type="submit">Submit</button>
+	        <button type="submit">{this.state.submitButtonText}</button>
 	        <Link to="/login">Cancel</Link>
 	      </div>
+
+	      {this.renderUserResponse()}
 			</form>
 		);
   }
@@ -130,6 +147,7 @@ class UserForm extends Component {
 
 const mapStateToProps = (state) => ({
   errorMessage: state.authentication.userError,
+  successMessage: state.authentication.userSuccess,
   authenticated: state.authentication.isAuthenticated,
   userData: state.user.userDetail,
   interestList: state.user.interestList

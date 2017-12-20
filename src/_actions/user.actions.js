@@ -4,7 +4,9 @@ import {
   AUTH_USER,
   FETCH_USERS,
   FETCH_USER,
-  USER_ERROR
+  USER_ERROR,
+  USER_SUCCESS,
+  USER_LOADING
 } from '../_constants';
 
 import { userService } from '../_services';
@@ -12,6 +14,7 @@ import { userService } from '../_services';
 export const addUser = function(user) {
   const _user = user;
   return (dispatch) => {
+    dispatch({ type: USER_LOADING });
     userService.addUser(user)
       .then(
         user => {
@@ -66,6 +69,7 @@ export const getUserById = function(userId) {
 export const updateUser = function(userId, user) {
   const _user = user;
   return (dispatch) => {
+    dispatch({ type: USER_LOADING });
     userService.updateUser(userId, user)
       .then(
         user => {
@@ -74,7 +78,10 @@ export const updateUser = function(userId, user) {
           } else if(_user.role || _user.status) {
             dispatch(getUserList());
           } else {
-            history.push("/");
+            dispatch({ type: USER_SUCCESS });
+            setTimeout(function() {
+              history.push("/");
+            }, 3000);
           }
         },
         error => {
@@ -92,7 +99,10 @@ function uploadProfilePicture(file) {
     userService.setAvatar(formData)
       .then(
         user => {
-          history.push("/");
+          dispatch({ type: USER_SUCCESS });
+          setTimeout(function() {
+            history.push("/");
+          }, 3000);
         },
         error => {
           dispatch(userError('Unable to connect to server.'));

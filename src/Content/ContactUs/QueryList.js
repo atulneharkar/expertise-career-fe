@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class CourseAdmin extends Component {
+class QueryList extends Component {
   render() {
     return (
       <div>
-        Course Admin
+        Query List
       </div>
     );
   }
 }
 
-export default CourseAdmin;
+export default QueryList;

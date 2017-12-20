@@ -9,8 +9,9 @@ export const authenticationService = {
   resetPassword
 };
 
-function authenticateUser(user) {
-  return fetch(`${SERVER_URL}/user/login`, setHeader('POST', user)).then((response) => {
+function authenticateUser(user, loginType) {
+  const loginURL = (loginType === 'local') ? `${SERVER_URL}/user/login` : `${SERVER_URL}/user/login-social`;
+  return fetch(loginURL, setHeader('POST', user)).then((response) => {
     const token = response.headers.get('x-auth');
     if(token) {
       localStorage.setItem('userToken', token);

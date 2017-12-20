@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import OurServicesCardView from '../OurServices/OurServicesCardView';
+import CourseListCardView from '../Course/CourseListCardView';
+import TrendingListCardView from '../Trending/TrendingListCardView';
+
 import * as actions from '../../_actions';
 
 class Home extends Component {
 	render() {
 		return (
-			<div>Expertise Career</div>
+			<div>
+				<OurServicesCardView />
+				<CourseListCardView />
+				<TrendingListCardView />
+			</div>
 		);
 	}
 }

@@ -1,0 +1,209 @@
+import React, { Component } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+
+import * as actions from '../../_actions';
+import { required, history } from '../../_helpers';
+import { renderInputField, renderSelectField, renderFileInputField } from '../../_components';
+
+class CourseForm extends Component {
+  constructor(props) {
+		super(props);
+
+		this.state = {
+			submitButtonText: 'Save',
+			courseId: '',
+			courseData: {
+				title: '',
+				description: '',
+				courseType: '',
+				courseCategory: '',
+				courseDate: '',
+				slot: '',
+				webinarLink: '',
+				courseContentLink: '',
+				RegisteredUsers: ''
+			}
+		}
+	}
+
+	componentWillMount() {
+		this.props.getCourseCategory();
+		this.props.getCourseType();
+		this.props.getUsers();
+
+		const courseId = this.props.match.params.courseId;
+    if(this.props.authenticated && !courseId) {
+      history.push('/');
+    }
+
+    if(courseId) {
+    	this.setState({ courseId, submitButtonText: 'Update' });
+    	this.props.getCourseById(courseId);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+  	if(nextProps.CourseData) {
+    	this.setState({ CourseData: nextProps.CourseData });
+    }
+  }
+
+	renderQueryResponse() {
+		if(this.props.loading) {
+			return <div class="loading">loading</div>;
+		} else if(this.props.errorMessage) {
+			return <div class="error-message">{this.props.errorMessage}</div>;
+		}
+	}
+
+  handleInputChange(event, controlName = undefined) {
+  	let target;
+    let value;
+    let key;
+
+  	if(!controlName) {
+  		target = event.target;
+	    value = target.type === 'checkbox' ? target.checked : target.value;
+	    key = target.name;
+  	} else {
+  		key = controlName;
+  		value = event.value;
+  	}
+
+    const courseData = this.state.courseData;
+    courseData[key] = value;
+    this.setState(courseData);
+  }
+
+	handleFormSubmit(props) {
+		if(this.state.CourseData.courseCategory) {
+			props['courseCategory'] = this.state.CourseData.courseCategory;
+		}
+    if(this.props.authenticated) {
+      this.props.updateCourse(this.state.courseId, props);
+    } else {
+      this.props.addCourse(props);
+    }
+  }
+
+  render() {
+		const { handleSubmit } = this.props;
+
+		return (
+		  <div>
+				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+					<Field
+		        name="title"
+		        type="text"
+		        component={renderInputField}
+		        label="Title"
+		        setValue={this.state.courseData.title}
+		        onValueChange={(e) => this.handleInputChange(e)}
+		        validate={[required]}
+		      />
+		      <Field
+		        name="description"
+		        type="text"
+		        component={renderInputField}
+		        label="Description"
+		        setValue={this.state.courseData.description}
+		        onValueChange={(e) => this.handleInputChange(e)}
+		        validate={[required]}
+		      />
+		      <Field
+		        name="courseType"
+		        component={renderSelectField}
+		        label="Course Type"
+		        optionList={this.props.courseType}
+		        setValue={this.state.courseData.courseType}
+		        onValueChange={(e) => this.handleInputChange(e, 'courseType')}
+		        validate={[required]}
+		      />
+		      <Field
+		        name="courseCategory"
+		        component={renderSelectField}
+		        label="Category"
+		        optionList={this.props.courseCategory}
+		        setValue={this.state.courseData.courseCategory}
+		        onValueChange={(e) => this.handleInputChange(e, 'courseCategory')}
+		        validate={[required]}
+		      />
+		      <Field
+		        name="courseDate"
+		        type="date"
+		        component={renderInputField}
+		        label="Course Date"
+		        setValue={this.state.courseData.courseDate}
+		        onValueChange={(e) => this.handleInputChange(e)}
+		        validate={[required]}
+		      />
+		      <Field
+		        name="slot"
+		        type="text"
+		        component={renderInputField}
+		        label="Slot"
+		        setValue={this.state.courseData.slot}
+		        onValueChange={(e) => this.handleInputChange(e)}
+		        validate={[required]}
+		      />
+		      <Field
+		        name="webinarLink"
+		        type="text"
+		        component={renderInputField}
+		        label="Webinar Link"
+		        setValue={this.state.courseData.webinarLink}
+		        onValueChange={(e) => this.handleInputChange(e)}
+		        validate={[required]}
+		      />
+		      <Field
+		        name="courseContentLink"
+		        type="text"
+		        component={renderInputField}
+		        label="Course Content Link"
+		        setValue={this.state.courseData.courseContentLink}
+		        onValueChange={(e) => this.handleInputChange(e)}
+		        validate={[required]}
+		      />
+		      <Field
+		        name="registeredUsers"
+		        component={renderSelectField}
+		        label="Registered Users"
+		        optionList={this.props.users}
+		        setValue={this.state.courseData.registeredUsers}
+		        onValueChange={(e) => this.handleInputChange(e, 'registeredUsers')}
+		        validate={[required]}
+		      />
+		      <Field
+		        name="coursePic"
+	          component={renderFileInputField}
+	          label="Course Photo"
+	        />
+		      <div>
+		        <button type="submit">{this.state.submitButtonText}</button>
+		      </div>
+
+		      {this.renderQueryResponse()}
+				</form>
+			</div>
+		);
+  }
+}
+
+const mapStateToProps = (state) => ({
+	courseData: state.course.courseDetail,
+  errorMessage: state.course.courseError,
+  loading: state.course.courseLoading,
+  courseCategory: state.course.courseCategory,
+  courseType: state.course.courseType,
+  users: state.course.users
+});
+
+CourseForm = connect(
+  mapStateToProps,
+  actions
+)(CourseForm);
+
+export default reduxForm({
+  form: 'CourseForm'
+})(CourseForm);

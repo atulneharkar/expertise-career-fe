@@ -6,7 +6,7 @@ import reduxThunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import './style.css';
+import './Css/style.css';
 import App from './App/App';
 import registerServiceWorker from './registerServiceWorker';
 import { AUTH_USER } from './_constants';

@@ -22,7 +22,7 @@ class CourseForm extends Component {
 				courseDate: '',
 				slot: '',
 				webinarLink: '',
-				courseContentLink: '',
+				coursePrice: '',
 				registeredUsers: '',
 				author: ''
 			}
@@ -165,11 +165,11 @@ class CourseForm extends Component {
 		        validate={this.state.courseData.webinarLink ? null : [required]}
 		      />
 		      <Field
-		        name="courseContentLink"
+		        name="coursePrice"
 		        type="text"
 		        component={renderInputField}
-		        label="Course Content Link"
-		        setValue={this.state.courseData.courseContentLink}
+		        label="Course Price"
+		        setValue={this.state.courseData.coursePrice}
 		        onValueChange={(e) => this.handleInputChange(e)}
 		        //validate={[required]}
 		      />

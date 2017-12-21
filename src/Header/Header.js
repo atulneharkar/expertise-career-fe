@@ -49,7 +49,7 @@ class Header extends Component {
   renderDefaultLinks() {
     return [
       <li key={3}>
-        <NavLink to="/our-services" activeClassName="active">Our Services</NavLink>
+        <NavLink to="/consulting" activeClassName="active">Consulting</NavLink>
       </li>,
       <li key={4}>
         <NavLink to="/about-us" activeClassName="active">About Us</NavLink>

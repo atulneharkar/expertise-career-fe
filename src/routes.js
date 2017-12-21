@@ -38,7 +38,7 @@ class Routes extends Component {
         <Route path='/register' component={UserForm}/>
         <Route path='/forgot-password' component={ForgotPassword}/>
         <Route path='/reset-password/:otp/:userId' component={ResetPassword}/>
-        <Route path='/our-services' component={OurServicesDetails}/>
+        <Route path='/consulting' component={OurServicesDetails}/>
         <Route path='/about-us' component={AboutUs}/>
         <Route path='/contact-us' component={ContactUs}/>
         <Route path='/webinar/:courseId' component={CourseDetails}/>

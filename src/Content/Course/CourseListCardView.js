@@ -18,6 +18,7 @@ class CourseListCardView extends Component {
 		      		<img alt="Course Picture" src={course.courseImage} width="100"/>
 		      		<p>{course.title}</p>
 		      		<p>{course.courseDate}</p>
+		      		<p>{course.coursePrice}</p>
 	      		</Link>
 	      	</div>
 	      );

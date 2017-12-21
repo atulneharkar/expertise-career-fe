@@ -37,7 +37,7 @@ class CourseListTableView extends Component {
           <td>{course.courseDate}</td>
           <td>{course.slot}</td>
           <td>{course.webinarLink}</td>
-          <td>{course.courseContentLink}</td>
+          <td>{course.coursePrice}</td>
           <td>{course.registeredUsers}</td>
           <td>{course.author.name}</td>
           <td><Link to={`/edit-course/${course._id}`}>Edit</Link></td>
@@ -61,7 +61,7 @@ class CourseListTableView extends Component {
 	            <td>Course Date</td>
 	            <td>Slots</td>
 	            <td>Webinar Link</td>
-	            <td>Course Content Link</td>
+	            <td>course Price</td>
 	            <td>Registered Users</td>
               <td>Author</td>
 	            <td>Edit</td>

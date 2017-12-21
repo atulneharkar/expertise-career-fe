@@ -36,7 +36,7 @@ class TrendingListCardView extends Component {
 
 		return (
 			<div>
-			  <h2>Trending Articles</h2>
+			  <h2>Reference Articles</h2>
         {this.renderTrendingCardTemplate()}
       </div>
 		);

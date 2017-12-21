@@ -9,17 +9,18 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Css/style.css';
 import App from './App/App';
 import registerServiceWorker from './registerServiceWorker';
-import { AUTH_USER } from './_constants';
+import { AUTH_USER, AUTH_ADMIN } from './_constants';
 import reducers from './_reducers';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 export const store = createStoreWithMiddleware(reducers);
 
 const token = localStorage.getItem('userToken');
+const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+
 // If we have a token, consider the user to be signed in
 if (token) {
-  // we need to update application state
-  store.dispatch({ type: AUTH_USER });
+	(userInfo.role === 'admin') ? store.dispatch({ type: AUTH_ADMIN }) : store.dispatch({ type: AUTH_USER });
 }
 
 ReactDOM.render(

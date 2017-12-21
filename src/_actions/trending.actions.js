@@ -17,8 +17,8 @@ export const addTrending = function(trending) {
     trendingService.addTrending(trending)
       .then(
         trending => {
-          if(_trending.trendingImage) {
-            dispatch(uploadTrendingImage(_trending.trendingImage));
+          if(_trending.avatar) {
+            dispatch(uploadTrendingImage(_trending.avatar, trending._id));
           } else {
             history.push("/admin-dashboard#trending-list");
           }
@@ -64,6 +64,20 @@ export const getTrendingById = function(trendingId) {
    };
 }
 
+export const removeTrending = function(trendingId) {
+  return (dispatch) => {
+    trendingService.removeTrending(trendingId)
+      .then(
+        trending => {
+          dispatch(getTrendingList());
+        },
+        error => {
+          dispatch(trendingError('Unable to connect to server.'));
+        }
+      );
+   };
+}
+
 export const updateTrending = function(trendingId, trending) {
   const _trending = trending;
   return (dispatch) => {
@@ -71,8 +85,8 @@ export const updateTrending = function(trendingId, trending) {
     trendingService.updateTrending(trendingId, trending)
       .then(
         trending => {
-          if(_trending.trendingImage) {
-            dispatch(uploadTrendingImage(_trending.trendingImage));
+          if(_trending.avatar) {
+            dispatch(uploadTrendingImage(_trending.avatar, trendingId));
           } else {
             history.push("/admin-dashboard#trending-list");
           }
@@ -94,12 +108,12 @@ export const getTrendingCategory = function() {
    };
 }
 
-function uploadTrendingImage(file) {
+function uploadTrendingImage(file, trendingId) {
   return (dispatch) => {
     let formData = new FormData();
-    formData.append('trendingImage', file[0]);
+    formData.append('avatar', file[0]);
     
-    trendingService.setTrendingImage(formData)
+    trendingService.setTrendingImage(formData, trendingId)
       .then(
         trending => {
           history.push("/admin-dashboard#trending-list");

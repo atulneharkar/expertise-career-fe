@@ -18,13 +18,15 @@ import CourseDetails from './Content/Course/CourseDetails';
 import UserDashboard from './Content/UserDashboard/UserDashboard';
 import AdminDashboard from './Content/AdminDashboard/AdminDashboard';
 import TrendingForm from './Content/Trending/TrendingForm';
-import TrendingListTableView from './Content/Trending/TrendingListTableView';
 import CourseForm from './Content/Course/CourseForm';
-import CourseListTableView from './Content/Course/CourseListTableView';
 
 class Routes extends Component {
   isAuthenticated() {
     return (this.props.authenticated) ? 'true' : 'false';
+  }
+
+  isAdmin() {
+    return (this.props.admin) ? 'true' : 'false';
   }
 
   render() {
@@ -39,15 +41,15 @@ class Routes extends Component {
         <Route path='/our-services' component={OurServicesDetails}/>
         <Route path='/about-us' component={AboutUs}/>
         <Route path='/contact-us' component={ContactUs}/>
-        <Route path='/course-details/:courseId' component={CourseDetails}/>
+        <Route path='/webinar/:courseId' component={CourseDetails}/>
 
         <PrivateRoute path='/my-dashboard' authenticated={this.isAuthenticated()} component={UserDashboard}/>
-        <PrivateRoute path='/admin-dashboard' authenticated={this.isAuthenticated()} component={AdminDashboard}/>
+        <PrivateRoute path='/admin-dashboard' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={AdminDashboard}/>
         <PrivateRoute path='/edit-user/:userId' authenticated={this.isAuthenticated()} component={UserForm}/>
-        <Route path='/trending-admin' component={TrendingForm}/>
-        <Route path='/trending-list-admin' component={TrendingListTableView}/>
-        <Route path='/course-admin' component={CourseForm}/>
-        <Route path='/course-list-admin' component={CourseListTableView}/>
+        <PrivateRoute path='/create-trending' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={TrendingForm}/>
+        <PrivateRoute path='/edit-trending/:trendingId' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={TrendingForm}/>
+        <PrivateRoute path='/create-course' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={CourseForm}/>
+        <PrivateRoute path='/edit-course/:courseId' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={CourseForm}/>
 
         <Redirect to="/" />
       </Switch>
@@ -56,7 +58,8 @@ class Routes extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  authenticated: state.authentication.isAuthenticated
+  authenticated: state.authentication.isAuthenticated,
+  admin: state.authentication.isAdmin
 });
 
 export default Routes = withRouter(connect(

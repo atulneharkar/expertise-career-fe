@@ -24,14 +24,14 @@ class UserForm extends Component {
 
 	renderUserResponse() {
 		if(this.props.loading) {
-			return <div class="loading">loading</div>;
+			return <div className="loading">loading</div>;
 		} else if(this.props.errorMessage) {
-			return <div class="error-message">{this.props.errorMessage}</div>;
+			return <div className="error-message">{this.props.errorMessage}</div>;
 		} else if(this.props.successMessage) {
 			if(this.state.userId) {
-				return <div class="success-message">User updated successfully!</div>;
+				return <div className="success-message">User updated successfully!</div>;
 			} else {
-				return <div class="success-message">User registered successfully!</div>;
+				return <div className="success-message">User registered successfully!</div>;
 			}
 		} 
 	}
@@ -95,7 +95,7 @@ class UserForm extends Component {
 	        label="Name"
 	        setValue={this.state.userData.name}
 	        onValueChange={(e) => this.handleInputChange(e)}
-	        validate={[required]}
+	        validate={this.state.userData.name ? null : [required]}
 	      />
 	      <Field
 	        name="phone"
@@ -104,7 +104,7 @@ class UserForm extends Component {
 	        label="Phone"
 	        setValue={this.state.userData.phone}
 	        onValueChange={(e) => this.handleInputChange(e)}
-	        validate={[required, phoneNumber]}
+	        validate={this.state.userData.phone ? [phoneNumber] : [required, phoneNumber]}
 	      />
 	      <Field
 	        name="email"
@@ -113,21 +113,21 @@ class UserForm extends Component {
 	        label="Email"
 	        setValue={this.state.userData.email}
 	        onValueChange={(e) => this.handleInputChange(e)}
-	        validate={[required, email]}
+	        validate={this.state.userData.email ? null : [required, email]}
 	      />
 	      <Field
 	        name="password"
 	        type="password"
 	        component={renderInputField}
 	        label="Password"
-	        validate={[required]}
+	        validate={this.state.userId ? null : [required]}
 	      />
 	      <Field
 	        name="confirmPassword"
 	        type="password"
 	        component={renderInputField}
 	        label="Confirm Password"
-	        validate={[required]}
+	        validate={this.state.userId ? null : [required]}
 	      />
 	      <Field
 	        name="avatar"

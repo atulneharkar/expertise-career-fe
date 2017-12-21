@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import * as actions from '../../_actions';
 import { required, history } from '../../_helpers';
@@ -43,9 +44,9 @@ class TrendingForm extends Component {
 
 	renderQueryResponse() {
 		if(this.props.loading) {
-			return <div class="loading">loading</div>;
+			return <div className="loading">loading</div>;
 		} else if(this.props.errorMessage) {
-			return <div class="error-message">{this.props.errorMessage}</div>;
+			return <div className="error-message">{this.props.errorMessage}</div>;
 		}
 	}
 
@@ -72,7 +73,7 @@ class TrendingForm extends Component {
 		if(this.state.trendingData.trendingCategory) {
 			props['trendingCategory'] = this.state.trendingData.trendingCategory;
 		}
-    if(this.props.authenticated) {
+    if(this.state.trendingId) {
       this.props.updateTrending(this.state.trendingId, props);
     } else {
       this.props.addTrending(props);
@@ -98,7 +99,7 @@ class TrendingForm extends Component {
 		        name="videoLink"
 		        type="text"
 		        component={renderInputField}
-		        label="Video Link"
+		        label="Link"
 		        setValue={this.state.trendingData.videoLink}
 		        onValueChange={(e) => this.handleInputChange(e)}
 		        validate={[required]}
@@ -110,15 +111,16 @@ class TrendingForm extends Component {
 		        optionList={this.props.trendingCategory}
 		        setValue={this.state.trendingData.trendingCategory}
 		        onValueChange={(e) => this.handleInputChange(e, 'trendingCategory')}
-		        validate={[required]}
+		        // validate={[required]}
 		      />
 		      <Field
-		        name="trendingImage"
+		        name="avatar"
 	          component={renderFileInputField}
 	          label="Trending Photo"
 	        />
 		      <div>
 		        <button type="submit">{this.state.submitButtonText}</button>
+		        <Link to="/admin-dashboard#trending-list">Cancel</Link>
 		      </div>
 
 		      {this.renderQueryResponse()}

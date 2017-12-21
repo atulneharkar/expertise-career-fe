@@ -26,31 +26,35 @@ class Header extends Component {
     this.setUserId();
   }
 
-  renderAdminLinks() {
-  	if(this.props.authenticated) {
-  		return [
-  			<li key={1}>
-  			  <NavLink to="/users" activeClassName="active">Users</NavLink>
-  			</li>,
-        <li key={2}>
-          <NavLink to="/course-admin" activeClassName="active">CourseAdmin</NavLink>
-        </li>,
-        <li key={3}>
+  renderUserLinks() {
+    if(this.props.authenticated) {
+      return [
+        <li key={1}>
           <NavLink to="/my-dashboard" activeClassName="active">My Dashboard</NavLink>
+        </li>
+      ];
+    }
+  }
+
+  renderAdminLinks() {
+  	if(this.props.admin) {
+  		return [
+        <li key={2}>
+          <NavLink to="/admin-dashboard" activeClassName="active">Admin Dashboard</NavLink>
         </li>
   		];
   	}
   }
 
-  renderUserLinks() {
+  renderDefaultLinks() {
     return [
-      <li key={4}>
+      <li key={3}>
         <NavLink to="/our-services" activeClassName="active">Our Services</NavLink>
       </li>,
-      <li key={5}>
+      <li key={4}>
         <NavLink to="/about-us" activeClassName="active">About Us</NavLink>
       </li>,
-      <li key={6}>
+      <li key={5}>
         <NavLink to="/contact-us" activeClassName="active">Contact Us</NavLink>
       </li>
     ];
@@ -78,8 +82,9 @@ class Header extends Component {
       <div>
         <h1><NavLink to="/">Expertise Career</NavLink></h1>
         <ul>
-          {this.renderAdminLinks()}
           {this.renderUserLinks()}
+          {this.renderAdminLinks()}
+          {this.renderDefaultLinks()}
         </ul>
         {this.renderProfileIcon()}
       </div>
@@ -88,7 +93,8 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  authenticated: state.authentication.isAuthenticated
+  authenticated: state.authentication.isAuthenticated,
+  admin: state.authentication.isAdmin
 });
 
 export default connect(mapStateToProps, actions)(Header);

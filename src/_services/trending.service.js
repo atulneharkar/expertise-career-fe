@@ -8,11 +8,12 @@ export const trendingService = {
     updateTrending,
     getAllTrendings,
     getTrendingById,
-    setTrendingImage
+    setTrendingImage,
+    removeTrending
 };
 
 function addTrending(trending) {
-  return fetch(`${SERVER_URL}/trending/create`, setHeader('POST', trending)).then((response) => response.json());
+  return fetch(`${SERVER_URL}/trending/create`, setHeader('POST', trending, true)).then((response) => response.json());
 }
 
 function updateTrending(trendingId, trending) {
@@ -27,6 +28,10 @@ function getTrendingById(trendingId) {
   return fetch(`${SERVER_URL}/trending/${trendingId}`, setHeader('GET', null, true)).then((response) => response.json());
 }
 
-function setTrendingImage(data) {
-  return fetch(`${SERVER_URL}/trending/trendingImage`, setHeader('POST', data, true, true)).then((response) => response.json());
+function removeTrending(trendingId) {
+  return fetch(`${SERVER_URL}/trending/${trendingId}`, setHeader('DELETE', null, true)).then((response) => response.json());
+}
+
+function setTrendingImage(data, trendingId) {
+  return fetch(`${SERVER_URL}/trending/trendingImage/${trendingId}`, setHeader('POST', data, true, true)).then((response) => response.json());
 }

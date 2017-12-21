@@ -19,8 +19,8 @@ export const addCourse = function(course) {
     courseService.addCourse(course)
       .then(
         course => {
-          if(_course.courseImage) {
-            dispatch(uploadCourseImage(_course.courseImage));
+          if(_course.avatar) {
+            dispatch(uploadCourseImage(_course.avatar, course._id));
           } else {
             history.push("/admin-dashboard#course-list");
           }
@@ -66,6 +66,21 @@ export const getCourseById = function(courseId) {
    };
 }
 
+export const removeCourse = function(courseId) {
+  return (dispatch) => {
+    courseService.removeCourse(courseId)
+      .then(
+        course => {
+          dispatch(getCourseList());
+        },
+        error => {
+          dispatch(courseError('Unable to connect to server.'));
+        }
+      );
+   };
+}
+
+
 export const updateCourse = function(courseId, course) {
   const _course = course;
   return (dispatch) => {
@@ -73,8 +88,8 @@ export const updateCourse = function(courseId, course) {
     courseService.updateCourse(courseId, course)
       .then(
         course => {
-          if(_course.courseImage) {
-            dispatch(uploadCourseImage(_course.courseImage));
+          if(_course.avatar) {
+            dispatch(uploadCourseImage(_course.avatar, courseId));
           } else {
             history.push("/admin-dashboard#course-list");
           }
@@ -108,20 +123,33 @@ export const getCourseType = function() {
 
 export const getUsers = function() {
   return (dispatch) => {
-    const lists = commonService.getUsers();
-    dispatch({ 
-      type: FETCH_USERS,
-      payload: lists
-    }); 
+    commonService.getUsers().then(
+      userList => {
+        let users = [];
+        for(let i in userList) {
+          users.push({
+            value: userList[i]._id,
+            label: userList[i].name
+          });
+        }
+        dispatch({ 
+          type: FETCH_USERS,
+          payload: users
+        });
+      },
+      error => {
+        dispatch(courseError('Unable to connect to server.'));
+      }
+    ); 
    };
 }
 
-function uploadCourseImage(file) {
+function uploadCourseImage(file, courseId) {
   return (dispatch) => {
     let formData = new FormData();
-    formData.append('courseImage', file[0]);
+    formData.append('avatar', file[0]);
     
-    courseService.setCourseImage(formData)
+    courseService.setCourseImage(formData, courseId)
       .then(
         course => {
           history.push("/admin-dashboard#course-list");

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import * as actions from '../../_actions';
 import { required, history } from '../../_helpers';
@@ -22,7 +23,8 @@ class CourseForm extends Component {
 				slot: '',
 				webinarLink: '',
 				courseContentLink: '',
-				RegisteredUsers: ''
+				registeredUsers: '',
+				author: ''
 			}
 		}
 	}
@@ -44,16 +46,16 @@ class CourseForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-  	if(nextProps.CourseData) {
-    	this.setState({ CourseData: nextProps.CourseData });
+  	if(nextProps.courseData) {
+    	this.setState({ courseData: nextProps.courseData });
     }
   }
 
 	renderQueryResponse() {
 		if(this.props.loading) {
-			return <div class="loading">loading</div>;
+			return <div className="loading">loading</div>;
 		} else if(this.props.errorMessage) {
-			return <div class="error-message">{this.props.errorMessage}</div>;
+			return <div className="error-message">{this.props.errorMessage}</div>;
 		}
 	}
 
@@ -77,10 +79,16 @@ class CourseForm extends Component {
   }
 
 	handleFormSubmit(props) {
-		if(this.state.CourseData.courseCategory) {
-			props['courseCategory'] = this.state.CourseData.courseCategory;
+		if(this.state.courseData.courseCategory) {
+			props['courseCategory'] = this.state.courseData.courseCategory;
 		}
-    if(this.props.authenticated) {
+		if(this.state.courseData.courseType) {
+			props['courseType'] = this.state.courseData.courseType;
+		}
+		if(this.state.courseData.author) {
+			props['author'] = this.state.courseData.author;
+		}
+    if(this.state.courseId) {
       this.props.updateCourse(this.state.courseId, props);
     } else {
       this.props.addCourse(props);
@@ -100,7 +108,7 @@ class CourseForm extends Component {
 		        label="Title"
 		        setValue={this.state.courseData.title}
 		        onValueChange={(e) => this.handleInputChange(e)}
-		        validate={[required]}
+		        validate={this.state.courseData.title ? null : [required]}
 		      />
 		      <Field
 		        name="description"
@@ -109,7 +117,7 @@ class CourseForm extends Component {
 		        label="Description"
 		        setValue={this.state.courseData.description}
 		        onValueChange={(e) => this.handleInputChange(e)}
-		        validate={[required]}
+		        validate={this.state.courseData.description ? null : [required]}
 		      />
 		      <Field
 		        name="courseType"
@@ -118,7 +126,7 @@ class CourseForm extends Component {
 		        optionList={this.props.courseType}
 		        setValue={this.state.courseData.courseType}
 		        onValueChange={(e) => this.handleInputChange(e, 'courseType')}
-		        validate={[required]}
+		        // validate={[required]}
 		      />
 		      <Field
 		        name="courseCategory"
@@ -127,7 +135,7 @@ class CourseForm extends Component {
 		        optionList={this.props.courseCategory}
 		        setValue={this.state.courseData.courseCategory}
 		        onValueChange={(e) => this.handleInputChange(e, 'courseCategory')}
-		        validate={[required]}
+		        // validate={[required]}
 		      />
 		      <Field
 		        name="courseDate"
@@ -136,7 +144,7 @@ class CourseForm extends Component {
 		        label="Course Date"
 		        setValue={this.state.courseData.courseDate}
 		        onValueChange={(e) => this.handleInputChange(e)}
-		        validate={[required]}
+		        validate={this.state.courseData.courseDate ? null : [required]}
 		      />
 		      <Field
 		        name="slot"
@@ -145,7 +153,7 @@ class CourseForm extends Component {
 		        label="Slot"
 		        setValue={this.state.courseData.slot}
 		        onValueChange={(e) => this.handleInputChange(e)}
-		        validate={[required]}
+		        validate={this.state.courseData.slot ? null : [required]}
 		      />
 		      <Field
 		        name="webinarLink"
@@ -154,7 +162,7 @@ class CourseForm extends Component {
 		        label="Webinar Link"
 		        setValue={this.state.courseData.webinarLink}
 		        onValueChange={(e) => this.handleInputChange(e)}
-		        validate={[required]}
+		        validate={this.state.courseData.webinarLink ? null : [required]}
 		      />
 		      <Field
 		        name="courseContentLink"
@@ -163,7 +171,7 @@ class CourseForm extends Component {
 		        label="Course Content Link"
 		        setValue={this.state.courseData.courseContentLink}
 		        onValueChange={(e) => this.handleInputChange(e)}
-		        validate={[required]}
+		        //validate={[required]}
 		      />
 		      <Field
 		        name="registeredUsers"
@@ -172,15 +180,25 @@ class CourseForm extends Component {
 		        optionList={this.props.users}
 		        setValue={this.state.courseData.registeredUsers}
 		        onValueChange={(e) => this.handleInputChange(e, 'registeredUsers')}
-		        validate={[required]}
+		        // validate={[required]}
 		      />
 		      <Field
-		        name="coursePic"
+		        name="author"
+		        component={renderSelectField}
+		        label="Author"
+		        optionList={this.props.users}
+		        setValue={this.state.courseData.author}
+		        onValueChange={(e) => this.handleInputChange(e, 'author')}
+		        // validate={[required]}
+		      />
+		      <Field
+		        name="avatar"
 	          component={renderFileInputField}
 	          label="Course Photo"
 	        />
 		      <div>
 		        <button type="submit">{this.state.submitButtonText}</button>
+		        <Link to="/admin-dashboard#course-list">Cancel</Link>
 		      </div>
 
 		      {this.renderQueryResponse()}

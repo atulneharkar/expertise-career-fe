@@ -22,11 +22,11 @@ class ContactUs extends Component {
 
 	renderQueryResponse() {
 		if(this.props.loading) {
-			return <div class="loading">loading</div>;
+			return <div className="loading">loading</div>;
 		} else if(this.props.successMessage) {
-			return <div class="success-message">Query sent successfully! Admin will contact you shortly.</div>;
+			return <div className="success-message">Query sent successfully! Admin will contact you shortly.</div>;
 		} else if(this.props.errorMessage) {
-			return <div class="error-message">{this.props.errorMessage}</div>;
+			return <div className="error-message">{this.props.errorMessage}</div>;
 		}
 	}
 

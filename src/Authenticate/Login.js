@@ -19,9 +19,9 @@ class LoginForm extends Component {
 
   renderAuthResponse() {
 		if(this.props.loading) {
-			return <div class="loading">loading</div>;
+			return <div className="loading">loading</div>;
 		} else if(this.props.errorMessage) {
-			return <div class="error-message">{this.props.errorMessage}</div>;
+			return <div className="error-message">{this.props.errorMessage}</div>;
 		} 
 	}
 

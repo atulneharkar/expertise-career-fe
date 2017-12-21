@@ -12,15 +12,15 @@ export const commonService = {
 function getCategory() {
   return (
     [{
-      value: 'ux',
+      value: 'UX',
       label: 'UX'
     },
     {
-      value: 'vd',
+      value: 'VD',
       label: 'VD'
     },
     {
-      value: 'fe',
+      value: 'FE',
       label: 'FE'
     }]
   );
@@ -29,26 +29,16 @@ function getCategory() {
 function getCourseType() {
   return (
     [{
-      value: 'webinar',
+      value: 'Webinar',
       label: 'Webinar'
     },
     {
-      value: 'package',
+      value: 'Package',
       label: 'Package'
     }]
   );
 }
 
 function getUsers() {
-  //return fetch(`${SERVER_URL}/user/list/all`, setHeader('GET', null, true)).then((response) => response.json());
-  return (
-    [{
-      value: 'webinar',
-      label: 'Webinar'
-    },
-    {
-      value: 'package',
-      label: 'Package'
-    }]
-  );
+  return fetch(`${SERVER_URL}/user/list/all`, setHeader('GET', null, true)).then((response) => response.json());
 }

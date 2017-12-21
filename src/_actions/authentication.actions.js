@@ -2,6 +2,7 @@ import { history } from '../_helpers';
 
 import {
   AUTH_USER,
+  AUTH_ADMIN,
   UNAUTH_USER,
   AUTH_ERROR,
   AUTH_LOADING,
@@ -20,7 +21,7 @@ export const authenticateUser = function(user, loginType, returnUrl = '') {
     authenticationService.authenticateUser(user, loginType)
       .then(
         user => {
-          dispatch({ type: AUTH_USER });
+          (user.role === 'admin') ? dispatch({ type: AUTH_ADMIN }) : dispatch({ type: AUTH_USER });
         	history.push(redirectUrl);
         },
         error => {

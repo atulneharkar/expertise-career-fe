@@ -8,11 +8,12 @@ export const courseService = {
     updateCourse,
     getAllCourses,
     getCourseById,
-    setCourseImage
+    setCourseImage,
+    removeCourse
 };
 
 function addCourse(course) {
-  return fetch(`${SERVER_URL}/course/create`, setHeader('POST', course)).then((response) => response.json());
+  return fetch(`${SERVER_URL}/course/create`, setHeader('POST', course, true)).then((response) => response.json());
 }
 
 function updateCourse(courseId, course) {
@@ -27,6 +28,10 @@ function getCourseById(courseId) {
   return fetch(`${SERVER_URL}/course/${courseId}`, setHeader('GET', null, true)).then((response) => response.json());
 }
 
-function setCourseImage(data) {
-  return fetch(`${SERVER_URL}/course/courseImage`, setHeader('POST', data, true, true)).then((response) => response.json());
+function removeCourse(courseId) {
+  return fetch(`${SERVER_URL}/course/${courseId}`, setHeader('DELETE', null, true)).then((response) => response.json());
+}
+
+function setCourseImage(data, courseId) {
+  return fetch(`${SERVER_URL}/course/courseImage/${courseId}`, setHeader('POST', data, true, true)).then((response) => response.json());
 }

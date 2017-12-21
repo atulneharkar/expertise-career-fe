@@ -13,7 +13,7 @@ class CourseListCardView extends Component {
   	if(this.props.courseData.length) {
 	  	return this.props.courseData.map((course) => {
 	      return (
-	      	<div>
+	      	<div key={course._id}>
 	      	  <Link to={`/webinar/${course._id}`}>
 		      		<img alt="Course Picture" src={course.courseImage} width="100"/>
 		      		<p>{course.title}</p>

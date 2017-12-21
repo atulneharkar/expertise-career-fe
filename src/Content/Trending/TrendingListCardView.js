@@ -13,12 +13,12 @@ class TrendingListCardView extends Component {
   	if(this.props.trendingData.length) {
 	  	return this.props.trendingData.map((trending) => {
 	      return (
-	      	<div>
-	      	  <Link to={`${trending.videoLink}`}>
+	      	<div key={trending._id}>
+	      	  <a href={trending.videoLink} target="_blank">
 		      		<img alt="Trending Picture" src={trending.trendingImage} width="100"/>
 		      		<p>{trending.title}</p>
 		      		<p>{trending.trendingCategory}</p>
-	      		</Link>
+	      		</a>
 	      	</div>
 	      );
 	    });

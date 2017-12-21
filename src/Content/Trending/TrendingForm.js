@@ -93,7 +93,7 @@ class TrendingForm extends Component {
 		        label="Title"
 		        setValue={this.state.trendingData.title}
 		        onValueChange={(e) => this.handleInputChange(e)}
-		        validate={[required]}
+		        validate={this.state.trendingData.title ? null : [required]}
 		      />
 		      <Field
 		        name="videoLink"
@@ -102,7 +102,7 @@ class TrendingForm extends Component {
 		        label="Link"
 		        setValue={this.state.trendingData.videoLink}
 		        onValueChange={(e) => this.handleInputChange(e)}
-		        validate={[required]}
+		        validate={this.state.trendingData.videoLink ? null : [required]}
 		      />
 		      <Field
 		        name="trendingCategory"

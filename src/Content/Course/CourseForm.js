@@ -187,7 +187,7 @@ class CourseForm extends Component {
 		        component={renderSelectField}
 		        label="Author"
 		        optionList={this.props.users}
-		        setValue={this.state.courseData.author}
+		        setValue={this.state.courseData.author._id}
 		        onValueChange={(e) => this.handleInputChange(e, 'author')}
 		        // validate={[required]}
 		      />

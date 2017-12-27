@@ -1,0 +1,48 @@
+footer {
+	width: 100%;
+  position: fixed;
+  bottom: 0;
+	background-color: #eee;
+  border-top: solid 0.5px #ccc;
+  padding: 5px 0;
+
+	.footer-wrapper {
+		max-width: 1600px;
+	  padding: 0 20px;
+    margin: 4px auto 0;
+
+	  .nav-links,
+	  .social-icons {
+		  p {
+		  	display: inline-block;
+		  	margin-right: 30px;
+
+		  	&:last-child {
+		  		margin-right: 0;
+		  	}
+
+		  	a {
+		  		@include full-font($avenir, 12px, #333);
+
+			    &:hover {
+			    	color: #ff566f;
+			    }
+			  }
+		  }
+	  }
+
+	  .nav-links {
+	    margin-top: 7px;
+
+	    @media only screen and (max-width: 519px) {
+	    	p {
+	    		margin-right: 10px;
+	    	}
+	    }
+	  }
+
+	  .social-icons p {
+	  	margin-right: 10px;
+	  }
+  }
+}

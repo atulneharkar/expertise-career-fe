@@ -13,21 +13,27 @@ class CourseListCardView extends Component {
   	if(this.props.courseData.length) {
 	  	return this.props.courseData.map((course) => {
 	      return (
-	      	<div key={course._id}>
+	      	<div key={course._id} className="course-card col-xs-4 col-sm-4 col-lg-3">
 	      	  <Link to={`/webinar/${course._id}`}>
-		      		<img alt="Course Picture" src={course.courseImage} width="100"/>
-		      		<p>{course.title}</p>
-		      		<p>{course.courseDate}</p>
-		      		<p>{course.coursePrice}</p>
+		      		<img alt="Course Picture" src={course.courseImage} />
+		      		<div className="course-info">
+			      		<p className="course-type">{course.courseType}</p>
+			      		<p className="course-title">{course.title}</p>
+			      		<p className="course-author">with {course.author.name}</p>
+			      		<div className="clearfix">
+			      		  <p className="course-date">{course.courseDate}</p>
+			      		  <p className="course-price">Rs {course.coursePrice}</p>
+			      		</div>
+		      		</div>
 	      		</Link>
 	      	</div>
 	      );
 	    });
     } else {
     	return (
-    	  <div>
+    	  <div className="no-course-wrapper">
 	    		<p>We have no course active currently.</p>
-	    		<p>For consulting <Link to="/contact-us">Contact Us</Link></p>
+	    		<p>For consulting <Link to="/contact-us">Contact Us</Link>.</p>
     		</div>
     	);
     }
@@ -36,8 +42,8 @@ class CourseListCardView extends Component {
   render() {
 
 		return (
-			<div>
-			  <h2>Webinar Courses</h2>
+			<div className="wrapper course-card-list clearfix">
+			  <h2>Webinars / Sessions</h2>
         {this.renderCourseCardTemplate()}
       </div>
 		);

@@ -9,7 +9,8 @@ export const courseService = {
     getAllCourses,
     getCourseById,
     setCourseImage,
-    removeCourse
+    removeCourse,
+    userCourse
 };
 
 function addCourse(course) {
@@ -20,8 +21,9 @@ function updateCourse(courseId, course) {
   return fetch(`${SERVER_URL}/course/${courseId}`, setHeader('PUT', course, true)).then((response) => response.json());
 }
 
-function getAllCourses() {
-  return fetch(`${SERVER_URL}/course/list/all`, setHeader('GET', null, true)).then((response) => response.json());
+function getAllCourses(userId) {
+  const url = (userId) ? `${SERVER_URL}/course/list/me/${userId}` : `${SERVER_URL}/course/list/all`;
+  return fetch(url, setHeader('GET', null, true)).then((response) => response.json());
 }
 
 function getCourseById(courseId) {
@@ -30,6 +32,10 @@ function getCourseById(courseId) {
 
 function removeCourse(courseId) {
   return fetch(`${SERVER_URL}/course/${courseId}`, setHeader('DELETE', null, true)).then((response) => response.json());
+}
+
+function userCourse(courseId, userId, action) {
+  return fetch(`${SERVER_URL}/course/userCourse/${courseId}/${userId}/${action}`, setHeader('PUT', null, true)).then((response) => response.json());
 }
 
 function setCourseImage(data, courseId) {

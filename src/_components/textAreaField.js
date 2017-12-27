@@ -9,16 +9,13 @@ export const renderTextAreaField = ({
   onValueChange,
   meta: { touched, error }
 }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <textarea 
-        {...input} 
-        placeholder={label}
-        value={setValue} 
-        onChange={(e) => onValueChange(e)} ></textarea>
-      {touched &&
-        ((error && <p className="error">{error}</p>))}
-    </div>
+  <div className="field-wrapper">
+    <textarea 
+      {...input} 
+      placeholder={label}
+      value={setValue} 
+      onChange={(e) => onValueChange(e)} ></textarea>
+    {touched &&
+      ((error && <p className="error-msg">{error}</p>))}
   </div>
 );

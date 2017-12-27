@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import * as actions from '../../_actions';
 import { required, history } from '../../_helpers';
-import { renderInputField, renderSelectField, renderFileInputField } from '../../_components';
+import { renderInputField, renderSelectField, renderFileInputField, renderTextAreaField } from '../../_components';
 
 class CourseForm extends Component {
   constructor(props) {
@@ -23,7 +23,6 @@ class CourseForm extends Component {
 				slot: '',
 				webinarLink: '',
 				coursePrice: '',
-				registeredUsers: '',
 				author: ''
 			}
 		}
@@ -99,8 +98,9 @@ class CourseForm extends Component {
 		const { handleSubmit } = this.props;
 
 		return (
-		  <div>
+		  <div className="course-form">
 				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+				  <p className="form-title">Course Add / Update</p>
 					<Field
 		        name="title"
 		        type="text"
@@ -113,7 +113,7 @@ class CourseForm extends Component {
 		      <Field
 		        name="description"
 		        type="text"
-		        component={renderInputField}
+		        component={renderTextAreaField}
 		        label="Description"
 		        setValue={this.state.courseData.description}
 		        onValueChange={(e) => this.handleInputChange(e)}
@@ -174,15 +174,6 @@ class CourseForm extends Component {
 		        //validate={[required]}
 		      />
 		      <Field
-		        name="registeredUsers"
-		        component={renderSelectField}
-		        label="Registered Users"
-		        optionList={this.props.users}
-		        setValue={this.state.courseData.registeredUsers}
-		        onValueChange={(e) => this.handleInputChange(e, 'registeredUsers')}
-		        // validate={[required]}
-		      />
-		      <Field
 		        name="author"
 		        component={renderSelectField}
 		        label="Author"
@@ -197,8 +188,11 @@ class CourseForm extends Component {
 	          label="Course Photo"
 	        />
 		      <div>
-		        <button type="submit">{this.state.submitButtonText}</button>
-		        <Link to="/admin-dashboard#course-list">Cancel</Link>
+		        <button type="submit" className="submit-btn-link">{this.state.submitButtonText}</button>
+
+		        <div className="admin-dashboard-link">
+		          Back to <Link to="/admin/courses">Admin Dashboard</Link>
+		        </div>
 		      </div>
 
 		      {this.renderQueryResponse()}

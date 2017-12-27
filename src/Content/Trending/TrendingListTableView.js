@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import * as actions from '../../_actions';
+import AdminSubNav from '../AdminDashboard/AdminSubNav';
 
 class TrendingListTableView extends Component {
 	componentWillMount() {
@@ -43,21 +44,23 @@ class TrendingListTableView extends Component {
   renderTrendingListTemplate() {
   	if(this.props.trendingData.length) {
 	  	return(
-	  		<table>
-	        <thead>
-	          <tr>
-	            <td></td>
-	            <td>Title</td>
-	            <td>Link</td>
-	            <td>Trending Category</td>
-	            <td>Edit</td>
-	            <td>Delete</td>
-	          </tr>
-	        </thead>
-	        <tbody>
-	          {this.renderTrendings()}
-	        </tbody>
-	      </table>
+        <div className="table-responsive">
+  	  		<table className="table table-striped">
+  	        <thead>
+  	          <tr>
+  	            <th></th>
+  	            <th>Title</th>
+  	            <th>Link</th>
+  	            <th>Trending Category</th>
+  	            <th>Edit</th>
+  	            <th>Delete</th>
+  	          </tr>
+  	        </thead>
+  	        <tbody>
+  	          {this.renderTrendings()}
+  	        </tbody>
+  	      </table>
+        </div>
 	  	);
     } else {
     	return (
@@ -69,9 +72,17 @@ class TrendingListTableView extends Component {
   render() {
 
 		return (
-			<div>
-			  <Link to="/create-trending">Create Trending</Link>
-        {this.renderTrendingListTemplate()}
+      <div className="admin-dashboard-wrapper wrapper">
+        <AdminSubNav />
+  			<div className="trending-list">
+          <p className="list-title">
+            Trending List
+          </p>
+          <div className="create-trending-link">
+  			    <Link to="/create-trending">Create Trending</Link>
+          </div>
+          {this.renderTrendingListTemplate()}
+        </div>
       </div>
 		);
   }

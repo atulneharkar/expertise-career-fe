@@ -22,7 +22,7 @@ export const addCourse = function(course) {
           if(_course.avatar) {
             dispatch(uploadCourseImage(_course.avatar, course._id));
           } else {
-            history.push("/admin-dashboard#course-list");
+            history.push("/admin/courses");
           }
         },
         error => {
@@ -32,9 +32,9 @@ export const addCourse = function(course) {
    };
 }
 
-export const getCourseList = function() {
+export const getCourseList = function(userId = '') {
   return (dispatch) => {
-    courseService.getAllCourses()
+    courseService.getAllCourses(userId)
       .then(
         courses => {
           dispatch({ 
@@ -80,6 +80,19 @@ export const removeCourse = function(courseId) {
    };
 }
 
+export const userCourse = function(courseId, userId, action) {
+  return (dispatch) => {
+    courseService.userCourse(courseId, userId, action)
+      .then(
+        course => {
+          dispatch(getCourseList());
+        },
+        error => {
+          dispatch(courseError('Unable to connect to server.'));
+        }
+      );
+   };
+}
 
 export const updateCourse = function(courseId, course) {
   const _course = course;
@@ -91,7 +104,7 @@ export const updateCourse = function(courseId, course) {
           if(_course.avatar) {
             dispatch(uploadCourseImage(_course.avatar, courseId));
           } else {
-            history.push("/admin-dashboard#course-list");
+            history.push("/admin/courses");
           }
         },
         error => {

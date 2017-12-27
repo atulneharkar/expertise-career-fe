@@ -9,18 +9,15 @@ export const renderInputField = ({
   onValueChange,
   meta: { touched, error }
 }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input 
-        {...input} 
-        placeholder={label} 
-        type={type} 
-        value={setValue} 
-        onChange={onValueChange ? (e) => onValueChange(e) : () => {}} />
-      {touched &&
-        ((error && <p className="error">{error}</p>))}
-    </div>
+  <div className="field-wrapper">
+    <input 
+      {...input} 
+      placeholder={label} 
+      type={type} 
+      value={setValue} 
+      onChange={onValueChange ? (e) => onValueChange(e) : () => {}} />
+    {touched &&
+      ((error && <p className="error-msg">{error}</p>))}
   </div>
 );
 
@@ -49,18 +46,16 @@ export const renderFileInputField = ({
   meta: { omitMeta, touched, error },
   ...props,
 }) =>
-  <div>
+  <div className="file-upload-wrapper">
     <label>{label}</label>
-    <div>
-      <input
-        onChange={adaptFileEventToValue(onChange)}
-        onBlur={adaptFileEventToValue(onBlur)}
-        type="file"
-        accept="image/*"
-        {...inputProps}
-        {...props}
-      />
-      {touched &&
-            ((error && <p className="error">{error}</p>))}
-    </div>
+    <input
+      onChange={adaptFileEventToValue(onChange)}
+      onBlur={adaptFileEventToValue(onBlur)}
+      type="file"
+      accept="image/*"
+      {...inputProps}
+      {...props}
+    />
+    {touched &&
+          ((error && <p className="error-msg">{error}</p>))}
   </div>

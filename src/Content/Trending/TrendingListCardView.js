@@ -13,20 +13,22 @@ class TrendingListCardView extends Component {
   	if(this.props.trendingData.length) {
 	  	return this.props.trendingData.map((trending) => {
 	      return (
-	      	<div key={trending._id}>
+	      	<div key={trending._id} className="trending-card col-xs-4 col-sm-4 col-lg-3">
 	      	  <a href={trending.videoLink} target="_blank">
-		      		<img alt="Trending Picture" src={trending.trendingImage} width="100"/>
-		      		<p>{trending.title}</p>
-		      		<p>{trending.trendingCategory}</p>
+		      		<img alt="Trending Picture" src={trending.trendingImage} />
+		      		<div className="trending-info">
+		      		  <p className="trending-title">{trending.title}</p>
+		      		  <p className="trending-category">{trending.trendingCategory}</p>
+		      		</div>
 	      		</a>
 	      	</div>
 	      );
 	    });
     } else {
     	return (
-    	  <div>
+    	  <div className="no-trending-wrapper">
 	    		<p>We have no trending active currently.</p>
-	    		<p>For consulting <Link to="/contact-us">Contact Us</Link></p>
+	    		<p>For consulting <Link to="/contact-us">Contact Us</Link>.</p>
     		</div>
     	);
     }
@@ -35,7 +37,7 @@ class TrendingListCardView extends Component {
   render() {
 
 		return (
-			<div>
+			<div className="wrapper trending-card-list clearfix">
 			  <h2>Reference Articles</h2>
         {this.renderTrendingCardTemplate()}
       </div>

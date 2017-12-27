@@ -84,8 +84,9 @@ class TrendingForm extends Component {
 		const { handleSubmit } = this.props;
 
 		return (
-		  <div>
+		  <div className="trending-form">
 				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+				  <p className="form-title">Trending Add / Update</p>
 					<Field
 		        name="title"
 		        type="text"
@@ -119,8 +120,11 @@ class TrendingForm extends Component {
 	          label="Trending Photo"
 	        />
 		      <div>
-		        <button type="submit">{this.state.submitButtonText}</button>
-		        <Link to="/admin-dashboard#trending-list">Cancel</Link>
+		        <button type="submit" className="submit-btn-link">{this.state.submitButtonText}</button>
+
+		        <div className="admin-dashboard-link">
+		          Back to <Link to="/admin/trendings">Admin Dashboard</Link>
+		        </div>
 		      </div>
 
 		      {this.renderQueryResponse()}

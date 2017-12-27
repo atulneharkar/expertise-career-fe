@@ -16,9 +16,12 @@ import ContactUs from './Content/ContactUs/ContactUs';
 import CourseDetails from './Content/Course/CourseDetails';
 
 import UserDashboard from './Content/UserDashboard/UserDashboard';
-import AdminDashboard from './Content/AdminDashboard/AdminDashboard';
 import TrendingForm from './Content/Trending/TrendingForm';
 import CourseForm from './Content/Course/CourseForm';
+import UserList from './Content/User/UserList';
+import TrendingListTableView from './Content/Trending/TrendingListTableView';
+import CourseListTableView from './Content/Course/CourseListTableView';
+import QueryList from './Content/ContactUs/QueryList';
 
 class Routes extends Component {
   isAuthenticated() {
@@ -44,12 +47,15 @@ class Routes extends Component {
         <Route path='/webinar/:courseId' component={CourseDetails}/>
 
         <PrivateRoute path='/my-dashboard' authenticated={this.isAuthenticated()} component={UserDashboard}/>
-        <PrivateRoute path='/admin-dashboard' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={AdminDashboard}/>
         <PrivateRoute path='/edit-user/:userId' authenticated={this.isAuthenticated()} component={UserForm}/>
         <PrivateRoute path='/create-trending' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={TrendingForm}/>
         <PrivateRoute path='/edit-trending/:trendingId' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={TrendingForm}/>
         <PrivateRoute path='/create-course' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={CourseForm}/>
         <PrivateRoute path='/edit-course/:courseId' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={CourseForm}/>
+        <PrivateRoute path='/admin/users' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={UserList}/>
+        <PrivateRoute path='/admin/trendings' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={TrendingListTableView}/>
+        <PrivateRoute path='/admin/courses' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={CourseListTableView}/>
+        <PrivateRoute path='/admin/queries' admin={this.isAdmin()} authenticated={this.isAuthenticated()} component={QueryList}/>
 
         <Redirect to="/" />
       </Switch>

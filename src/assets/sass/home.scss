@@ -1,0 +1,263 @@
+.services-card-wrapper {
+	position: relative;
+
+	.main-image {
+		width: 100%;
+    @media only screen and (max-width: 719px) {
+      display: none;
+    }
+	}
+
+  .main-image-mobile {
+    width: 100%;
+    display: none;
+    @media only screen and (max-width: 719px) {
+      display: block;
+    }
+  }
+
+	.floating-text {
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+
+		.tag-line {
+			width: 60%;
+      padding-left: 20px;
+			position: absolute;
+			bottom: 200px;
+			left: 0;
+	    @include full-font($avenir, 45px, #fff);
+      line-height: 58px;
+
+      @media only screen and (max-width: 1279px) {
+        font-size: 37px;
+        line-height: 48px;
+        bottom: 160px;
+      }
+
+      @media only screen and (max-width: 1024px) {
+        font-size: 30px;
+        line-height: 40px;
+        bottom: 140px;
+      }
+
+       @media only screen and (max-width: 959px) {
+        font-size: 25px;
+        line-height: 35px;
+        bottom: 120px;
+      }
+
+      @media only screen and (max-width: 800px) {
+        font-size: 25px;
+        line-height: 30px;
+        bottom: 100px;
+      }
+
+      @media only screen and (max-width: 719px) {
+        width: 67%;
+        font-size: 27px;
+        line-height: 40px;
+      }
+
+      @media only screen and (max-width: 550px) {
+        font-size: 25px;
+        line-height: 35px;
+      }
+
+      @media only screen and (max-width: 519px) {
+        font-size: 20px;
+        line-height: 26px;
+        bottom: 240px;
+      }
+
+	    p {
+  	    margin-bottom: 15px;
+  	    &:first-child {
+  	    	color: #ff566f;
+  	    }
+	    }
+		}
+
+		.service-cards {
+			width: 100%;
+			position: absolute;
+      bottom: 40px;
+			text-align: center;
+
+      @media only screen and (max-width: 800px) {
+        bottom: 20px;
+      }
+
+      @media only screen and (max-width: 519px) {
+        position: static;
+        padding: 20px 20px 0;
+      }
+
+      a {
+        margin-right: 30px;
+        &:last-child {
+          margin-right: 0;
+        }
+
+        @media only screen and (max-width: 519px) {
+          margin: 0 0 20px;
+          display: block;
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+
+			.card {
+			  width: 260px;
+	      padding: 20px;
+	      border-radius: 5px;
+	      display: inline-block;
+	      background: #fff;
+	      @include full-font($avenir, 17px, #333);
+        line-height: 20px;
+	      text-align: center;
+	      cursor: pointer;
+
+        @media only screen and (max-width: 1024px) {
+          font-size: 13px;
+          padding: 10px;
+          width: 200px;
+        }
+
+        @media only screen and (max-width: 719px) {
+          font-size: 13px;
+          padding: 5px;
+          width: 140px;
+        }
+
+        @media only screen and (max-width: 519px) {
+          width: 100%;
+          padding: 10px;
+          background: #ff566f;
+          color: #fff;
+        }
+
+	      &:hover {
+	      	background: #ff566f;
+	      	color: #fff;
+	      }
+      }
+		}
+	}
+}
+
+.wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.course-card-list,
+.trending-card-list {
+  padding: 30px 5px 0;
+
+  img {
+  	width: 100%;
+  }
+
+  a {
+  	text-decoration: none;
+  }
+
+  h2 {
+  	@include full-font($avenir, 18px, #333);
+  	border-bottom: 1px solid #efefef;
+    padding-bottom: 10px;
+  	margin-bottom: 20px;
+  	margin: 0 15px 20px;
+  }
+
+  .course-card,
+  .trending-card {
+  	margin-bottom: 30px;
+
+    @media only screen and (max-width: 719px) {
+      width: 100%;
+    }
+  	a {
+  		display: block;
+  		width: 100%;
+  		height: 100%;
+	    -webkit-transition: all 0.15s ease-in-out;
+	    -moz-transition: all 0.15s ease-in-out;
+	    -o-transition: all 0.15s ease-in-out;
+	    transition: all 0.15s ease-in-out;
+	    box-shadow: -2px 2px 0 0 rgba(0, 0, 0, 0.05);
+
+	    &:hover {
+		    box-shadow: -6px 6px 0 0 rgba(0, 0, 0, 0.05);
+		    -webkit-transform: translateY(-2px) translateX(2px);
+		    transform: translateY(-2px) translateX(2px);
+	    }
+    }
+
+  	.course-info,
+  	.trending-info {
+  		padding: 10px;
+  		border: 0.5px solid #efefef;
+  		border-top: none;
+	    margin-top: -2px;
+  		@include full-font($avenir, 13px, #333);
+
+  		p {
+  			margin-bottom: 4px;
+
+  			&:last-child {
+  				margin-bottom: 0;
+  			}
+  		}
+  		.course-type {
+  			text-transform: uppercase;
+  			letter-spacing: 1px;
+  			font-size: 11px;
+  		}
+
+  		.course-title,
+  		.trending-title {
+  			font-size: 20px;
+  		}
+
+  		.course-author {
+  			margin-bottom: 10px;
+  		}
+
+  		.course-date {
+  			float: left;
+  			margin-bottom: 0;
+  		}
+
+  		.course-price {
+  			float: right;
+  			font-weight: bold;
+		    color: #ff566f;
+  		}
+
+  		.trending-category {
+  			color: #ff566f;
+  		}
+  	}
+  }
+}
+
+.trending-card-list {
+	padding-top: 0;
+  padding-bottom: 50px;
+}
+
+.no-course-wrapper,
+.no-trending-wrapper {
+  padding: 0 15px;
+  margin-bottom: 30px;
+
+  p {
+    @include full-font($avenir, 13px, #333);
+    margin-bottom: 10px;
+  }
+}

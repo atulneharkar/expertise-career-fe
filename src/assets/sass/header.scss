@@ -1,0 +1,237 @@
+header {
+  background: #eee;
+  border-bottom: solid 0.5px #ccc;
+
+	.header-wrapper {
+		width: 100%;
+	  max-width: 1600px;
+	  padding: 20px;
+	  margin: 0 auto;
+
+		.main-logo {
+			a {
+			  @include full-font($avenir, 22px, #333);
+		  }
+		}
+
+		.main-nav {
+			ul {
+				vertical-align: top;
+				display: inline-block;
+				margin-top: 4px;
+
+				@media only screen and (max-width: 719px) {
+					width: 100%;
+					text-align: center;
+				}
+
+				li {
+			    margin-right: 20px;
+					display: inline-block;
+
+					@media only screen and (max-width: 719px) {
+						display: block;
+						margin-bottom: 20px;
+				    margin-left: 20px;
+				    border-bottom: 0.5px solid #efefef;
+					}
+
+					a {
+				    @include full-font($avenir, 12px, #333);
+
+				    &:hover {
+				    	color: #ff566f;
+				    }
+
+				    @media only screen and (max-width: 719px) {
+				    	color: #fff;
+		    	    width: 100%;
+    					display: block;
+    					padding-bottom: 20px;
+				    }
+			    }
+				}
+			}
+
+			.sign-in-btn {
+				margin-top: 7px;
+		    display: inline-block;
+				@include full-font($avenir, 12px, #333);
+
+		    &:hover {
+		    	color: #ff566f;
+
+		    	@media only screen and (max-width: 719px) {
+		    		color: #fff;
+		    	}
+		    }
+
+		    @media only screen and (max-width: 719px) {
+    	    width: 100%;
+			    text-align: center;
+			    margin: 0;
+		    	padding: 6px;
+			    border-radius: 3px;
+		    	background: #ff566f;
+		      color: #fff;
+		    }
+			}
+
+			.hamburger-icon,
+			.close-icon {
+				display: none;
+				margin-top: -3px;
+				float: right;
+				@media only screen and (max-width: 719px) {
+					display: block;
+			  }
+			}
+
+			@media only screen and (max-width: 719px) {
+				.hamburger-hide,
+				.close-icon {
+					display: none;
+				}
+
+				.close-icon-show {
+					display: block;
+				}
+			}
+
+			.close-icon {
+				margin-top: -1px;
+			}
+
+			@media only screen and (max-width: 719px) {
+			  .mobile-menu {
+			  	width: 100%;
+			  	padding: 20px 0;
+			  	display: none;
+			    background: #333;
+			  	position: absolute;
+			  	left: 0;
+    			top: 67px;
+    			z-index: 9999;
+			  }
+
+			  .mobile-menu-show {
+			  	display: block;
+			  }
+
+			  .overlay {
+  				width: 100%;
+  				height: 100%;
+  				display: none;
+  				position: absolute;
+  				top: 65px;
+  				left: 0;
+  				z-index: 999;
+  				background: #333;
+  				opacity: 0.6;
+  			}
+
+  			.overlay-show {
+			  	display: block;
+			  }
+			}
+	  }
+
+		.my-profile {
+			display: inline-block;
+			position: relative;
+
+			@media only screen and (max-width: 719px) {
+				width: 100%;
+    		padding: 0 20px;
+			}
+
+			.profile-image {
+		    border-radius: 50%;
+        position: relative;
+		    top: -3px;
+
+		    @media only screen and (max-width: 719px) {
+		    	display: none;
+		    }
+			}
+
+			.additional-profile-info {
+				display: none;
+				padding: 20px;
+				position: absolute;
+		    right: -2px;
+    		top: 28px;
+		    z-index: 999;
+		    background: #ff566f;
+		    @include full-font($avenir, 12px, #fff);
+
+		    @media only screen and (max-width: 719px) {
+		    	display: block;
+		    	position: static;
+    	    padding: 0;
+    	    background: none;
+		    }
+
+		    p {
+		    	margin-bottom: 6px;
+
+		    	@media only screen and (max-width: 719px) {
+		    	  display: none;
+		      }
+		    }
+
+		    .profile-edit-wrapper {
+		    	margin-top: 20px;
+		    	a {
+		    		width: 45%;
+	  		    padding: 6px;
+				    border-radius: 3px;
+				    float: left;
+				    background: #fff;
+				    color: #0033ff;
+				    text-align: center;
+				    text-decoration: none;
+
+				    @media only screen and (max-width: 719px) {
+				    	background: #ff566f;
+				      color: #fff;
+		          padding: 15px;
+			      }
+
+				    &:hover {
+				    	color: #ff566f;
+
+				    	@media only screen and (max-width: 719px) {
+					    	background: #ff566f;
+					      color: #fff;
+				      }
+				    }
+
+				    &:last-child {
+				    	float: right;
+				    }
+		    	}
+
+		    	@media only screen and (max-width: 719px) {
+		    		margin-top: 0;
+		    		text-align: center;
+		    	}
+		    }
+			}
+
+			&:hover {
+				.additional-profile-info {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.header-profile-img .header-wrapper {
+	padding-bottom: 10px;
+
+	@media only screen and (max-width: 719px) {
+		padding-bottom: 17px;
+	}
+}

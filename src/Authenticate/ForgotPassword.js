@@ -27,21 +27,30 @@ class ForgotPasswordForm extends Component {
 		const { handleSubmit } = this.props;
 
 		return (
-			<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-	      <Field
-	        name="email"
-	        type="text"
-	        component={renderInputField}
-	        label="Email"
-	        validate={[required, email]}
-	      />
-	      <div>
-	        <button type="submit">Send Link</button>
-	        <Link to="/login">Cancel</Link>
-	      </div>
+		  <div className="forgot-pwd-form">
+			  <h2 className="form-text">
+			  	Email with reset password link will be sent to your registered Email Id.
+			  </h2>
+				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+				  <p className="form-title">Forgot Password</p>
+		      <Field
+		        name="email"
+		        type="text"
+		        component={renderInputField}
+		        label="Email"
+		        validate={[required, email]}
+		      />
+		      <div>
+		        <button type="submit" className="submit-btn-link">Send Link</button>
+		        
+		        <div className="login-btn-link">
+		          Back to <Link to="/login">Login</Link>
+		        </div>
+		      </div>
 
-	      {this.renderAuthResponse()}
-			</form>
+		      {this.renderAuthResponse()}
+				</form>
+			</div>
 		);
   }
 }

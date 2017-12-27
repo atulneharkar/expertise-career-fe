@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../_actions';
+import AdminSubNav from '../AdminDashboard/AdminSubNav';
 
 class UserList extends Component {
 	componentWillMount() {
@@ -77,24 +78,26 @@ class UserList extends Component {
   renderUserListTemplate() {
   	if(this.props.userData.length) {
 	  	return(
-	  		<table>
-	        <thead>
-	          <tr>
-	            <td></td>
-	            <td>Name</td>
-	            <td>Phone</td>
-	            <td>Email</td>
-	            <td>Date Of Birth</td>
-	            <td>Interest</td>
-	            <td>Role</td>
-	            <td>Status</td>
-	            <td>Delete</td>
-	          </tr>
-	        </thead>
-	        <tbody>
-	          {this.renderUsers()}
-	        </tbody>
-	      </table>
+        <div className="table-responsive">
+  	  		<table className="table table-striped">
+  	        <thead>
+  	          <tr>
+  	            <th></th>
+  	            <th>Name</th>
+  	            <th>Phone</th>
+  	            <th>Email</th>
+  	            <th>Date Of Birth</th>
+  	            <th>Interest</th>
+  	            <th>Role</th>
+  	            <th>Status</th>
+  	            <th>Delete</th>
+  	          </tr>
+  	        </thead>
+  	        <tbody>
+  	          {this.renderUsers()}
+  	        </tbody>
+  	      </table>
+        </div>
 	  	);
     } else {
     	return (
@@ -106,8 +109,14 @@ class UserList extends Component {
   render() {
 
 		return (
-			<div>
-        {this.renderUserListTemplate()}
+      <div className="admin-dashboard-wrapper wrapper">
+        <AdminSubNav />
+  			<div className="user-list">
+          <p className="list-title">
+            User List
+          </p>
+          {this.renderUserListTemplate()}
+        </div>
       </div>
 		);
   }

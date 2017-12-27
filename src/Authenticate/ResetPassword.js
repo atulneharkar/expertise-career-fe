@@ -32,38 +32,44 @@ class ResetPasswordForm extends Component {
 		const { handleSubmit } = this.props; 
 
 		return (
-			<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-	      <Field
-	        name="password"
-	        type="password"
-	        component={renderInputField}
-	        label="Password"
-	        validate={[required]}
-	      />
-	      <Field
-	        name="confirmPassword"
-	        type="password"
-	        component={renderInputField}
-	        label="Confirm Password"
-	        validate={[required]}
-	      />
-	      <Field
-	        name="otp"
-	        type="hidden"
-	        component={renderHiddenInputField}
-	      />
-	      <Field
-	        name="userId"
-	        type="hidden"
-	        component={renderHiddenInputField}
-	      />
-	      <div>
-	        <button type="submit">Reset</button>
-	        <Link to="/login">Cancel</Link>
-	      </div>
+			<div className="reset-pwd-form">
+				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+				  <p className="form-title">Reset Password</p>
+		      <Field
+		        name="password"
+		        type="password"
+		        component={renderInputField}
+		        label="Password"
+		        validate={[required]}
+		      />
+		      <Field
+		        name="confirmPassword"
+		        type="password"
+		        component={renderInputField}
+		        label="Confirm Password"
+		        validate={[required]}
+		      />
+		      <Field
+		        name="otp"
+		        type="hidden"
+		        component={renderHiddenInputField}
+		      />
+		      <Field
+		        name="userId"
+		        type="hidden"
+		        component={renderHiddenInputField}
+		      />
+		      <div>
+		        <button type="submit" className="submit-btn-link">Reset</button>
 
-	      {this.renderAuthResponse()}
-			</form>
+		        <div className="login-btn-link">
+		          Back to <Link to="/login">Login</Link>
+		        </div>
+		      </div>
+
+		      {this.renderAuthResponse()}
+				</form>
+			</div>
 		);
   }
 }

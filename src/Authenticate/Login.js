@@ -53,43 +53,60 @@ class LoginForm extends Component {
 		const { handleSubmit } = this.props;
 
 		return (
-			<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-	      <Field
-	        name="email"
-	        type="text"
-	        component={renderInputField}
-	        label="Email"
-	        validate={[required, email]}
-	      />
-	      <Field
-	        name="password"
-	        type="password"
-	        component={renderInputField}
-	        label="Password"
-	        validate={[required]}
-	      />
-	      <div>
-	        <button type="submit">Sign In</button>
-	        <Link to="/register">Register</Link>
-	        <Link to="/forgot-password">Forgot Password</Link>
-	      </div>
+			<div className="login-form">
+			  <h2 className="form-text">
+			  	Learning from experts is now easy, register and join the webinar at <span>Expert Career</span>.
+			  </h2>
+				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+				  <p className="form-title">Sign In</p>
+		      <Field
+		        name="email"
+		        type="text"
+		        component={renderInputField}
+		        label="Email"
+		        validate={[required, email]}
+		      />
+		      <Field
+		        name="password"
+		        type="password"
+		        component={renderInputField}
+		        label="Password"
+		        validate={[required]}
+		      />
+		      <div>
+		        <button type="submit" className="sign-in-btn-link">Sign In</button>
+		        {this.renderAuthResponse()}
+		        <div className="forgot-password-btn-link">
+		          <Link to="/forgot-password">Forgot Password?</Link>
+		        </div>
+		      </div>
 
-	      <FacebookLogin
-			    appId="142550689703247"
-			    autoLoad={false}
-			    fields="name,email,picture"
-			    textButton="Sign In with Facebook"
-			    callback={this.responseFacebook.bind(this)} />
+		      <div className="register-btn-link">
+		      	<p>Don’t have an account? <Link to="/register">Register</Link></p>
+		      </div>
 
-			    <GoogleLogin
-				    clientId="448540267236-vhbef0r7l8o8hmqe5gb87sraf95bgasv.apps.googleusercontent.com"
-				    buttonText="Sign In with Google"
-				    onSuccess={this.responseGoogle.bind(this)}
-				    onFailure={this.responseGoogle.bind(this)}
-				  />
+		      <hr />
+		      <p className="text-center">Or</p>
 
-	      {this.renderAuthResponse()}
-			</form>
+		      <div className="facebook-login">
+		        <FacebookLogin
+					    appId="142550689703247"
+					    autoLoad={false}
+					    fields="name,email,picture"
+					    textButton="Sign In with Facebook"
+					    callback={this.responseFacebook.bind(this)} />
+				  </div>
+
+				  <div className="google-login">
+				    <GoogleLogin
+					    clientId="448540267236-vhbef0r7l8o8hmqe5gb87sraf95bgasv.apps.googleusercontent.com"
+					    buttonText="Sign In with Google"
+					    onSuccess={this.responseGoogle.bind(this)}
+					    onFailure={this.responseGoogle.bind(this)} />
+				  </div>
+
+				</form>
+			</div>
 		);
   }
 }

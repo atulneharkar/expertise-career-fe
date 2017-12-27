@@ -1,49 +1,66 @@
 import React, { Component } from 'react';
 
+import collegeProject from '../../assets/images/college-project.jpeg';
+import webinarSessions from '../../assets/images/webinar-sessions.png';
+import websitesAndMobileApps from '../../assets/images/websites-and-mobile-apps.jpeg';
+
 class OurServicesDetails extends Component {
   render() {
     return (
-      <div>
-        <div id="teaching">
-          <h2>Teaching and Personal Coaching</h2>
-          <p>
-            We conduct short sessions for 2-3 hours (on weekends) on various topics frequently. The topics varies from 
-            UI development (html, css, javascript, bootstrap, sass, gulp) to UX ().
-          </p>
-          <img src="" />
+      <div className="wrapper consulting-wrapper">
+
+        <div id="teaching" className="service-cards clearfix">
+          <img src={webinarSessions} />
+          <div className="service-details">
+            <h2>Skill building webinars and personal coaching</h2>
+            <p>
+              Gain knowledge and tools from the industry experts in your field in interest. 
+              Connect with them through webinars and unlock yourpotential by taking courses.
+            </p>
+            <ul>
+              <li>Connect with the expert from industry</li>
+              <li>Get hands on experience</li>
+              <li>Solve problems with guidance</li>
+              <li>Get to see case studies</li>
+            </ul>
+          </div>
         </div>
 
-        <div id="business-websites">
-          <h2>Business websites</h2>
-          <p>
-            Starting your new business? Create your own website and showcase your work through it. We help to grow your business to a next level.
-          </p>
-          <img src="" />
+        <div id="business-websites" className="service-cards clearfix">
+          <img src={websitesAndMobileApps} className="mobile-show" />
+          <div className="service-details">
+            <h2>Build websites, mobile apps for your business </h2>
+            <p>
+              Whatever your ideas are, explore them and take it to next level. 
+              Our highly efficient teams can work hand in hand with you to bring your ideas in reality.
+            </p>
+             <ul>
+              <li>Digital design includes ideation, persona mapping, info Architecture, Task flow and user journeys mapping</li>
+              <li>User experience design and Visual design</li>
+              <li>Websites and web application development</li>
+              <li>Mobile application development</li>
+            </ul>
+          </div>
+          <img src={websitesAndMobileApps} className="mobile-hide" />
         </div>
 
-        <div id="personal-websites">
-          <h2>Personal websites</h2>
-          <p>
-            We also build personal websites/applications in affordable prices.
-          </p>
-          <img src="" />
+        <div id="college-projects" className="service-cards clearfix">
+          <img src={collegeProject} />
+          <div className="service-details">
+            <h2>Design/development guide for college projects</h2>
+            <p>
+              Gain knowledge and tools from the industry experts in your field in interest. 
+              Connect with them through webinars and unlock yourpotential by taking courses.
+            </p>
+             <ul>
+              <li>Connect with the expert from industry</li>
+              <li>Get hands on experience</li>
+              <li>Solve problems with guidance</li>
+              <li>Get to see case studies</li>
+            </ul>
+          </div>
         </div>
 
-        <div id="mobile-apps">
-          <h2>Mobile applications (Android and iOS)</h2>
-          <p>
-            We build mobile apps for both Android and iOS platforms.
-          </p>
-          <img src="" />
-        </div>
-
-        <div id="college-projects">
-          <h2>College projects (Computer and IT Engineering)</h2>
-          <p>
-            Confused what project to choose? We are here to guide you to select a proper project for your final year.
-          </p>
-          <img src="" />
-        </div>
       </div>
     );
   }

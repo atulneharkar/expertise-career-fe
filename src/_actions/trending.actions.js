@@ -20,7 +20,7 @@ export const addTrending = function(trending) {
           if(_trending.avatar) {
             dispatch(uploadTrendingImage(_trending.avatar, trending._id));
           } else {
-            history.push("/admin-dashboard#trending-list");
+            history.push("/admin/trendings");
           }
         },
         error => {
@@ -88,7 +88,7 @@ export const updateTrending = function(trendingId, trending) {
           if(_trending.avatar) {
             dispatch(uploadTrendingImage(_trending.avatar, trendingId));
           } else {
-            history.push("/admin-dashboard#trending-list");
+            history.push("/admin/trendings");
           }
         },
         error => {

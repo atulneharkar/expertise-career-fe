@@ -24,7 +24,7 @@ class ContactUs extends Component {
 		if(this.props.loading) {
 			return <div className="loading">loading</div>;
 		} else if(this.props.successMessage) {
-			return <div className="success-message">Query sent successfully! Admin will contact you shortly.</div>;
+			return <div className="success-message">Your query sent successfully! Admin will contact you shortly.</div>;
 		} else if(this.props.errorMessage) {
 			return <div className="error-message">{this.props.errorMessage}</div>;
 		}
@@ -48,10 +48,15 @@ class ContactUs extends Component {
 		const { handleSubmit } = this.props;
 
 		return (
-		  <div>
-		    <div>
+		  <div className="contact-form">
+		    <h2 className="form-text">
+			  	Connect with experts on below contacts or submit your query and we will get back to you.
+			  </h2>
+
+		    <div className="contact-info">
 		      <p><a href="mailto: info@expertisecareer.com">info@expertisecareer.com</a></p>
-		      <p>Mobile: 8767067878/98273782293</p>
+		      <p>Atul Neharkar - 8767067878</p>
+		      <p>Mahesh Shinde - 98273782293</p>
 		    </div>
 
 				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
@@ -87,7 +92,7 @@ class ContactUs extends Component {
 		        validate={[required]}
 		      />
 		      <div>
-		        <button type="submit">Send</button>
+		        <button type="submit" className="submit-btn-link">Send</button>
 		      </div>
 
 		      {this.renderQueryResponse()}

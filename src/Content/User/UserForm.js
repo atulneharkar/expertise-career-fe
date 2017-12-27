@@ -83,64 +83,89 @@ class UserForm extends Component {
     }
   }
 
+  renderHeading() {
+  	if(!this.state.userId) {
+  		return <h2 className="form-text">Become a member and easily register to all our <span>Webinars</span></h2>;
+  	}
+  }
+
+  renderTitle() {
+  	if(!this.state.userId) {
+  		return <p className="form-title">Register</p>;
+  	} else {
+  		return <p className="form-title">Profile</p>;
+  	}
+  }
+
+  renderLoginLink() {
+  	if(!this.state.userId) {
+  		return <div className="login-btn-link">Already a member? <Link to="/login">Login</Link></div>;
+  	}
+  }
+
   render() {
 		const { handleSubmit } = this.props;
 
 		return (
-			<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-				<Field
-	        name="name"
-	        type="text"
-	        component={renderInputField}
-	        label="Name"
-	        setValue={this.state.userData.name}
-	        onValueChange={(e) => this.handleInputChange(e)}
-	        validate={this.state.userData.name ? null : [required]}
-	      />
-	      <Field
-	        name="phone"
-	        type="number"
-	        component={renderInputField}
-	        label="Phone"
-	        setValue={this.state.userData.phone}
-	        onValueChange={(e) => this.handleInputChange(e)}
-	        validate={this.state.userData.phone ? [phoneNumber] : [required, phoneNumber]}
-	      />
-	      <Field
-	        name="email"
-	        type="text"
-	        component={renderInputField}
-	        label="Email"
-	        setValue={this.state.userData.email}
-	        onValueChange={(e) => this.handleInputChange(e)}
-	        validate={this.state.userData.email ? null : [required, email]}
-	      />
-	      <Field
-	        name="password"
-	        type="password"
-	        component={renderInputField}
-	        label="Password"
-	        validate={this.state.userId ? null : [required]}
-	      />
-	      <Field
-	        name="confirmPassword"
-	        type="password"
-	        component={renderInputField}
-	        label="Confirm Password"
-	        validate={this.state.userId ? null : [required]}
-	      />
-	      <Field
-	        name="avatar"
-          component={renderFileInputField}
-          label="Profile Picture"
-        />
-	      <div>
-	        <button type="submit">{this.state.submitButtonText}</button>
-	        <Link to="/login">Cancel</Link>
-	      </div>
+			<div className="register-form">
+			  {this.renderHeading()}
+				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+				  {this.renderTitle()}
+					<Field
+		        name="name"
+		        type="text"
+		        component={renderInputField}
+		        label="Name"
+		        setValue={this.state.userData.name}
+		        onValueChange={(e) => this.handleInputChange(e)}
+		        validate={this.state.userData.name ? null : [required]}
+		      />
+		      <Field
+		        name="phone"
+		        type="number"
+		        component={renderInputField}
+		        label="Phone"
+		        setValue={this.state.userData.phone}
+		        onValueChange={(e) => this.handleInputChange(e)}
+		        validate={this.state.userData.phone ? [phoneNumber] : [required, phoneNumber]}
+		      />
+		      <Field
+		        name="email"
+		        type="text"
+		        component={renderInputField}
+		        label="Email"
+		        setValue={this.state.userData.email}
+		        onValueChange={(e) => this.handleInputChange(e)}
+		        validate={this.state.userData.email ? null : [required, email]}
+		      />
+		      <Field
+		        name="password"
+		        type="password"
+		        component={renderInputField}
+		        label="Password"
+		        validate={this.state.userId ? null : [required]}
+		      />
+		      <Field
+		        name="confirmPassword"
+		        type="password"
+		        component={renderInputField}
+		        label="Confirm Password"
+		        validate={this.state.userId ? null : [required]}
+		      />
+		      <Field
+		        name="avatar"
+	          component={renderFileInputField}
+	          label="Upload Profile Picture"
+	        />
+		      <div>
+		        <button type="submit" className="submit-btn-link">{this.state.submitButtonText}</button>
 
-	      {this.renderUserResponse()}
-			</form>
+		        {this.renderLoginLink()}
+		      </div>
+
+		      {this.renderUserResponse()}
+				</form>
+			</div>
 		);
   }
 }

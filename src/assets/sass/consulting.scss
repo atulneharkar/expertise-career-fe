@@ -1,0 +1,74 @@
+.consulting-wrapper {
+	padding: 0 20px 50px;
+
+	.service-cards {
+		border: solid 0.5px #efefef;
+		margin: 30px 0;
+		padding: 1px;
+		box-shadow: -4px 4px 0 0 rgba(0, 0, 0, 0.05);
+		@include full-font($avenir, 13px, #333);
+
+		.service-details {
+	    padding: 20px;
+
+			h2 {
+				font-size: 22px;
+				line-height: 28px;
+				color: #ff566f;
+
+				@media only screen and (max-width: 959px) {
+					font-size: 19px;
+					line-height: 25px;
+				}
+			}
+
+			p {
+		    margin: 20px 0;
+        line-height: 18px;
+        @media only screen and (max-width: 959px) {
+        	margin: 10px 0;
+        }
+			}
+
+			ul {
+		    list-style: disc;
+        padding-left: 20px;
+
+        li {
+        	margin-bottom: 4px;
+    	    line-height: 19px;
+        }
+			}
+	  }
+
+	  .mobile-show {
+	  	display: none;
+	  }
+
+	  .mobile-hide {
+	  	display: inline-block;
+	  }
+
+	  @media only screen and (max-width: 959px) {
+		  .mobile-show {
+		  	display: inline-block;
+		  }
+
+		  .mobile-hide {
+		  	display: none;
+		  }
+	  }
+
+		img,
+		.service-details {
+			width: 50%;
+			display: inline-block;
+			vertical-align: middle;
+
+			@media only screen and (max-width: 959px) {
+				width: 100%;
+			  float: none !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,1138 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline; }
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0; }
+
+body {
+  line-height: 1;
+  color: black;
+  background: white; }
+
+ol, ul {
+  list-style: none; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: ""; }
+
+blockquote, q {
+  quotes: "" ""; }
+
+@font-face {
+  font-family: "Avenir";
+  src: url("../fonts/avenir-next-regular.ttf"); }
+
+header {
+  background: #eee;
+  border-bottom: solid 0.5px #ccc; }
+  header .header-wrapper {
+    width: 100%;
+    max-width: 1600px;
+    padding: 20px;
+    margin: 0 auto; }
+    header .header-wrapper .main-logo a {
+      font-family: "Avenir", Helvetica, Arial, sans-serif;
+      font-size: 22px;
+      color: #333;
+      text-transform: none;
+      text-decoration: none; }
+    header .header-wrapper .main-nav ul {
+      vertical-align: top;
+      display: inline-block;
+      margin-top: 4px; }
+      @media only screen and (max-width: 719px) {
+        header .header-wrapper .main-nav ul {
+          width: 100%;
+          text-align: center; } }
+      header .header-wrapper .main-nav ul li {
+        margin-right: 20px;
+        display: inline-block; }
+        @media only screen and (max-width: 719px) {
+          header .header-wrapper .main-nav ul li {
+            display: block;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            border-bottom: 0.5px solid #efefef; } }
+        header .header-wrapper .main-nav ul li a {
+          font-family: "Avenir", Helvetica, Arial, sans-serif;
+          font-size: 12px;
+          color: #333;
+          text-transform: none;
+          text-decoration: none; }
+          header .header-wrapper .main-nav ul li a:hover {
+            color: #ff566f; }
+          @media only screen and (max-width: 719px) {
+            header .header-wrapper .main-nav ul li a {
+              color: #fff;
+              width: 100%;
+              display: block;
+              padding-bottom: 20px; } }
+    header .header-wrapper .main-nav .sign-in-btn {
+      margin-top: 7px;
+      display: inline-block;
+      font-family: "Avenir", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      color: #333;
+      text-transform: none;
+      text-decoration: none; }
+      header .header-wrapper .main-nav .sign-in-btn:hover {
+        color: #ff566f; }
+        @media only screen and (max-width: 719px) {
+          header .header-wrapper .main-nav .sign-in-btn:hover {
+            color: #fff; } }
+      @media only screen and (max-width: 719px) {
+        header .header-wrapper .main-nav .sign-in-btn {
+          width: 100%;
+          text-align: center;
+          margin: 0;
+          padding: 6px;
+          border-radius: 3px;
+          background: #ff566f;
+          color: #fff; } }
+    header .header-wrapper .main-nav .hamburger-icon,
+    header .header-wrapper .main-nav .close-icon {
+      display: none;
+      margin-top: -3px;
+      float: right; }
+      @media only screen and (max-width: 719px) {
+        header .header-wrapper .main-nav .hamburger-icon,
+        header .header-wrapper .main-nav .close-icon {
+          display: block; } }
+    @media only screen and (max-width: 719px) {
+      header .header-wrapper .main-nav .hamburger-hide,
+      header .header-wrapper .main-nav .close-icon {
+        display: none; }
+      header .header-wrapper .main-nav .close-icon-show {
+        display: block; } }
+    header .header-wrapper .main-nav .close-icon {
+      margin-top: -1px; }
+    @media only screen and (max-width: 719px) {
+      header .header-wrapper .main-nav .mobile-menu {
+        width: 100%;
+        padding: 20px 0;
+        display: none;
+        background: #333;
+        position: absolute;
+        left: 0;
+        top: 67px;
+        z-index: 9999; }
+      header .header-wrapper .main-nav .mobile-menu-show {
+        display: block; }
+      header .header-wrapper .main-nav .overlay {
+        width: 100%;
+        height: 100%;
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        z-index: 999;
+        background: #333;
+        opacity: 0.6; }
+      header .header-wrapper .main-nav .overlay-show {
+        display: block; } }
+    header .header-wrapper .my-profile {
+      display: inline-block;
+      position: relative; }
+      @media only screen and (max-width: 719px) {
+        header .header-wrapper .my-profile {
+          width: 100%;
+          padding: 0 20px; } }
+      header .header-wrapper .my-profile .profile-image {
+        border-radius: 50%;
+        position: relative;
+        top: -3px; }
+        @media only screen and (max-width: 719px) {
+          header .header-wrapper .my-profile .profile-image {
+            display: none; } }
+      header .header-wrapper .my-profile .additional-profile-info {
+        display: none;
+        padding: 20px;
+        position: absolute;
+        right: -2px;
+        top: 28px;
+        z-index: 999;
+        background: #ff566f;
+        font-family: "Avenir", Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        color: #fff;
+        text-transform: none;
+        text-decoration: none; }
+        @media only screen and (max-width: 719px) {
+          header .header-wrapper .my-profile .additional-profile-info {
+            display: block;
+            position: static;
+            padding: 0;
+            background: none; } }
+        header .header-wrapper .my-profile .additional-profile-info p {
+          margin-bottom: 6px; }
+          @media only screen and (max-width: 719px) {
+            header .header-wrapper .my-profile .additional-profile-info p {
+              display: none; } }
+        header .header-wrapper .my-profile .additional-profile-info .profile-edit-wrapper {
+          margin-top: 20px; }
+          header .header-wrapper .my-profile .additional-profile-info .profile-edit-wrapper a {
+            width: 45%;
+            padding: 6px;
+            border-radius: 3px;
+            float: left;
+            background: #fff;
+            color: #0033ff;
+            text-align: center;
+            text-decoration: none; }
+            @media only screen and (max-width: 719px) {
+              header .header-wrapper .my-profile .additional-profile-info .profile-edit-wrapper a {
+                background: #ff566f;
+                color: #fff;
+                padding: 15px; } }
+            header .header-wrapper .my-profile .additional-profile-info .profile-edit-wrapper a:hover {
+              color: #ff566f; }
+              @media only screen and (max-width: 719px) {
+                header .header-wrapper .my-profile .additional-profile-info .profile-edit-wrapper a:hover {
+                  background: #ff566f;
+                  color: #fff; } }
+            header .header-wrapper .my-profile .additional-profile-info .profile-edit-wrapper a:last-child {
+              float: right; }
+          @media only screen and (max-width: 719px) {
+            header .header-wrapper .my-profile .additional-profile-info .profile-edit-wrapper {
+              margin-top: 0;
+              text-align: center; } }
+      header .header-wrapper .my-profile:hover .additional-profile-info {
+        display: block; }
+
+.header-profile-img .header-wrapper {
+  padding-bottom: 10px; }
+  @media only screen and (max-width: 719px) {
+    .header-profile-img .header-wrapper {
+      padding-bottom: 17px; } }
+
+.login-form,
+.register-form,
+.reset-pwd-form,
+.forgot-pwd-form,
+.contact-form,
+.trending-form,
+.course-form {
+  width: 430px;
+  padding: 30px 0 70px;
+  margin: 0 auto; }
+  @media only screen and (max-width: 719px) {
+    .login-form,
+    .register-form,
+    .reset-pwd-form,
+    .forgot-pwd-form,
+    .contact-form,
+    .trending-form,
+    .course-form {
+      width: 100%;
+      max-width: 430px;
+      padding: 30px 20px 80px; } }
+  .login-form .form-text,
+  .register-form .form-text,
+  .reset-pwd-form .form-text,
+  .forgot-pwd-form .form-text,
+  .contact-form .form-text,
+  .trending-form .form-text,
+  .course-form .form-text {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: #968f8f;
+    text-transform: none;
+    text-decoration: none;
+    line-height: 25px; }
+    @media only screen and (max-width: 719px) {
+      .login-form .form-text,
+      .register-form .form-text,
+      .reset-pwd-form .form-text,
+      .forgot-pwd-form .form-text,
+      .contact-form .form-text,
+      .trending-form .form-text,
+      .course-form .form-text {
+        font-size: 16px;
+        line-height: 20px; } }
+    .login-form .form-text span,
+    .register-form .form-text span,
+    .reset-pwd-form .form-text span,
+    .forgot-pwd-form .form-text span,
+    .contact-form .form-text span,
+    .trending-form .form-text span,
+    .course-form .form-text span {
+      color: #ff566f; }
+  .login-form form,
+  .register-form form,
+  .reset-pwd-form form,
+  .forgot-pwd-form form,
+  .contact-form form,
+  .trending-form form,
+  .course-form form {
+    width: 300px;
+    margin: 0 auto;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    text-transform: none;
+    text-decoration: none; }
+    @media only screen and (max-width: 719px) {
+      .login-form form,
+      .register-form form,
+      .reset-pwd-form form,
+      .forgot-pwd-form form,
+      .contact-form form,
+      .trending-form form,
+      .course-form form {
+        width: 100%; } }
+    .login-form form .form-title,
+    .register-form form .form-title,
+    .reset-pwd-form form .form-title,
+    .forgot-pwd-form form .form-title,
+    .contact-form form .form-title,
+    .trending-form form .form-title,
+    .course-form form .form-title {
+      margin: 30px 0;
+      font-weight: bold;
+      text-align: center; }
+      @media only screen and (max-width: 719px) {
+        .login-form form .form-title,
+        .register-form form .form-title,
+        .reset-pwd-form form .form-title,
+        .forgot-pwd-form form .form-title,
+        .contact-form form .form-title,
+        .trending-form form .form-title,
+        .course-form form .form-title {
+          margin: 20px 0; } }
+    .login-form form .field-wrapper,
+    .login-form form .file-upload-wrapper,
+    .register-form form .field-wrapper,
+    .register-form form .file-upload-wrapper,
+    .reset-pwd-form form .field-wrapper,
+    .reset-pwd-form form .file-upload-wrapper,
+    .forgot-pwd-form form .field-wrapper,
+    .forgot-pwd-form form .file-upload-wrapper,
+    .contact-form form .field-wrapper,
+    .contact-form form .file-upload-wrapper,
+    .trending-form form .field-wrapper,
+    .trending-form form .file-upload-wrapper,
+    .course-form form .field-wrapper,
+    .course-form form .file-upload-wrapper {
+      margin-bottom: 20px; }
+      .login-form form .field-wrapper input,
+      .login-form form .field-wrapper textarea,
+      .login-form form .field-wrapper .Select,
+      .login-form form .file-upload-wrapper input,
+      .login-form form .file-upload-wrapper textarea,
+      .login-form form .file-upload-wrapper .Select,
+      .register-form form .field-wrapper input,
+      .register-form form .field-wrapper textarea,
+      .register-form form .field-wrapper .Select,
+      .register-form form .file-upload-wrapper input,
+      .register-form form .file-upload-wrapper textarea,
+      .register-form form .file-upload-wrapper .Select,
+      .reset-pwd-form form .field-wrapper input,
+      .reset-pwd-form form .field-wrapper textarea,
+      .reset-pwd-form form .field-wrapper .Select,
+      .reset-pwd-form form .file-upload-wrapper input,
+      .reset-pwd-form form .file-upload-wrapper textarea,
+      .reset-pwd-form form .file-upload-wrapper .Select,
+      .forgot-pwd-form form .field-wrapper input,
+      .forgot-pwd-form form .field-wrapper textarea,
+      .forgot-pwd-form form .field-wrapper .Select,
+      .forgot-pwd-form form .file-upload-wrapper input,
+      .forgot-pwd-form form .file-upload-wrapper textarea,
+      .forgot-pwd-form form .file-upload-wrapper .Select,
+      .contact-form form .field-wrapper input,
+      .contact-form form .field-wrapper textarea,
+      .contact-form form .field-wrapper .Select,
+      .contact-form form .file-upload-wrapper input,
+      .contact-form form .file-upload-wrapper textarea,
+      .contact-form form .file-upload-wrapper .Select,
+      .trending-form form .field-wrapper input,
+      .trending-form form .field-wrapper textarea,
+      .trending-form form .field-wrapper .Select,
+      .trending-form form .file-upload-wrapper input,
+      .trending-form form .file-upload-wrapper textarea,
+      .trending-form form .file-upload-wrapper .Select,
+      .course-form form .field-wrapper input,
+      .course-form form .field-wrapper textarea,
+      .course-form form .field-wrapper .Select,
+      .course-form form .file-upload-wrapper input,
+      .course-form form .file-upload-wrapper textarea,
+      .course-form form .file-upload-wrapper .Select {
+        width: 100%;
+        height: 30px;
+        padding: 4px 10px;
+        border: solid 0.5px #e6e6e6;
+        border-radius: 4px; }
+      .login-form form .field-wrapper .Select,
+      .login-form form .file-upload-wrapper .Select,
+      .register-form form .field-wrapper .Select,
+      .register-form form .file-upload-wrapper .Select,
+      .reset-pwd-form form .field-wrapper .Select,
+      .reset-pwd-form form .file-upload-wrapper .Select,
+      .forgot-pwd-form form .field-wrapper .Select,
+      .forgot-pwd-form form .file-upload-wrapper .Select,
+      .contact-form form .field-wrapper .Select,
+      .contact-form form .file-upload-wrapper .Select,
+      .trending-form form .field-wrapper .Select,
+      .trending-form form .file-upload-wrapper .Select,
+      .course-form form .field-wrapper .Select,
+      .course-form form .file-upload-wrapper .Select {
+        padding: 0;
+        border: none; }
+        .login-form form .field-wrapper .Select .Select-input,
+        .login-form form .file-upload-wrapper .Select .Select-input,
+        .register-form form .field-wrapper .Select .Select-input,
+        .register-form form .file-upload-wrapper .Select .Select-input,
+        .reset-pwd-form form .field-wrapper .Select .Select-input,
+        .reset-pwd-form form .file-upload-wrapper .Select .Select-input,
+        .forgot-pwd-form form .field-wrapper .Select .Select-input,
+        .forgot-pwd-form form .file-upload-wrapper .Select .Select-input,
+        .contact-form form .field-wrapper .Select .Select-input,
+        .contact-form form .file-upload-wrapper .Select .Select-input,
+        .trending-form form .field-wrapper .Select .Select-input,
+        .trending-form form .file-upload-wrapper .Select .Select-input,
+        .course-form form .field-wrapper .Select .Select-input,
+        .course-form form .file-upload-wrapper .Select .Select-input {
+          height: 30px; }
+        .login-form form .field-wrapper .Select .Select-control,
+        .login-form form .file-upload-wrapper .Select .Select-control,
+        .register-form form .field-wrapper .Select .Select-control,
+        .register-form form .file-upload-wrapper .Select .Select-control,
+        .reset-pwd-form form .field-wrapper .Select .Select-control,
+        .reset-pwd-form form .file-upload-wrapper .Select .Select-control,
+        .forgot-pwd-form form .field-wrapper .Select .Select-control,
+        .forgot-pwd-form form .file-upload-wrapper .Select .Select-control,
+        .contact-form form .field-wrapper .Select .Select-control,
+        .contact-form form .file-upload-wrapper .Select .Select-control,
+        .trending-form form .field-wrapper .Select .Select-control,
+        .trending-form form .file-upload-wrapper .Select .Select-control,
+        .course-form form .field-wrapper .Select .Select-control,
+        .course-form form .file-upload-wrapper .Select .Select-control {
+          border: solid 0.5px #e6e6e6;
+          height: 30px; }
+          .login-form form .field-wrapper .Select .Select-control input,
+          .login-form form .file-upload-wrapper .Select .Select-control input,
+          .register-form form .field-wrapper .Select .Select-control input,
+          .register-form form .file-upload-wrapper .Select .Select-control input,
+          .reset-pwd-form form .field-wrapper .Select .Select-control input,
+          .reset-pwd-form form .file-upload-wrapper .Select .Select-control input,
+          .forgot-pwd-form form .field-wrapper .Select .Select-control input,
+          .forgot-pwd-form form .file-upload-wrapper .Select .Select-control input,
+          .contact-form form .field-wrapper .Select .Select-control input,
+          .contact-form form .file-upload-wrapper .Select .Select-control input,
+          .trending-form form .field-wrapper .Select .Select-control input,
+          .trending-form form .file-upload-wrapper .Select .Select-control input,
+          .course-form form .field-wrapper .Select .Select-control input,
+          .course-form form .file-upload-wrapper .Select .Select-control input {
+            border: none;
+            padding: 0px; }
+      .login-form form .field-wrapper textarea,
+      .login-form form .file-upload-wrapper textarea,
+      .register-form form .field-wrapper textarea,
+      .register-form form .file-upload-wrapper textarea,
+      .reset-pwd-form form .field-wrapper textarea,
+      .reset-pwd-form form .file-upload-wrapper textarea,
+      .forgot-pwd-form form .field-wrapper textarea,
+      .forgot-pwd-form form .file-upload-wrapper textarea,
+      .contact-form form .field-wrapper textarea,
+      .contact-form form .file-upload-wrapper textarea,
+      .trending-form form .field-wrapper textarea,
+      .trending-form form .file-upload-wrapper textarea,
+      .course-form form .field-wrapper textarea,
+      .course-form form .file-upload-wrapper textarea {
+        height: 80px;
+        resize: vertical; }
+    .login-form form .file-upload-wrapper,
+    .register-form form .file-upload-wrapper,
+    .reset-pwd-form form .file-upload-wrapper,
+    .forgot-pwd-form form .file-upload-wrapper,
+    .contact-form form .file-upload-wrapper,
+    .trending-form form .file-upload-wrapper,
+    .course-form form .file-upload-wrapper {
+      margin-bottom: 7px; }
+      .login-form form .file-upload-wrapper input,
+      .register-form form .file-upload-wrapper input,
+      .reset-pwd-form form .file-upload-wrapper input,
+      .forgot-pwd-form form .file-upload-wrapper input,
+      .contact-form form .file-upload-wrapper input,
+      .trending-form form .file-upload-wrapper input,
+      .course-form form .file-upload-wrapper input {
+        border: none;
+        outline: none;
+        padding: 0;
+        margin-top: 10px; }
+    .login-form form .sign-in-btn-link,
+    .login-form form .submit-btn-link,
+    .register-form form .sign-in-btn-link,
+    .register-form form .submit-btn-link,
+    .reset-pwd-form form .sign-in-btn-link,
+    .reset-pwd-form form .submit-btn-link,
+    .forgot-pwd-form form .sign-in-btn-link,
+    .forgot-pwd-form form .submit-btn-link,
+    .contact-form form .sign-in-btn-link,
+    .contact-form form .submit-btn-link,
+    .trending-form form .sign-in-btn-link,
+    .trending-form form .submit-btn-link,
+    .course-form form .sign-in-btn-link,
+    .course-form form .submit-btn-link {
+      width: 100%;
+      height: 30px;
+      display: block;
+      background: #ff566f;
+      border-color: #ff566f;
+      color: #fff; }
+  .login-form .forgot-password-btn-link,
+  .login-form .register-btn-link,
+  .login-form .login-btn-link,
+  .login-form .admin-dashboard-link,
+  .register-form .forgot-password-btn-link,
+  .register-form .register-btn-link,
+  .register-form .login-btn-link,
+  .register-form .admin-dashboard-link,
+  .reset-pwd-form .forgot-password-btn-link,
+  .reset-pwd-form .register-btn-link,
+  .reset-pwd-form .login-btn-link,
+  .reset-pwd-form .admin-dashboard-link,
+  .forgot-pwd-form .forgot-password-btn-link,
+  .forgot-pwd-form .register-btn-link,
+  .forgot-pwd-form .login-btn-link,
+  .forgot-pwd-form .admin-dashboard-link,
+  .contact-form .forgot-password-btn-link,
+  .contact-form .register-btn-link,
+  .contact-form .login-btn-link,
+  .contact-form .admin-dashboard-link,
+  .trending-form .forgot-password-btn-link,
+  .trending-form .register-btn-link,
+  .trending-form .login-btn-link,
+  .trending-form .admin-dashboard-link,
+  .course-form .forgot-password-btn-link,
+  .course-form .register-btn-link,
+  .course-form .login-btn-link,
+  .course-form .admin-dashboard-link {
+    display: block;
+    margin: 20px 0 0; }
+    .login-form .forgot-password-btn-link a,
+    .login-form .register-btn-link a,
+    .login-form .login-btn-link a,
+    .login-form .admin-dashboard-link a,
+    .register-form .forgot-password-btn-link a,
+    .register-form .register-btn-link a,
+    .register-form .login-btn-link a,
+    .register-form .admin-dashboard-link a,
+    .reset-pwd-form .forgot-password-btn-link a,
+    .reset-pwd-form .register-btn-link a,
+    .reset-pwd-form .login-btn-link a,
+    .reset-pwd-form .admin-dashboard-link a,
+    .forgot-pwd-form .forgot-password-btn-link a,
+    .forgot-pwd-form .register-btn-link a,
+    .forgot-pwd-form .login-btn-link a,
+    .forgot-pwd-form .admin-dashboard-link a,
+    .contact-form .forgot-password-btn-link a,
+    .contact-form .register-btn-link a,
+    .contact-form .login-btn-link a,
+    .contact-form .admin-dashboard-link a,
+    .trending-form .forgot-password-btn-link a,
+    .trending-form .register-btn-link a,
+    .trending-form .login-btn-link a,
+    .trending-form .admin-dashboard-link a,
+    .course-form .forgot-password-btn-link a,
+    .course-form .register-btn-link a,
+    .course-form .login-btn-link a,
+    .course-form .admin-dashboard-link a {
+      color: #3980d8;
+      text-decoration: none; }
+      .login-form .forgot-password-btn-link a:hover,
+      .login-form .register-btn-link a:hover,
+      .login-form .login-btn-link a:hover,
+      .login-form .admin-dashboard-link a:hover,
+      .register-form .forgot-password-btn-link a:hover,
+      .register-form .register-btn-link a:hover,
+      .register-form .login-btn-link a:hover,
+      .register-form .admin-dashboard-link a:hover,
+      .reset-pwd-form .forgot-password-btn-link a:hover,
+      .reset-pwd-form .register-btn-link a:hover,
+      .reset-pwd-form .login-btn-link a:hover,
+      .reset-pwd-form .admin-dashboard-link a:hover,
+      .forgot-pwd-form .forgot-password-btn-link a:hover,
+      .forgot-pwd-form .register-btn-link a:hover,
+      .forgot-pwd-form .login-btn-link a:hover,
+      .forgot-pwd-form .admin-dashboard-link a:hover,
+      .contact-form .forgot-password-btn-link a:hover,
+      .contact-form .register-btn-link a:hover,
+      .contact-form .login-btn-link a:hover,
+      .contact-form .admin-dashboard-link a:hover,
+      .trending-form .forgot-password-btn-link a:hover,
+      .trending-form .register-btn-link a:hover,
+      .trending-form .login-btn-link a:hover,
+      .trending-form .admin-dashboard-link a:hover,
+      .course-form .forgot-password-btn-link a:hover,
+      .course-form .register-btn-link a:hover,
+      .course-form .login-btn-link a:hover,
+      .course-form .admin-dashboard-link a:hover {
+        color: #ff566f; }
+  .login-form .facebook-login button,
+  .login-form .google-login button,
+  .register-form .facebook-login button,
+  .register-form .google-login button,
+  .reset-pwd-form .facebook-login button,
+  .reset-pwd-form .google-login button,
+  .forgot-pwd-form .facebook-login button,
+  .forgot-pwd-form .google-login button,
+  .contact-form .facebook-login button,
+  .contact-form .google-login button,
+  .trending-form .facebook-login button,
+  .trending-form .google-login button,
+  .course-form .facebook-login button,
+  .course-form .google-login button {
+    width: 100% !important;
+    height: 30px !important;
+    padding: 0 !important;
+    margin: 20px 0 0 !important;
+    font-size: 14px !important;
+    font-family: "Avenir", Helvetica, Arial, sans-serif !important;
+    text-transform: none !important; }
+  .login-form .google-login button,
+  .register-form .google-login button,
+  .reset-pwd-form .google-login button,
+  .forgot-pwd-form .google-login button,
+  .contact-form .google-login button,
+  .trending-form .google-login button,
+  .course-form .google-login button {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    text-transform: none;
+    text-decoration: none; }
+
+.error-msg,
+.error-message {
+  color: #ff0000;
+  font-size: 12px;
+  margin: 5px 0 0 3px; }
+
+.contact-form .contact-info {
+  text-align: center;
+  margin: 30px 0; }
+  .contact-form .contact-info p {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+    text-transform: none;
+    text-decoration: none;
+    margin-bottom: 10px; }
+    @media only screen and (max-width: 719px) {
+      .contact-form .contact-info p {
+        font-size: 16px; } }
+    .contact-form .contact-info p:last-child {
+      margin-bottom: 0; }
+  .contact-form .contact-info a {
+    color: #3980d8;
+    text-decoration: none; }
+    .contact-form .contact-info a:hover {
+      color: #ff566f; }
+
+.services-card-wrapper {
+  position: relative; }
+  .services-card-wrapper .main-image {
+    width: 100%; }
+    @media only screen and (max-width: 719px) {
+      .services-card-wrapper .main-image {
+        display: none; } }
+  .services-card-wrapper .main-image-mobile {
+    width: 100%;
+    display: none; }
+    @media only screen and (max-width: 719px) {
+      .services-card-wrapper .main-image-mobile {
+        display: block; } }
+  .services-card-wrapper .floating-text {
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative; }
+    .services-card-wrapper .floating-text .tag-line {
+      width: 60%;
+      padding-left: 20px;
+      position: absolute;
+      bottom: 200px;
+      left: 0;
+      font-family: "Avenir", Helvetica, Arial, sans-serif;
+      font-size: 45px;
+      color: #fff;
+      text-transform: none;
+      text-decoration: none;
+      line-height: 58px; }
+      @media only screen and (max-width: 1279px) {
+        .services-card-wrapper .floating-text .tag-line {
+          font-size: 37px;
+          line-height: 48px;
+          bottom: 160px; } }
+      @media only screen and (max-width: 1024px) {
+        .services-card-wrapper .floating-text .tag-line {
+          font-size: 30px;
+          line-height: 40px;
+          bottom: 140px; } }
+      @media only screen and (max-width: 959px) {
+        .services-card-wrapper .floating-text .tag-line {
+          font-size: 25px;
+          line-height: 35px;
+          bottom: 120px; } }
+      @media only screen and (max-width: 800px) {
+        .services-card-wrapper .floating-text .tag-line {
+          font-size: 25px;
+          line-height: 30px;
+          bottom: 100px; } }
+      @media only screen and (max-width: 719px) {
+        .services-card-wrapper .floating-text .tag-line {
+          width: 67%;
+          font-size: 27px;
+          line-height: 40px; } }
+      @media only screen and (max-width: 550px) {
+        .services-card-wrapper .floating-text .tag-line {
+          font-size: 25px;
+          line-height: 35px; } }
+      @media only screen and (max-width: 519px) {
+        .services-card-wrapper .floating-text .tag-line {
+          font-size: 20px;
+          line-height: 26px;
+          bottom: 240px; } }
+      .services-card-wrapper .floating-text .tag-line p {
+        margin-bottom: 15px; }
+        .services-card-wrapper .floating-text .tag-line p:first-child {
+          color: #ff566f; }
+    .services-card-wrapper .floating-text .service-cards {
+      width: 100%;
+      position: absolute;
+      bottom: 40px;
+      text-align: center; }
+      @media only screen and (max-width: 800px) {
+        .services-card-wrapper .floating-text .service-cards {
+          bottom: 20px; } }
+      @media only screen and (max-width: 519px) {
+        .services-card-wrapper .floating-text .service-cards {
+          position: static;
+          padding: 20px 20px 0; } }
+      .services-card-wrapper .floating-text .service-cards a {
+        margin-right: 30px; }
+        .services-card-wrapper .floating-text .service-cards a:last-child {
+          margin-right: 0; }
+        @media only screen and (max-width: 519px) {
+          .services-card-wrapper .floating-text .service-cards a {
+            margin: 0 0 20px;
+            display: block; }
+            .services-card-wrapper .floating-text .service-cards a:last-child {
+              margin: 0; } }
+      .services-card-wrapper .floating-text .service-cards .card {
+        width: 260px;
+        padding: 20px;
+        border-radius: 5px;
+        display: inline-block;
+        background: #fff;
+        font-family: "Avenir", Helvetica, Arial, sans-serif;
+        font-size: 17px;
+        color: #333;
+        text-transform: none;
+        text-decoration: none;
+        line-height: 20px;
+        text-align: center;
+        cursor: pointer; }
+        @media only screen and (max-width: 1024px) {
+          .services-card-wrapper .floating-text .service-cards .card {
+            font-size: 13px;
+            padding: 10px;
+            width: 200px; } }
+        @media only screen and (max-width: 719px) {
+          .services-card-wrapper .floating-text .service-cards .card {
+            font-size: 13px;
+            padding: 5px;
+            width: 140px; } }
+        @media only screen and (max-width: 519px) {
+          .services-card-wrapper .floating-text .service-cards .card {
+            width: 100%;
+            padding: 10px;
+            background: #ff566f;
+            color: #fff; } }
+        .services-card-wrapper .floating-text .service-cards .card:hover {
+          background: #ff566f;
+          color: #fff; }
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.course-card-list,
+.trending-card-list {
+  padding: 30px 5px 0; }
+  .course-card-list img,
+  .trending-card-list img {
+    width: 100%; }
+  .course-card-list a,
+  .trending-card-list a {
+    text-decoration: none; }
+  .course-card-list h2,
+  .trending-card-list h2 {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+    text-transform: none;
+    text-decoration: none;
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin: 0 15px 20px; }
+  .course-card-list .course-card,
+  .course-card-list .trending-card,
+  .trending-card-list .course-card,
+  .trending-card-list .trending-card {
+    margin-bottom: 30px; }
+    @media only screen and (max-width: 719px) {
+      .course-card-list .course-card,
+      .course-card-list .trending-card,
+      .trending-card-list .course-card,
+      .trending-card-list .trending-card {
+        width: 100%; } }
+    .course-card-list .course-card a,
+    .course-card-list .trending-card a,
+    .trending-card-list .course-card a,
+    .trending-card-list .trending-card a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: all 0.15s ease-in-out;
+      -moz-transition: all 0.15s ease-in-out;
+      -o-transition: all 0.15s ease-in-out;
+      transition: all 0.15s ease-in-out;
+      box-shadow: -2px 2px 0 0 rgba(0, 0, 0, 0.05); }
+      .course-card-list .course-card a:hover,
+      .course-card-list .trending-card a:hover,
+      .trending-card-list .course-card a:hover,
+      .trending-card-list .trending-card a:hover {
+        box-shadow: -6px 6px 0 0 rgba(0, 0, 0, 0.05);
+        -webkit-transform: translateY(-2px) translateX(2px);
+        transform: translateY(-2px) translateX(2px); }
+    .course-card-list .course-card .course-info,
+    .course-card-list .course-card .trending-info,
+    .course-card-list .trending-card .course-info,
+    .course-card-list .trending-card .trending-info,
+    .trending-card-list .course-card .course-info,
+    .trending-card-list .course-card .trending-info,
+    .trending-card-list .trending-card .course-info,
+    .trending-card-list .trending-card .trending-info {
+      padding: 10px;
+      border: 0.5px solid #efefef;
+      border-top: none;
+      margin-top: -2px;
+      font-family: "Avenir", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: #333;
+      text-transform: none;
+      text-decoration: none; }
+      .course-card-list .course-card .course-info p,
+      .course-card-list .course-card .trending-info p,
+      .course-card-list .trending-card .course-info p,
+      .course-card-list .trending-card .trending-info p,
+      .trending-card-list .course-card .course-info p,
+      .trending-card-list .course-card .trending-info p,
+      .trending-card-list .trending-card .course-info p,
+      .trending-card-list .trending-card .trending-info p {
+        margin-bottom: 4px; }
+        .course-card-list .course-card .course-info p:last-child,
+        .course-card-list .course-card .trending-info p:last-child,
+        .course-card-list .trending-card .course-info p:last-child,
+        .course-card-list .trending-card .trending-info p:last-child,
+        .trending-card-list .course-card .course-info p:last-child,
+        .trending-card-list .course-card .trending-info p:last-child,
+        .trending-card-list .trending-card .course-info p:last-child,
+        .trending-card-list .trending-card .trending-info p:last-child {
+          margin-bottom: 0; }
+      .course-card-list .course-card .course-info .course-type,
+      .course-card-list .course-card .trending-info .course-type,
+      .course-card-list .trending-card .course-info .course-type,
+      .course-card-list .trending-card .trending-info .course-type,
+      .trending-card-list .course-card .course-info .course-type,
+      .trending-card-list .course-card .trending-info .course-type,
+      .trending-card-list .trending-card .course-info .course-type,
+      .trending-card-list .trending-card .trending-info .course-type {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 11px; }
+      .course-card-list .course-card .course-info .course-title,
+      .course-card-list .course-card .course-info .trending-title,
+      .course-card-list .course-card .trending-info .course-title,
+      .course-card-list .course-card .trending-info .trending-title,
+      .course-card-list .trending-card .course-info .course-title,
+      .course-card-list .trending-card .course-info .trending-title,
+      .course-card-list .trending-card .trending-info .course-title,
+      .course-card-list .trending-card .trending-info .trending-title,
+      .trending-card-list .course-card .course-info .course-title,
+      .trending-card-list .course-card .course-info .trending-title,
+      .trending-card-list .course-card .trending-info .course-title,
+      .trending-card-list .course-card .trending-info .trending-title,
+      .trending-card-list .trending-card .course-info .course-title,
+      .trending-card-list .trending-card .course-info .trending-title,
+      .trending-card-list .trending-card .trending-info .course-title,
+      .trending-card-list .trending-card .trending-info .trending-title {
+        font-size: 20px; }
+      .course-card-list .course-card .course-info .course-author,
+      .course-card-list .course-card .trending-info .course-author,
+      .course-card-list .trending-card .course-info .course-author,
+      .course-card-list .trending-card .trending-info .course-author,
+      .trending-card-list .course-card .course-info .course-author,
+      .trending-card-list .course-card .trending-info .course-author,
+      .trending-card-list .trending-card .course-info .course-author,
+      .trending-card-list .trending-card .trending-info .course-author {
+        margin-bottom: 10px; }
+      .course-card-list .course-card .course-info .course-date,
+      .course-card-list .course-card .trending-info .course-date,
+      .course-card-list .trending-card .course-info .course-date,
+      .course-card-list .trending-card .trending-info .course-date,
+      .trending-card-list .course-card .course-info .course-date,
+      .trending-card-list .course-card .trending-info .course-date,
+      .trending-card-list .trending-card .course-info .course-date,
+      .trending-card-list .trending-card .trending-info .course-date {
+        float: left;
+        margin-bottom: 0; }
+      .course-card-list .course-card .course-info .course-price,
+      .course-card-list .course-card .trending-info .course-price,
+      .course-card-list .trending-card .course-info .course-price,
+      .course-card-list .trending-card .trending-info .course-price,
+      .trending-card-list .course-card .course-info .course-price,
+      .trending-card-list .course-card .trending-info .course-price,
+      .trending-card-list .trending-card .course-info .course-price,
+      .trending-card-list .trending-card .trending-info .course-price {
+        float: right;
+        font-weight: bold;
+        color: #ff566f; }
+      .course-card-list .course-card .course-info .trending-category,
+      .course-card-list .course-card .trending-info .trending-category,
+      .course-card-list .trending-card .course-info .trending-category,
+      .course-card-list .trending-card .trending-info .trending-category,
+      .trending-card-list .course-card .course-info .trending-category,
+      .trending-card-list .course-card .trending-info .trending-category,
+      .trending-card-list .trending-card .course-info .trending-category,
+      .trending-card-list .trending-card .trending-info .trending-category {
+        color: #ff566f; }
+
+.trending-card-list {
+  padding-top: 0;
+  padding-bottom: 50px; }
+
+.no-course-wrapper,
+.no-trending-wrapper {
+  padding: 0 15px;
+  margin-bottom: 30px; }
+  .no-course-wrapper p,
+  .no-trending-wrapper p {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #333;
+    text-transform: none;
+    text-decoration: none;
+    margin-bottom: 10px; }
+
+.consulting-wrapper {
+  padding: 0 20px 50px; }
+  .consulting-wrapper .service-cards {
+    border: solid 0.5px #efefef;
+    margin: 30px 0;
+    padding: 1px;
+    box-shadow: -4px 4px 0 0 rgba(0, 0, 0, 0.05);
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #333;
+    text-transform: none;
+    text-decoration: none; }
+    .consulting-wrapper .service-cards .service-details {
+      padding: 20px; }
+      .consulting-wrapper .service-cards .service-details h2 {
+        font-size: 22px;
+        line-height: 28px;
+        color: #ff566f; }
+        @media only screen and (max-width: 959px) {
+          .consulting-wrapper .service-cards .service-details h2 {
+            font-size: 19px;
+            line-height: 25px; } }
+      .consulting-wrapper .service-cards .service-details p {
+        margin: 20px 0;
+        line-height: 18px; }
+        @media only screen and (max-width: 959px) {
+          .consulting-wrapper .service-cards .service-details p {
+            margin: 10px 0; } }
+      .consulting-wrapper .service-cards .service-details ul {
+        list-style: disc;
+        padding-left: 20px; }
+        .consulting-wrapper .service-cards .service-details ul li {
+          margin-bottom: 4px;
+          line-height: 19px; }
+    .consulting-wrapper .service-cards .mobile-show {
+      display: none; }
+    .consulting-wrapper .service-cards .mobile-hide {
+      display: inline-block; }
+    @media only screen and (max-width: 959px) {
+      .consulting-wrapper .service-cards .mobile-show {
+        display: inline-block; }
+      .consulting-wrapper .service-cards .mobile-hide {
+        display: none; } }
+    .consulting-wrapper .service-cards img,
+    .consulting-wrapper .service-cards .service-details {
+      width: 50%;
+      display: inline-block;
+      vertical-align: middle; }
+      @media only screen and (max-width: 959px) {
+        .consulting-wrapper .service-cards img,
+        .consulting-wrapper .service-cards .service-details {
+          width: 100%;
+          float: none !important; } }
+
+.admin-dashboard-wrapper {
+  padding: 20px 15px 70px;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #333;
+  text-transform: none;
+  text-decoration: none; }
+  .admin-dashboard-wrapper .list-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px; }
+  .admin-dashboard-wrapper a {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #3980d8;
+    text-transform: none;
+    text-decoration: none; }
+    .admin-dashboard-wrapper a:hover {
+      color: #ff566f; }
+  .admin-dashboard-wrapper .create-course-link,
+  .admin-dashboard-wrapper .create-trending-link {
+    text-align: right; }
+    .admin-dashboard-wrapper .create-course-link a,
+    .admin-dashboard-wrapper .create-trending-link a {
+      padding: 10px;
+      color: #fff;
+      background: #ff566f;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      display: inline-block; }
+  .admin-dashboard-wrapper .admin-sub-nav ul {
+    margin-bottom: 20px;
+    text-align: center; }
+    .admin-dashboard-wrapper .admin-sub-nav ul li {
+      display: inline-block;
+      margin-right: 20px; }
+      .admin-dashboard-wrapper .admin-sub-nav ul li:last-child {
+        margin-right: 0; }
+
+.success-message {
+  margin-top: 20px;
+  color: #2dcc2d;
+  font-size: 16px;
+  line-height: 21px; }
+
+.user-dashboard {
+  padding-bottom: 70px; }
+
+.course-details-wrapper {
+  padding: 30px 20px 80px; }
+
+.about-us-wrapper {
+  padding: 30px 20px 50px;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  text-transform: none;
+  text-decoration: none;
+  line-height: 20px; }
+  .about-us-wrapper p {
+    margin-bottom: 10px; }
+  .about-us-wrapper h3 {
+    margin: 30px 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center; }
+  .about-us-wrapper .team-info-wrapper .team-info {
+    text-align: center;
+    width: 50%;
+    float: left;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-right: solid 0.5px #ccc; }
+    .about-us-wrapper .team-info-wrapper .team-info:last-child {
+      border-right: none; }
+    @media only screen and (max-width: 719px) {
+      .about-us-wrapper .team-info-wrapper .team-info {
+        width: 100%;
+        float: none;
+        padding: 20px;
+        border-bottom: solid 0.5px #ccc;
+        border-right: none;
+        margin-bottom: 0; }
+        .about-us-wrapper .team-info-wrapper .team-info:last-child {
+          border-bottom: none; } }
+    .about-us-wrapper .team-info-wrapper .team-info .about-us-profile-image {
+      border-radius: 50%; }
+    .about-us-wrapper .team-info-wrapper .team-info .name-wrapper {
+      margin-bottom: 0;
+      font-size: 16px;
+      font-weight: bold; }
+    .about-us-wrapper .team-info-wrapper .team-info .designation-wrapper {
+      font-size: 13px;
+      color: #ff566f; }
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #eee;
+  border-top: solid 0.5px #ccc;
+  padding: 5px 0; }
+  footer .footer-wrapper {
+    max-width: 1600px;
+    padding: 0 20px;
+    margin: 4px auto 0; }
+    footer .footer-wrapper .nav-links p,
+    footer .footer-wrapper .social-icons p {
+      display: inline-block;
+      margin-right: 30px; }
+      footer .footer-wrapper .nav-links p:last-child,
+      footer .footer-wrapper .social-icons p:last-child {
+        margin-right: 0; }
+      footer .footer-wrapper .nav-links p a,
+      footer .footer-wrapper .social-icons p a {
+        font-family: "Avenir", Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        color: #333;
+        text-transform: none;
+        text-decoration: none; }
+        footer .footer-wrapper .nav-links p a:hover,
+        footer .footer-wrapper .social-icons p a:hover {
+          color: #ff566f; }
+    footer .footer-wrapper .nav-links {
+      margin-top: 7px; }
+      @media only screen and (max-width: 519px) {
+        footer .footer-wrapper .nav-links p {
+          margin-right: 10px; } }
+    footer .footer-wrapper .social-icons p {
+      margin-right: 10px; }

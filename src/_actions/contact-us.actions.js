@@ -25,6 +25,24 @@ export const addQuery = function(query) {
    };
 }
 
+export const updateQuery = function(queryId, query) {
+  return (dispatch) => {
+    dispatch({ type: QUERY_LOADING });
+    contactUsService.updateQuery(queryId, query)
+      .then(
+        query => {
+          dispatch(getQueryList());
+        },
+        error => {
+          dispatch({
+            type: QUERY_ERROR,
+            payload: error
+          });
+        }
+      );
+   };
+}
+
 export const getQueryList = function() {
   return (dispatch) => {
     dispatch({ type: QUERY_LOADING });

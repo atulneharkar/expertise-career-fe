@@ -40,12 +40,12 @@ class CourseDetails extends Component {
     const course = this.props.courseData;
     if(course) {
       return (
-        <div>
-          <h2>{course.title}</h2>
-          <div>
-            <p>Learn the best way to become a # 1 Uxer within no time!</p>
-            <p>With Mahesh Shinde</p>
-            <p>Sr. UX Designer (6+ Years of UX Design Experience)</p>
+        <div className="webinar-title-sub-wrapper wrapper">
+          <h2 className="course-title">{course.title}</h2>
+          <div className="author-name-wrapper">
+            <p className="highlight-text">Learn the best way to become a # 1 Uxer within no time!</p>
+            <p className="author-name">With Mahesh Shinde</p>
+            <p className="author-designation">Sr. UX Designer (6+ Years of UX Design Experience)</p>
           </div>
         </div>
       );
@@ -69,55 +69,70 @@ class CourseDetails extends Component {
 	  	return (
       	<div>
       		<img alt="Course Picture" src={course.courseImage} width="100"/>
-      		<p>{course.courseDate}</p>
-          <p>{course.courseType}</p>
-          <p>{course.courseCategory}</p>
-          <p>{course.courseDate}</p>
-          <p>{course.slot}</p>
-          <p>{course.webinarLink}</p>
-          <p>{course.coursePrice}</p>
-          <ul>{this.renderSyllabus(course.description)}</ul>
+          <div className="webinar-date-time clearfix">
+      		  <p><span>Webinar date:</span> {course.courseDate}</p>
+            <p><span>Webinar time:</span> {course.slot}</p>
+          </div>
+          <div className="course-price clearfix">
+            <p>Rs {course.coursePrice} /-</p>
+            <Link to="" className="register-course-btn">Take Webinar</Link>
+          </div>
+          <div className="course-topics">
+            <h3>Topics Covered</h3>
+            <ul>{this.renderSyllabus(course.description)}</ul>
+          </div>
 
-          <div className="social-share-icons">
-            <FacebookShareButton
-              url={shareUrl}
-              title={title}>
-              <FacebookIcon
-                size={32}
-                round />
-            </FacebookShareButton>
+          <div className="social-share-icons clearfix">
+            <div>
+              <FacebookShareButton
+                url={shareUrl}
+                title={title}>
+                <FacebookIcon
+                  size={32}
+                  round />
+              </FacebookShareButton>
+            </div>
 
-            <TwitterShareButton
-              url={shareUrl}
-              title={title}>
-              <TwitterIcon
-                size={32}
-                round />
-            </TwitterShareButton>
+            <div>
+              <TwitterShareButton
+                url={shareUrl}
+                title={title}>
+                <TwitterIcon
+                  size={32}
+                  round />
+              </TwitterShareButton>
+            </div>
 
-            <WhatsappShareButton
-              url={shareUrl}
-              title={title}
-              separator=":: ">
-              <WhatsappIcon size={32} round />
-            </WhatsappShareButton>
+            <div>
+              <WhatsappShareButton
+                url={shareUrl}
+                title={title}
+                separator=":: ">
+                <WhatsappIcon size={32} round />
+              </WhatsappShareButton>
+            </div>
 
-            <GooglePlusShareButton
-              url={shareUrl}>
-              <GooglePlusIcon
-                size={32}
-                round />
-            </GooglePlusShareButton>
+            <div>
+              <GooglePlusShareButton
+                url={shareUrl}>
+                <GooglePlusIcon
+                  size={32}
+                  round />
+              </GooglePlusShareButton>
+            </div>
 
-            <LinkedinShareButton
-              url={shareUrl}
-              title={title}
-              windowWidth={750}
-              windowHeight={600}>
-              <LinkedinIcon
-                size={32}
-                round />
-            </LinkedinShareButton>
+            <div>
+              <LinkedinShareButton
+                url={shareUrl}
+                title={title}
+                windowWidth={750}
+                windowHeight={600}>
+                <LinkedinIcon
+                  size={32}
+                  round />
+              </LinkedinShareButton>
+            </div>
+
           </div>
       	</div>
       );
@@ -132,17 +147,22 @@ class CourseDetails extends Component {
 
   render() {
 		return (
-			<div className="course-details-wrapper wrapper">
-        <Link to="/">Back</Link>
+      <div>
         <div className="webinar-title-wrapper">
           {this.renderWebinarTitle()}
         </div>
-        <div className="clearfix">
-          <div className="about-author-wrapper">
-            <AuthorInfo />
-          </div>
-          <div className="webinar-details-wrapper">
-            {this.renderCourseDetailTemplate()}
+  			<div className="course-details-wrapper wrapper">
+          <Link to="/" className="course-list-link">Back to Course List</Link>
+          <div className="clearfix webinar-info-wrapper">
+            <div className="webinar-details-wrapper mobile-visible">
+              {this.renderCourseDetailTemplate()}
+            </div>
+            <div className="about-author-main-wrapper">
+              <AuthorInfo />
+            </div>
+            <div className="webinar-details-wrapper mobile-hide">
+              {this.renderCourseDetailTemplate()}
+            </div>
           </div>
         </div>
       </div>

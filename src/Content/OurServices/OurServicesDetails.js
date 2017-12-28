@@ -49,14 +49,14 @@ class OurServicesDetails extends Component {
           <div className="service-details">
             <h2>Design/development guide for college projects</h2>
             <p>
-              Gain knowledge and tools from the industry experts in your field in interest. 
-              Connect with them through webinars and unlock yourpotential by taking courses.
+              Get consultation and development support for your final year
+              college projects. Our team will cover techinal concepts from stratch and you will get better understanding/overview all recent technologies.  
             </p>
              <ul>
-              <li>Connect with the expert from industry</li>
-              <li>Get hands on experience</li>
-              <li>Solve problems with guidance</li>
-              <li>Get to see case studies</li>
+              <li>Project workflow and architecture designing</li>
+              <li>Preparing presentations</li>
+              <li>Make understand all the aspects of the project from techinal perspective</li>
+              <li>Development and testing the projects</li>
             </ul>
           </div>
         </div>

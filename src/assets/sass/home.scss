@@ -136,13 +136,13 @@
         @media only screen and (max-width: 519px) {
           width: 100%;
           padding: 10px;
-          background: #ff566f;
-          color: #fff;
+          background: #ddd;
+          color: #333;
         }
 
 	      &:hover {
-	      	background: #ff566f;
-	      	color: #fff;
+	      	background: #ddd;
+          color: #333;
 	      }
       }
 		}
@@ -177,6 +177,20 @@
   .course-card,
   .trending-card {
   	margin-bottom: 30px;
+
+    &:nth-child(4n+2) {
+      clear: left;
+    }
+
+    @media only screen and (max-width: 1199px) {
+      &:nth-child(3n+2) {
+        clear: left;
+      }
+
+      &:nth-child(4n+2) {
+        clear: none;
+      }
+    }
 
     @media only screen and (max-width: 719px) {
       width: 100%;

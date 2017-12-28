@@ -113,7 +113,7 @@ class Header extends Component {
     return (
       <header className={(this.props.authenticated) ? 'header-profile-img' : ''}>
         <div className="header-wrapper clearfix">
-          <h1 className="main-logo pull-left"><NavLink to="/">Expertise Career</NavLink></h1>
+          <h1 className="main-logo pull-left" onClick={() => this.toggleMobileMenu(false)}><NavLink to="/">Expertise Career</NavLink></h1>
           <div className="pull-right main-nav clearfix">
             <img src={hamburgerIcon} className={this.state.mobileMenu ? 'hamburger-hide hamburger-icon' : 'hamburger-icon' } width="32" height="32" onClick={() => this.toggleMobileMenu(true)} />
             <img src={closeIcon} className={this.state.mobileMenu ? 'close-icon-show close-icon' : 'close-icon' } width="28" height="28" onClick={() => this.toggleMobileMenu(false)} />

@@ -1,3 +1,219 @@
+.webinar-title-wrapper {
+	margin-bottom: 20px;
+	background: #333;
+	@include full-font($avenir, 14px, #fff);
+
+	.webinar-title-sub-wrapper {
+		padding: 30px 20px 30px;
+
+		.course-title {
+			font-size: 40px;
+			line-height: 50px;
+
+			@media only screen and (max-width: 719px) {
+				font-size: 30px;
+			  line-height: 40px;
+			}
+		}
+
+		.author-name-wrapper {
+			width: 50%;
+			padding-right: 30px;
+
+			@media only screen and (max-width: 719px) {
+				width: 100%;
+			  padding-right: 0;
+			}
+
+			.highlight-text {
+				margin: 20px 0 30px;
+				line-height: 16px;
+				@media only screen and (max-width: 719px) {
+					margin: 10px 0 20px;
+				}
+			}
+
+			.author-name,
+			.author-designation {
+				font-size: 20px;
+				line-height: 25px;
+
+				@media only screen and (max-width: 719px) {
+					font-size: 18px;
+				  line-height: 23px;
+				}
+			}
+	  }
+	}
+}
+
 .course-details-wrapper {
-	padding: 30px 20px 80px;
+	padding: 0 20px 80px;
+	@include full-font($avenir, 14px, #333);
+
+	.mobile-visible {
+		display: none;
+	}
+
+	@media only screen and (max-width: 719px) {
+		.mobile-visible {
+		  display: block;
+	  }
+
+	  .mobile-hide {
+		  display: none;
+	  }
+	}
+
+	.course-list-link {
+		color: #3980d8;
+    text-decoration: none;
+
+    &:hover {
+    	color: #ff566f; 
+    }
+	}
+
+	.about-author-main-wrapper,
+	.webinar-details-wrapper {
+		width: 50%;
+		float: left;
+
+		@media only screen and (max-width: 719px) {
+			width: 100%;
+		  float: none;
+		}
+	}
+
+	.about-author-main-wrapper {
+		padding-right: 30px;
+		line-height: 16px;
+
+		.title {
+			font-size: 18px;
+			margin: 20px 0;
+		}
+
+		.basic-info {
+			text-align: center;
+		}
+
+		.about-us-profile-image {
+			border-radius: 50%;
+		}
+
+		.name-wrapper {
+			margin: 10px 0;
+			font-size: 17px;
+		}
+
+		.description {
+			text-align: left;
+		}
+
+		.general-faq {
+			h3 {
+				font-weight: bold;
+				font-size: 15px;
+				margin: 30px 0 10px;
+
+				@media only screen and (max-width: 719px) {
+					margin: 20px 0 5px;
+				}
+			}
+		}
+	}
+
+	.webinar-details-wrapper {
+		border: solid 0.5px #e6e6e6;
+		padding: 20px;
+    position: absolute;
+    top: -150px;
+    right: 0;
+    background: #fff;
+    margin-bottom: 80px;
+
+    @media only screen and (max-width: 719px) {
+		  margin: 20px 0;
+      position: static;
+    }
+
+		img {
+			width: 100%;
+		}
+
+		.webinar-date-time {
+	    border: 0.5px solid #e6e6e6;
+	    margin: -2px 0 0;
+	    padding: 20px;
+	    background: #eee;
+			p {
+				font-size: 16px;
+				width: 50%;
+				float: left;
+			}
+
+			span {
+				font-weight: bold;
+				display: block;
+				margin-bottom: 10px;
+			}
+		}
+
+		.course-price {
+			margin: 20px 0;
+
+			.register-course-btn {
+				width: 60%;
+				float: right;
+				padding: 16px;
+        text-align: center;
+        color: #fff;
+        background: #ff566f;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 20px;
+			}
+
+			p {
+		    margin-top: 15px;
+				width: 40%;
+				float: left;
+				font-size: 24px;
+				color: #ff566f;
+		  }
+		}
+
+		.course-topics {
+			h3 {
+				font-size: 20px;
+				margin-bottom: 10px;
+			}
+
+			ul {
+		    list-style: disc;
+        padding-left: 20px;
+        margin-bottom: 20px;
+
+        li {
+        	margin-bottom: 4px;
+    	    line-height: 19px;
+        }
+			}
+		}
+
+		.social-share-icons >div {
+			float: left;
+			width: 20%;
+			text-align: center;
+
+			& > div {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.webinar-info-wrapper {
+	position: relative;
 }

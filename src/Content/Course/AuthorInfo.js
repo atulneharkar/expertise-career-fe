@@ -5,20 +5,19 @@ import aboutUsMaheshImg from '../../assets/images/about-us-atul.jpg';
 class AuthorInfo extends Component {
   render() {
     return (
-      <div className="about-author-wrapper">
+      <div>
 
-        <div>
+        <p className="title">About the Author</p>
+        <div className="basic-info">
           <img src={aboutUsMaheshImg} alt="profile image" width="80" height="80" className="about-us-profile-image" />
-          <div className="basic-info">
-            <p className="name-wrapper">Mahesh Shinde</p>
-          </div>
+          <p className="name-wrapper">Mahesh Shinde</p>
           <p className="description">
             Mahesh Shinde is a Sr. Ux in a multi national IT firm. Studied Mechanical Engineering and Post Grad from NID as Automotive Designer. 
             Work experiences include entrepreneurship, working as UX designer from last  6+ Years. He has worked in service and product sector. 
           </p>
         </div>
 
-        <div>
+        <div className="general-faq">
           <h3>
             What do I need to have before taking the webinar?
           </h3>
@@ -28,7 +27,7 @@ class AuthorInfo extends Component {
           </p>
         </div>
 
-        <div>
+        <div className="general-faq">
           <h3>
             How does this work ?
           </h3>

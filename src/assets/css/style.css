@@ -772,11 +772,11 @@ header {
           .services-card-wrapper .floating-text .service-cards .card {
             width: 100%;
             padding: 10px;
-            background: #ff566f;
-            color: #fff; } }
+            background: #ddd;
+            color: #333; } }
         .services-card-wrapper .floating-text .service-cards .card:hover {
-          background: #ff566f;
-          color: #fff; }
+          background: #ddd;
+          color: #333; }
 
 .wrapper {
   max-width: 1200px;
@@ -807,6 +807,22 @@ header {
   .trending-card-list .course-card,
   .trending-card-list .trending-card {
     margin-bottom: 30px; }
+    .course-card-list .course-card:nth-child(4n+2),
+    .course-card-list .trending-card:nth-child(4n+2),
+    .trending-card-list .course-card:nth-child(4n+2),
+    .trending-card-list .trending-card:nth-child(4n+2) {
+      clear: left; }
+    @media only screen and (max-width: 1199px) {
+      .course-card-list .course-card:nth-child(3n+2),
+      .course-card-list .trending-card:nth-child(3n+2),
+      .trending-card-list .course-card:nth-child(3n+2),
+      .trending-card-list .trending-card:nth-child(3n+2) {
+        clear: left; }
+      .course-card-list .course-card:nth-child(4n+2),
+      .course-card-list .trending-card:nth-child(4n+2),
+      .trending-card-list .course-card:nth-child(4n+2),
+      .trending-card-list .trending-card:nth-child(4n+2) {
+        clear: none; } }
     @media only screen and (max-width: 719px) {
       .course-card-list .course-card,
       .course-card-list .trending-card,
@@ -1054,8 +1070,160 @@ header {
 .user-dashboard {
   padding-bottom: 70px; }
 
+.webinar-title-wrapper {
+  margin-bottom: 20px;
+  background: #333;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  text-transform: none;
+  text-decoration: none; }
+  .webinar-title-wrapper .webinar-title-sub-wrapper {
+    padding: 30px 20px 30px; }
+    .webinar-title-wrapper .webinar-title-sub-wrapper .course-title {
+      font-size: 40px;
+      line-height: 50px; }
+      @media only screen and (max-width: 719px) {
+        .webinar-title-wrapper .webinar-title-sub-wrapper .course-title {
+          font-size: 30px;
+          line-height: 40px; } }
+    .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper {
+      width: 50%;
+      padding-right: 30px; }
+      @media only screen and (max-width: 719px) {
+        .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper {
+          width: 100%;
+          padding-right: 0; } }
+      .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper .highlight-text {
+        margin: 20px 0 30px;
+        line-height: 16px; }
+        @media only screen and (max-width: 719px) {
+          .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper .highlight-text {
+            margin: 10px 0 20px; } }
+      .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper .author-name,
+      .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper .author-designation {
+        font-size: 20px;
+        line-height: 25px; }
+        @media only screen and (max-width: 719px) {
+          .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper .author-name,
+          .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper .author-designation {
+            font-size: 18px;
+            line-height: 23px; } }
+
 .course-details-wrapper {
-  padding: 30px 20px 80px; }
+  padding: 0 20px 80px;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  text-transform: none;
+  text-decoration: none; }
+  .course-details-wrapper .mobile-visible {
+    display: none; }
+  @media only screen and (max-width: 719px) {
+    .course-details-wrapper .mobile-visible {
+      display: block; }
+    .course-details-wrapper .mobile-hide {
+      display: none; } }
+  .course-details-wrapper .course-list-link {
+    color: #3980d8;
+    text-decoration: none; }
+    .course-details-wrapper .course-list-link:hover {
+      color: #ff566f; }
+  .course-details-wrapper .about-author-main-wrapper,
+  .course-details-wrapper .webinar-details-wrapper {
+    width: 50%;
+    float: left; }
+    @media only screen and (max-width: 719px) {
+      .course-details-wrapper .about-author-main-wrapper,
+      .course-details-wrapper .webinar-details-wrapper {
+        width: 100%;
+        float: none; } }
+  .course-details-wrapper .about-author-main-wrapper {
+    padding-right: 30px;
+    line-height: 16px; }
+    .course-details-wrapper .about-author-main-wrapper .title {
+      font-size: 18px;
+      margin: 20px 0; }
+    .course-details-wrapper .about-author-main-wrapper .basic-info {
+      text-align: center; }
+    .course-details-wrapper .about-author-main-wrapper .about-us-profile-image {
+      border-radius: 50%; }
+    .course-details-wrapper .about-author-main-wrapper .name-wrapper {
+      margin: 10px 0;
+      font-size: 17px; }
+    .course-details-wrapper .about-author-main-wrapper .description {
+      text-align: left; }
+    .course-details-wrapper .about-author-main-wrapper .general-faq h3 {
+      font-weight: bold;
+      font-size: 15px;
+      margin: 30px 0 10px; }
+      @media only screen and (max-width: 719px) {
+        .course-details-wrapper .about-author-main-wrapper .general-faq h3 {
+          margin: 20px 0 5px; } }
+  .course-details-wrapper .webinar-details-wrapper {
+    border: solid 0.5px #e6e6e6;
+    padding: 20px;
+    position: absolute;
+    top: -150px;
+    right: 0;
+    background: #fff;
+    margin-bottom: 80px; }
+    @media only screen and (max-width: 719px) {
+      .course-details-wrapper .webinar-details-wrapper {
+        margin: 20px 0;
+        position: static; } }
+    .course-details-wrapper .webinar-details-wrapper img {
+      width: 100%; }
+    .course-details-wrapper .webinar-details-wrapper .webinar-date-time {
+      border: 0.5px solid #e6e6e6;
+      margin: -2px 0 0;
+      padding: 20px;
+      background: #eee; }
+      .course-details-wrapper .webinar-details-wrapper .webinar-date-time p {
+        font-size: 16px;
+        width: 50%;
+        float: left; }
+      .course-details-wrapper .webinar-details-wrapper .webinar-date-time span {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px; }
+    .course-details-wrapper .webinar-details-wrapper .course-price {
+      margin: 20px 0; }
+      .course-details-wrapper .webinar-details-wrapper .course-price .register-course-btn {
+        width: 60%;
+        float: right;
+        padding: 16px;
+        text-align: center;
+        color: #fff;
+        background: #ff566f;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 20px; }
+      .course-details-wrapper .webinar-details-wrapper .course-price p {
+        margin-top: 15px;
+        width: 40%;
+        float: left;
+        font-size: 24px;
+        color: #ff566f; }
+    .course-details-wrapper .webinar-details-wrapper .course-topics h3 {
+      font-size: 20px;
+      margin-bottom: 10px; }
+    .course-details-wrapper .webinar-details-wrapper .course-topics ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 20px; }
+      .course-details-wrapper .webinar-details-wrapper .course-topics ul li {
+        margin-bottom: 4px;
+        line-height: 19px; }
+    .course-details-wrapper .webinar-details-wrapper .social-share-icons > div {
+      float: left;
+      width: 20%;
+      text-align: center; }
+      .course-details-wrapper .webinar-details-wrapper .social-share-icons > div > div {
+        display: inline-block; }
+
+.webinar-info-wrapper {
+  position: relative; }
 
 .about-us-wrapper {
   padding: 30px 20px 50px;

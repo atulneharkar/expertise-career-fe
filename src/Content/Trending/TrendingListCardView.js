@@ -15,7 +15,7 @@ class TrendingListCardView extends Component {
 	      return (
 	      	<div key={trending._id} className="trending-card col-xs-4 col-sm-4 col-lg-3">
 	      	  <a href={trending.videoLink} target="_blank">
-		      		<img alt="Trending Picture" src={trending.trendingImage} />
+		      		<img alt="Trending pic" src={trending.trendingImage} />
 		      		<div className="trending-info">
 		      		  <p className="trending-title">{trending.title}</p>
 		      		  <p className="trending-category">{trending.trendingCategory}</p>

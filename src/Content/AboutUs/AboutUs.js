@@ -22,7 +22,7 @@ class AboutUs extends Component {
         <h3>Our Team</h3>
         <div className="team-info-wrapper">
         	<div className="team-info">
-        	  <img src={aboutUsAtulImg} alt="profile image" width="80" height="80" className="about-us-profile-image" />
+        	  <img src={aboutUsAtulImg} alt="profile pic" width="80" height="80" className="about-us-profile-image" />
             <div className="basic-info">
           	  <p className="name-wrapper">Atul Neharkar</p>
           	  <p className="designation-wrapper">Web and Mobile app specialist (5+ years of industry experience)</p>
@@ -35,13 +35,13 @@ class AboutUs extends Component {
         	</div>
 
         	<div className="team-info">
-        	  <img src={aboutUsAtulImg} alt="profile image" width="80" height="80" className="about-us-profile-image" />
+        	  <img src={aboutUsAtulImg} alt="profile pic" width="80" height="80" className="about-us-profile-image" />
             <div className="basic-info">
           	  <p className="name-wrapper">Mahesh Shinde</p>
           	  <p className="designation-wrapper">Sr. UX Designer (6+ years of industry experience) </p>
             </div>
             <p className="description">
-              Mahesh Shinde is a Sr. Ux in a multi national IT firm. Studied Mechanical Engineering and Post Grad from NID as Automotive Designer. 
+              Mahesh is a Sr. Ux in a multi national IT firm. Studied Mechanical Engineering and Post Grad from NID as Automotive Designer. 
               Work experiences include entrepreneurship, working as UX designer from last  6+ Years. He has worked in service and product sector. 
             </p>
         	</div>

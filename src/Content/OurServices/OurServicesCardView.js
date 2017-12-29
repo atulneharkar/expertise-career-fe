@@ -8,8 +8,8 @@ class OurServicesCardView extends Component {
   render() {
     return (
       <div className="services-card-wrapper">
-        <img src={logo} alt="main image" className="main-image" />
-        <img src={logoMobile} alt="main image" className="main-image-mobile" />
+        <img src={logo} alt="main pic" className="main-image" />
+        <img src={logoMobile} alt="main pic" className="main-image-mobile" />
 
         <div className="floating-text">
         

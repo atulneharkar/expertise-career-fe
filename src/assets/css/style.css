@@ -85,7 +85,7 @@ header {
           color: #333;
           text-transform: none;
           text-decoration: none; }
-          header .header-wrapper .main-nav ul li a:hover {
+          header .header-wrapper .main-nav ul li a:hover, header .header-wrapper .main-nav ul li a.active {
             color: #ff566f; }
           @media only screen and (max-width: 719px) {
             header .header-wrapper .main-nav ul li a {
@@ -775,8 +775,8 @@ header {
             background: #ddd;
             color: #333; } }
         .services-card-wrapper .floating-text .service-cards .card:hover {
-          background: #ddd;
-          color: #333; }
+          background: #ff566f;
+          color: #fff; }
 
 .wrapper {
   max-width: 1200px;
@@ -1039,7 +1039,7 @@ header {
     color: #3980d8;
     text-transform: none;
     text-decoration: none; }
-    .admin-dashboard-wrapper a:hover {
+    .admin-dashboard-wrapper a:hover, .admin-dashboard-wrapper a.active {
       color: #ff566f; }
   .admin-dashboard-wrapper .create-course-link,
   .admin-dashboard-wrapper .create-trending-link {
@@ -1294,8 +1294,9 @@ footer {
         color: #333;
         text-transform: none;
         text-decoration: none; }
-        footer .footer-wrapper .nav-links p a:hover,
-        footer .footer-wrapper .social-icons p a:hover {
+        footer .footer-wrapper .nav-links p a:hover, footer .footer-wrapper .nav-links p a.active,
+        footer .footer-wrapper .social-icons p a:hover,
+        footer .footer-wrapper .social-icons p a.active {
           color: #ff566f; }
     footer .footer-wrapper .nav-links {
       margin-top: 7px; }

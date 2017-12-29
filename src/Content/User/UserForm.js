@@ -50,6 +50,9 @@ class UserForm extends Component {
 
   componentWillReceiveProps(nextProps) {
   	if(nextProps.userData) {
+  		if(!nextProps.userData.phone) {
+  			nextProps.userData.phone = '';
+  		}
     	this.setState({ userData: nextProps.userData });
     }
   }
@@ -143,13 +146,6 @@ class UserForm extends Component {
 		        type="password"
 		        component={renderInputField}
 		        label="Password"
-		        validate={this.state.userId ? null : [required]}
-		      />
-		      <Field
-		        name="confirmPassword"
-		        type="password"
-		        component={renderInputField}
-		        label="Confirm Password"
 		        validate={this.state.userId ? null : [required]}
 		      />
 		      <Field

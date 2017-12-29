@@ -18,7 +18,7 @@ class UserDashboard extends Component {
 	      return (
 	      	<div key={course._id} className="course-card col-xs-4 col-sm-4 col-lg-3">
 	      	  <Link to={`/webinar/${course._id}`}>
-		      		<img alt="Course Picture" src={course.courseImage} />
+		      		<img alt="Course pic" src={course.courseImage} />
 		      		<div className="course-info">
 			      		<p className="course-type">{course.courseType}</p>
 			      		<p className="course-title">{course.title}</p>

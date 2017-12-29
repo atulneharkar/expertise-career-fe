@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import * as actions from '../_actions';
 import instagramIcon from '../assets/images/instagram-icon.png';
@@ -11,9 +11,9 @@ class Footer extends Component {
       <footer>
         <div className="footer-wrapper clearfix">
           <div className="nav-links pull-left">
-            <p><Link to="/consulting">Consulting</Link></p>
-            <p><Link to="/about-us">About</Link></p>
-            <p><Link to="/contact-us">Contact</Link></p>
+            <p><NavLink to="/consulting" activeClassName="active">Consulting</NavLink></p>
+            <p><NavLink to="/about-us" activeClassName="active">About</NavLink></p>
+            <p><NavLink to="/contact-us">Contact</NavLink></p>
           </div>
           <div className="social-icons pull-right">
           	<p>
@@ -23,7 +23,7 @@ class Footer extends Component {
             </p>
   	        <p>
               <Link to="/instagram">
-                <img src={instagramIcon} width="32" height="32" />
+                <img src={instagramIcon} alt="instagram icon" width="32" height="32" />
               </Link>
             </p>
   	        <p>
@@ -38,4 +38,4 @@ class Footer extends Component {
   }
 }
 
-export default connect(null, actions)(Footer);
+export default connect(null, actions, null, {pure:false})(Footer);

@@ -10,7 +10,7 @@ class OurServicesDetails extends Component {
       <div className="wrapper consulting-wrapper">
 
         <div id="teaching" className="service-cards clearfix">
-          <img src={webinarSessions} />
+          <img src={webinarSessions} alt="webinar sessions" />
           <div className="service-details">
             <h2>Skill building webinars and personal coaching</h2>
             <p>
@@ -27,7 +27,7 @@ class OurServicesDetails extends Component {
         </div>
 
         <div id="business-websites" className="service-cards clearfix">
-          <img src={websitesAndMobileApps} className="mobile-show" />
+          <img src={websitesAndMobileApps} alt="websites and mobile apps" className="mobile-show" />
           <div className="service-details">
             <h2>Build websites, mobile apps for your business </h2>
             <p>
@@ -41,11 +41,11 @@ class OurServicesDetails extends Component {
               <li>Mobile application development</li>
             </ul>
           </div>
-          <img src={websitesAndMobileApps} className="mobile-hide" />
+          <img src={websitesAndMobileApps} alt="websites and mobile apps" className="mobile-hide" />
         </div>
 
         <div id="college-projects" className="service-cards clearfix">
-          <img src={collegeProject} />
+          <img src={collegeProject} alt="college project" />
           <div className="service-details">
             <h2>Design/development guide for college projects</h2>
             <p>

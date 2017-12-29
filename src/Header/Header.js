@@ -73,11 +73,11 @@ class Header extends Component {
   renderProfileImage() {
     if(this.state.userInfo && this.state.userInfo.avatar) {
       return (
-        <img src={this.state.userInfo.avatar} alt="profile image" width="32" height="32" className="profile-image" />
+        <img src={this.state.userInfo.avatar} alt="profile pic" width="32" height="32" className="profile-image" />
       );
     } else {
       return (
-        <img src={defaultProfileImage} alt="profile image" width="32" height="32" className="profile-image" />
+        <img src={defaultProfileImage} alt="profile pic" width="32" height="32" className="profile-image" />
       );
     }
   }
@@ -115,8 +115,8 @@ class Header extends Component {
         <div className="header-wrapper clearfix">
           <h1 className="main-logo pull-left" onClick={() => this.toggleMobileMenu(false)}><NavLink to="/">Expertise Career</NavLink></h1>
           <div className="pull-right main-nav clearfix">
-            <img src={hamburgerIcon} className={this.state.mobileMenu ? 'hamburger-hide hamburger-icon' : 'hamburger-icon' } width="32" height="32" onClick={() => this.toggleMobileMenu(true)} />
-            <img src={closeIcon} className={this.state.mobileMenu ? 'close-icon-show close-icon' : 'close-icon' } width="28" height="28" onClick={() => this.toggleMobileMenu(false)} />
+            <img src={hamburgerIcon} alt="hamburger icon" className={this.state.mobileMenu ? 'hamburger-hide hamburger-icon' : 'hamburger-icon' } width="32" height="32" onClick={() => this.toggleMobileMenu(true)} />
+            <img src={closeIcon} alt="close icon" className={this.state.mobileMenu ? 'close-icon-show close-icon' : 'close-icon' } width="28" height="28" onClick={() => this.toggleMobileMenu(false)} />
             <div className={this.state.mobileMenu ? 'mobile-menu mobile-menu-show' : 'mobile-menu' }>
               <ul>
                 {this.renderUserLinks()}
@@ -138,4 +138,4 @@ const mapStateToProps = (state) => ({
   admin: state.authentication.isAdmin
 });
 
-export default connect(mapStateToProps, actions)(Header);
+export default connect(mapStateToProps, actions, null, {pure:false})(Header);

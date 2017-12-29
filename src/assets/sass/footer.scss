@@ -24,7 +24,8 @@ footer {
 		  	a {
 		  		@include full-font($avenir, 12px, #333);
 
-			    &:hover {
+			    &:hover,
+			    &.active {
 			    	color: #ff566f;
 			    }
 			  }

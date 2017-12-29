@@ -11,7 +11,8 @@
 	a {
     @include full-font($avenir, 13px, #3980d8);
 
-    &:hover {
+    &:hover,
+    &.active {
     	color: #ff566f;
     }
   }

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   ShareButtons,
-  ShareCounts,
   generateShareIcon
 } from 'react-share';
 
@@ -17,12 +16,6 @@ const {
   TwitterShareButton,
   WhatsappShareButton
 } = ShareButtons;
-
-const {
-  FacebookShareCount,
-  GooglePlusShareCount,
-  LinkedinShareCount
-} = ShareCounts;
 
 const FacebookIcon = generateShareIcon('facebook');
 const TwitterIcon = generateShareIcon('twitter');
@@ -68,7 +61,7 @@ class CourseDetails extends Component {
       const title = 'Expertise career - Learn Explore Build';
 	  	return (
       	<div>
-      		<img alt="Course Picture" src={course.courseImage} width="100"/>
+      		<img alt="Course pic" src={course.courseImage} width="100"/>
           <div className="webinar-date-time clearfix">
       		  <p><span>Webinar date:</span> {course.courseDate}</p>
             <p><span>Webinar time:</span> {course.slot}</p>

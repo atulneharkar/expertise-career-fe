@@ -9,7 +9,7 @@ class AuthorInfo extends Component {
 
         <p className="title">About the Author</p>
         <div className="basic-info">
-          <img src={aboutUsMaheshImg} alt="profile image" width="80" height="80" className="about-us-profile-image" />
+          <img src={aboutUsMaheshImg} alt="profile pic" width="80" height="80" className="about-us-profile-image" />
           <p className="name-wrapper">Mahesh Shinde</p>
           <p className="description">
             Mahesh Shinde is a Sr. Ux in a multi national IT firm. Studied Mechanical Engineering and Post Grad from NID as Automotive Designer. 

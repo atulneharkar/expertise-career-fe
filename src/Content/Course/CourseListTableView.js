@@ -39,11 +39,11 @@ class CourseListTableView extends Component {
   renderCoursePicture(avatar) {
     if(avatar) {
       return (
-        <img alt="Course Picture" src={avatar} width="50" height="50" />
+        <img alt="Course pic" src={avatar} width="50" height="50" />
       );
     } else {
       return (
-        <img alt="Course Picture" src="default.img" width="50" height="50" />
+        <img alt="Course pic" src="default.img" width="50" height="50" />
       );
     }
   }

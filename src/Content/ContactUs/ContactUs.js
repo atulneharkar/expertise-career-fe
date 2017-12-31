@@ -31,7 +31,7 @@ class ContactUs extends Component {
 	}
 
   handleInputChange(event) {
-    const value = event.value;;
+    const value = event.target.value;
     const key = event.target.name;
 		
 		const queryData = this.state.queryData;
@@ -42,6 +42,14 @@ class ContactUs extends Component {
 
 	handleFormSubmit(props) {
     this.props.addQuery(props);
+    this.setState({
+			queryData: {
+				name: '',
+				phone: '',
+				email: '',
+				description: ''
+		  }
+	  });
   }
 
   render() {
@@ -53,10 +61,17 @@ class ContactUs extends Component {
 			  	Connect with experts on below contacts or submit your query and we will get back to you.
 			  </h2>
 
-		    <div className="contact-info">
-		      <p><a href="mailto: info@expertisecareer.com">info@expertisecareer.com</a></p>
-		      <p>Atul Neharkar - 8767067878</p>
-		      <p>Mahesh Shinde - 98273782293</p>
+		    <div className="contact-info clearfix">
+		      <div>
+		        <p className="name">Atul Neharkar</p>
+		        <p><a href="mailto: neharkaratul9@gmail.com">neharkaratul9@gmail.com</a></p>
+		        <p>8767067878</p>
+		      </div>
+		      <div>
+		        <p className="name">Mahesh Shinde</p>
+		        <p><a href="mailto: mahesh.shinde99@gmail.com">mahesh.shinde99@gmail.com</a></p>
+		        <p>98273782293</p>
+		      </div>
 		    </div>
 
 				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
@@ -65,6 +80,7 @@ class ContactUs extends Component {
 		        type="text"
 		        component={renderInputField}
 		        label="Name"
+		        setValue={this.state.queryData.name}
 		        onValueChange={(e) => this.handleInputChange(e)}
 		        validate={[required]}
 		      />
@@ -74,6 +90,7 @@ class ContactUs extends Component {
 		        component={renderInputField}
 		        label="Phone"
 		        onValueChange={(e) => this.handleInputChange(e)}
+		        setValue={this.state.queryData.phone}
 		        validate={[required, phoneNumber]}
 		      />
 		      <Field
@@ -82,6 +99,7 @@ class ContactUs extends Component {
 		        component={renderInputField}
 		        label="Email"
 		        onValueChange={(e) => this.handleInputChange(e)}
+		        setValue={this.state.queryData.email}
 		        validate={[required, email]}
 		      />
 		      <Field
@@ -89,6 +107,7 @@ class ContactUs extends Component {
 		        component={renderTextAreaField}
 		        label="Description"
 		        onValueChange={(e) => this.handleInputChange(e)}
+		        setValue={this.state.queryData.description}
 		        validate={[required]}
 		      />
 		      <div>

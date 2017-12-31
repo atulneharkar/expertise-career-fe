@@ -38,7 +38,7 @@ class TrendingListCardView extends Component {
 
 		return (
 			<div className="wrapper trending-card-list clearfix">
-			  <h2>Reference Articles</h2>
+			  <h2>Some Useful Articles</h2>
         {this.renderTrendingCardTemplate()}
       </div>
 		);

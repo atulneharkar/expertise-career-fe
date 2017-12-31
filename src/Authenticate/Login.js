@@ -11,7 +11,19 @@ import { renderInputField } from '../_components';
 
 class LoginForm extends Component {
 
+	constructor(props) {
+    super(props);
+
+    this.state = {
+      redirectUrl: ''
+    };
+  }
+
 	componentWillMount() {
+		if(this.props.location.search) {
+			this.setState({ redirectUrl: this.props.location.search.split('?redirectUrl=')[1] });
+		}
+
     if(this.props.authenticated) {
       history.push('/');
     }
@@ -32,7 +44,7 @@ class LoginForm extends Component {
 	  	email: response.email
 	  };
 	  user['avatar'] = (response.picture && response.picture.data.url) ? (response.picture.data.url) : '';
-	  this.props.authenticateUser(user, 'facebook');
+	  this.props.authenticateUser(user, 'facebook', this.state.redirectUrl);
 	}
 
 	responseGoogle(response) {
@@ -42,11 +54,11 @@ class LoginForm extends Component {
 	  	email: response.profileObj.email
 	  };
 	  user['avatar'] = (response.profileObj.imageUrl) ? (response.profileObj.imageUrl) : '';
-	  this.props.authenticateUser(user, 'google');
+	  this.props.authenticateUser(user, 'google', this.state.redirectUrl);
   }
 
   handleFormSubmit(props) {
-		this.props.authenticateUser(props, 'local');
+		this.props.authenticateUser(props, 'local', this.state.redirectUrl);
   }
 
   render() {
@@ -55,7 +67,7 @@ class LoginForm extends Component {
 		return (
 			<div className="login-form">
 			  <h2 className="form-text">
-			  	Learning from experts is now easy, register and join the webinar at <span>Expert Career</span>.
+			  	Learning from experts is now easy, register and join the webinar at <span>Skill Unfold</span>.
 			  </h2>
 				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 				  <p className="form-title">Sign In</p>
@@ -101,6 +113,7 @@ class LoginForm extends Component {
 				    <GoogleLogin
 					    clientId="448540267236-vhbef0r7l8o8hmqe5gb87sraf95bgasv.apps.googleusercontent.com"
 					    buttonText="Sign In with Google"
+					    autoLoad={false} 
 					    onSuccess={this.responseGoogle.bind(this)}
 					    onFailure={this.responseGoogle.bind(this)} />
 				  </div>

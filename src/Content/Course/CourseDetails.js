@@ -8,6 +8,8 @@ import {
 
 import * as actions from '../../_actions';
 import AuthorInfo from './AuthorInfo';
+import CourseRegister from './CourseRegister';
+import { history } from '../../_helpers';
 
 const {
   FacebookShareButton,
@@ -24,9 +26,25 @@ const LinkedinIcon = generateShareIcon('linkedin');
 const WhatsappIcon = generateShareIcon('whatsapp');
 
 class CourseDetails extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      courseRegister: false
+    };
+  }
+
 	componentWillMount() {
 		const courseId = this.props.match.params.courseId;
 		this.props.getCourseById(courseId);
+  }
+
+  toggleCourseRegister(courseRegister) {
+    if(this.props.authenticated) {
+      this.setState({ courseRegister });
+    } else {
+      history.push(`/login?redirectUrl=/webinar/${this.props.match.params.courseId}`);
+    }
   }
 
   renderWebinarTitle() {
@@ -57,8 +75,8 @@ class CourseDetails extends Component {
   renderCourseDetailTemplate() {
   	const course = this.props.courseData;
   	if(course) {
-      const shareUrl = `http://localhost:3001/webinar/${course._id}`;
-      const title = 'Expertise career - Learn Explore Build';
+      const shareUrl = `https://www.skillunfold.com/webinar/${course._id}`;
+      const title = 'Skill Unfold - Learn Explore Build';
 	  	return (
       	<div>
       		<img alt="Course pic" src={course.courseImage} width="100"/>
@@ -68,7 +86,7 @@ class CourseDetails extends Component {
           </div>
           <div className="course-price clearfix">
             <p>Rs {course.coursePrice} /-</p>
-            <Link to="" className="register-course-btn">Take Webinar</Link>
+            <span onClick={() => this.toggleCourseRegister(true)} className="register-course-btn">Take Webinar</span>
           </div>
           <div className="course-topics">
             <h3>Topics Covered</h3>
@@ -158,12 +176,20 @@ class CourseDetails extends Component {
             </div>
           </div>
         </div>
+
+        <div className={this.state.courseRegister ? 'course-register-overlay show-overlay-course-register' : 'course-register-overlay'} 
+        onClick={() => this.toggleCourseRegister(false)}></div>
+        <div className={this.state.courseRegister ? 'course-register-wrapper show-course-register' : 'course-register-wrapper'}>
+          <CourseRegister handleRegisterModalClose={(userResponse) => this.toggleCourseRegister(userResponse)} />
+        </div>
+
       </div>
 		);
   }
 }
 
 const mapStateToProps = (state) => ({
+  authenticated: state.authentication.isAuthenticated,
   courseData: state.course.courseDetail
 });
 

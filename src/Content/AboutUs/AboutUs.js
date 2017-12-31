@@ -25,7 +25,7 @@ class AboutUs extends Component {
         	  <img src={aboutUsAtulImg} alt="profile pic" width="80" height="80" className="about-us-profile-image" />
             <div className="basic-info">
           	  <p className="name-wrapper">Atul Neharkar</p>
-          	  <p className="designation-wrapper">Web and Mobile app specialist (5+ years of industry experience)</p>
+          	  <p className="designation-wrapper">Web and Mobile apps specialist (5+ years of industry experience)</p>
             </div>
             <p className="description">
               Atul is an experienced Consultant with a demonstrated history of working in the Advertising, Education and Health care industry. 

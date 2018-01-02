@@ -1,1 +1,1 @@
-export const SERVER_URL = 'https://www.skillunfold.com:3001';
+export const SERVER_URL = 'http://localhost:8080';

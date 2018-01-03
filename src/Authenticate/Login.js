@@ -48,13 +48,15 @@ class LoginForm extends Component {
 	}
 
 	responseGoogle(response) {
-    let user = {
-	  	loginType: 'google',
-	  	name: response.profileObj.name,
-	  	email: response.profileObj.email
-	  };
-	  user['avatar'] = (response.profileObj.imageUrl) ? (response.profileObj.imageUrl) : '';
-	  this.props.authenticateUser(user, 'google', this.state.redirectUrl);
+		if(response.profileObj) {
+	    let user = {
+		  	loginType: 'google',
+		  	name: response.profileObj.name,
+		  	email: response.profileObj.email
+		  };
+		  user['avatar'] = (response.profileObj.imageUrl) ? (response.profileObj.imageUrl) : '';
+		  this.props.authenticateUser(user, 'google', this.state.redirectUrl);
+	  }
   }
 
   handleFormSubmit(props) {

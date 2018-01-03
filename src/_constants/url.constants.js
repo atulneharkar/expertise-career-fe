@@ -1,1 +1,1 @@
-export const SERVER_URL = 'https://skillunfold.com:8080';
+export const SERVER_URL = 'https://skillunfold.com/api';

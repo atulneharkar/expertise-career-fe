@@ -14,26 +14,26 @@ class OurServicesCardView extends Component {
         <div className="floating-text">
         
 	        <div className="tag-line">
-	          <p>Excel your Business with Us.</p>
+	          <p>Excel your business with us.</p>
 	        	<p>Choose a topic, take webinars and become a pro within no time.</p>	        
 	        </div>
 
 	        <div className="service-cards">
 	          <Link to="/consulting">
 		        	<div className="card">
-		        		Skill building webinars and personal coaching
+		        		<span>Skill building webinars and personal coaching</span>
 		        	</div>
 	        	</Link>
 
 	        	<Link to="/consulting">
 		        	<div className="card">
-		        		Build websites, mobile apps for your business 
+		        		<span>Build websites, mobile apps for your business</span>
 		        	</div>
 	        	</Link>
 
 	        	<Link to="/consulting">
 		        	<div className="card">
-		        		Design/development guide for college projects
+		        		<span>Design/development guide for college projects</span>
 		        	</div>
 	        	</Link>
 

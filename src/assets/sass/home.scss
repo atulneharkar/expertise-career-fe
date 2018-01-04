@@ -22,53 +22,71 @@
     position: relative;
 
 		.tag-line {
-			width: 60%;
+			width: 590px;
       padding-left: 20px;
 			position: absolute;
 			bottom: 200px;
 			left: 0;
-	    @include full-font($avenir, 45px, #fff);
-      line-height: 58px;
 
-      @media only screen and (max-width: 1279px) {
-        font-size: 37px;
-        line-height: 48px;
-        bottom: 160px;
-      }
-
-      @media only screen and (max-width: 1024px) {
-        font-size: 30px;
-        line-height: 40px;
-        bottom: 140px;
-      }
-
-       @media only screen and (max-width: 959px) {
-        font-size: 25px;
-        line-height: 35px;
-        bottom: 120px;
+      @media only screen and (max-width: 1023px) {
+        width: 465px;
+        bottom: 135px;
       }
 
       @media only screen and (max-width: 800px) {
-        font-size: 25px;
-        line-height: 30px;
-        bottom: 100px;
+        bottom: 120px;
       }
 
       @media only screen and (max-width: 719px) {
-        width: 67%;
-        font-size: 27px;
-        line-height: 40px;
-      }
-
-      @media only screen and (max-width: 550px) {
-        font-size: 25px;
-        line-height: 35px;
+        bottom: 75px;
       }
 
       @media only screen and (max-width: 519px) {
-        font-size: 20px;
-        line-height: 26px;
-        bottom: 240px;
+        bottom: 250px;
+        width: 90%;
+      }
+
+      p {
+        @include full-font($avenir, 45px, #fff);
+        line-height: 58px;
+        font-weight: bold;
+
+        &:last-child {
+          font-size: 35px;
+          line-height: 45px;
+          font-weight: normal;
+        }
+
+        @media only screen and (max-width: 1200px) {
+          font-size: 40px;
+          line-height: 50px;
+
+          &:last-child {
+            font-size: 30px;
+            line-height: 40px;
+          }
+        }
+
+        @media only screen and (max-width: 1023px) {
+          font-size: 35px;
+          line-height: 45px;
+
+          &:last-child {
+            font-size: 25px;
+            line-height: 35px;
+          }
+        }
+
+        @media only screen and (max-width: 800px) {
+          font-size: 30px;
+          line-height: 30px;
+
+          &:last-child {
+            font-size: 20px;
+            line-height: 25px;
+          }
+        }
+
       }
 
 	    p {
@@ -98,46 +116,75 @@
         margin-right: 30px;
         &:last-child {
           margin-right: 0;
+          margin-bottom: 0;
+        }
+
+        @media only screen and (max-width: 1024px) {
+          margin-right: 20px;
+        }
+
+        @media only screen and (max-width: 719px) {
+          margin-right: 20px;
+        }
+
+        @media only screen and (min-width: 520px) and (max-width: 580px) {
+          margin-right: 8px;
         }
 
         @media only screen and (max-width: 519px) {
           margin: 0 0 20px;
           display: block;
-
-          &:last-child {
-            margin: 0;
-          }
         }
       }
 
 			.card {
-			  width: 260px;
-	      padding: 20px;
-	      border-radius: 5px;
+			  width: 300px;
+	      padding: 30px;
+	      border-radius: 8px;
 	      display: inline-block;
 	      background: #fff;
-	      @include full-font($avenir, 17px, #333);
-        line-height: 20px;
+	      @include full-font($avenir, 20px, #333);
+        line-height: 26px;
 	      text-align: center;
 	      cursor: pointer;
 
         @media only screen and (max-width: 1024px) {
-          font-size: 13px;
-          padding: 10px;
-          width: 200px;
+          font-size: 15px;
+          padding: 15px;
+          width: 213px;
         }
 
         @media only screen and (max-width: 719px) {
           font-size: 13px;
-          padding: 5px;
-          width: 140px;
+          padding: 10px;
+          width: 175px;
+          line-height: 17px;
+        }
+
+        @media only screen and (min-width: 520px) and (max-width: 579px) {
+          font-size: 13px;
+          padding: 10px 4px;
+          width: 164px;
+          line-height: 17px;
         }
 
         @media only screen and (max-width: 519px) {
           width: 100%;
+          height: 55px;
           padding: 10px;
-          background: #ddd;
           color: #333;
+          border-radius: 0;
+          border: 1px solid #efefef;
+          -webkit-box-shadow: -10px 10px 22px -6px rgba(51,51,51,0.13);
+          -moz-box-shadow: -10px 10px 22px -6px rgba(51,51,51,0.13);
+          box-shadow: -10px 10px 22px -6px rgba(51,51,51,0.13);
+          font-size: 15px;
+
+          display: flex;
+          justify-content: center;
+          span {
+            align-self: center;
+          }
         }
 
 	      &:hover {
@@ -167,7 +214,7 @@
   }
 
   h2 {
-  	@include full-font($avenir, 18px, #333);
+  	@include full-font($avenir, 20px, #333);
   	border-bottom: 1px solid #efefef;
     padding-bottom: 10px;
   	margin-bottom: 20px;

@@ -1,7 +1,12 @@
 .about-us-wrapper {
 	padding: 30px 20px 50px;
-	@include full-font($avenir, 14px, #333);
-	line-height: 20px;
+	@include full-font($avenir, 16px, #333);
+	line-height: 22px;
+
+	@media only screen and (max-width: 959px) {
+		font-size: 15px;
+    line-height: 20px;
+	}
 
 	p {
 		margin-bottom: 10px;
@@ -16,27 +21,24 @@
 
 	.team-info-wrapper .team-info {
 		text-align: center;
-    width: 50%;
+    width: 48%;
     float: left;
     padding: 20px;
     margin-bottom: 30px;
-    border-right: solid 0.5px #ccc;
+    border: 1px solid #efefef;
+    -webkit-box-shadow: -10px 10px 22px -6px rgba(51,51,51,0.13);
+    -moz-box-shadow: -10px 10px 22px -6px rgba(51,51,51,0.13);
+    box-shadow: -10px 10px 22px -6px rgba(51,51,51,0.13);
 
     &:last-child {
-    	border-right: none;
+    	float: right;
     }
 
     @media only screen and (max-width: 719px) {
     	width: 100%;
       float: none;
       padding: 20px;
-      border-bottom: solid 0.5px #ccc;
-      border-right: none;
-      margin-bottom: 0;
-
-      &:last-child {
-    	  border-bottom: none;
-      }
+      margin-bottom: 30px;
     }
 
     .about-us-profile-image {

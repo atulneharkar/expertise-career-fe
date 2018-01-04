@@ -49,8 +49,7 @@ blockquote, q {
   src: url("../fonts/avenir-next-regular.ttf"); }
 
 header {
-  background: #eee;
-  border-bottom: solid 0.5px #ccc; }
+  background: #333; }
   header .header-wrapper {
     width: 100%;
     max-width: 1600px;
@@ -59,9 +58,13 @@ header {
     header .header-wrapper .main-logo a {
       font-family: "Avenir", Helvetica, Arial, sans-serif;
       font-size: 22px;
-      color: #333;
+      color: #fff;
       text-transform: none;
       text-decoration: none; }
+    @media only screen and (max-width: 719px) {
+      header .header-wrapper .main-logo {
+        position: relative;
+        z-index: 9999; } }
     header .header-wrapper .main-nav ul {
       vertical-align: top;
       display: inline-block;
@@ -71,8 +74,14 @@ header {
           width: 100%;
           text-align: center; } }
       header .header-wrapper .main-nav ul li {
-        margin-right: 20px;
+        margin-right: 30px;
         display: inline-block; }
+        @media only screen and (min-width: 1024px) {
+          header .header-wrapper .main-nav ul li {
+            margin-right: 80px; } }
+        @media only screen and (min-width: 960px) and (max-width: 1023px) {
+          header .header-wrapper .main-nav ul li {
+            margin-right: 60px; } }
         @media only screen and (max-width: 719px) {
           header .header-wrapper .main-nav ul li {
             display: block;
@@ -82,7 +91,7 @@ header {
         header .header-wrapper .main-nav ul li a {
           font-family: "Avenir", Helvetica, Arial, sans-serif;
           font-size: 12px;
-          color: #333;
+          color: #fff;
           text-transform: none;
           text-decoration: none; }
           header .header-wrapper .main-nav ul li a:hover, header .header-wrapper .main-nav ul li a.active {
@@ -98,7 +107,7 @@ header {
       display: inline-block;
       font-family: "Avenir", Helvetica, Arial, sans-serif;
       font-size: 12px;
-      color: #333;
+      color: #fff;
       text-transform: none;
       text-decoration: none; }
       header .header-wrapper .main-nav .sign-in-btn:hover {
@@ -119,7 +128,9 @@ header {
     header .header-wrapper .main-nav .close-icon {
       display: none;
       margin-top: -3px;
-      float: right; }
+      float: right;
+      position: relative;
+      z-index: 9999; }
       @media only screen and (max-width: 719px) {
         header .header-wrapper .main-nav .hamburger-icon,
         header .header-wrapper .main-nav .close-icon {
@@ -140,7 +151,7 @@ header {
         background: #333;
         position: absolute;
         left: 0;
-        top: 67px;
+        top: 63px;
         z-index: 9999; }
       header .header-wrapper .main-nav .mobile-menu-show {
         display: block; }
@@ -179,7 +190,7 @@ header {
         z-index: 999;
         background: #ff566f;
         font-family: "Avenir", Helvetica, Arial, sans-serif;
-        font-size: 12px;
+        font-size: 14px;
         color: #fff;
         text-transform: none;
         text-decoration: none; }
@@ -238,7 +249,7 @@ header {
 .contact-form,
 .trending-form,
 .course-form {
-  width: 430px;
+  width: 500px;
   padding: 30px 0 70px;
   margin: 0 auto; }
   @media only screen and (max-width: 719px) {
@@ -634,27 +645,6 @@ header {
   font-size: 12px;
   margin: 5px 0 0 3px; }
 
-.contact-form .contact-info {
-  text-align: center;
-  margin: 30px 0; }
-  .contact-form .contact-info p {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    color: #333;
-    text-transform: none;
-    text-decoration: none;
-    margin-bottom: 10px; }
-    @media only screen and (max-width: 719px) {
-      .contact-form .contact-info p {
-        font-size: 16px; } }
-    .contact-form .contact-info p:last-child {
-      margin-bottom: 0; }
-  .contact-form .contact-info a {
-    color: #3980d8;
-    text-decoration: none; }
-    .contact-form .contact-info a:hover {
-      color: #ff566f; }
-
 .services-card-wrapper {
   position: relative; }
   .services-card-wrapper .main-image {
@@ -673,51 +663,58 @@ header {
     margin: 0 auto;
     position: relative; }
     .services-card-wrapper .floating-text .tag-line {
-      width: 60%;
+      width: 590px;
       padding-left: 20px;
       position: absolute;
       bottom: 200px;
-      left: 0;
-      font-family: "Avenir", Helvetica, Arial, sans-serif;
-      font-size: 45px;
-      color: #fff;
-      text-transform: none;
-      text-decoration: none;
-      line-height: 58px; }
-      @media only screen and (max-width: 1279px) {
+      left: 0; }
+      @media only screen and (max-width: 1023px) {
         .services-card-wrapper .floating-text .tag-line {
-          font-size: 37px;
-          line-height: 48px;
-          bottom: 160px; } }
-      @media only screen and (max-width: 1024px) {
-        .services-card-wrapper .floating-text .tag-line {
-          font-size: 30px;
-          line-height: 40px;
-          bottom: 140px; } }
-      @media only screen and (max-width: 959px) {
-        .services-card-wrapper .floating-text .tag-line {
-          font-size: 25px;
-          line-height: 35px;
-          bottom: 120px; } }
+          width: 465px;
+          bottom: 135px; } }
       @media only screen and (max-width: 800px) {
         .services-card-wrapper .floating-text .tag-line {
-          font-size: 25px;
-          line-height: 30px;
-          bottom: 100px; } }
+          bottom: 120px; } }
       @media only screen and (max-width: 719px) {
         .services-card-wrapper .floating-text .tag-line {
-          width: 67%;
-          font-size: 27px;
-          line-height: 40px; } }
-      @media only screen and (max-width: 550px) {
-        .services-card-wrapper .floating-text .tag-line {
-          font-size: 25px;
-          line-height: 35px; } }
+          bottom: 75px; } }
       @media only screen and (max-width: 519px) {
         .services-card-wrapper .floating-text .tag-line {
-          font-size: 20px;
-          line-height: 26px;
-          bottom: 240px; } }
+          bottom: 250px;
+          width: 90%; } }
+      .services-card-wrapper .floating-text .tag-line p {
+        font-family: "Avenir", Helvetica, Arial, sans-serif;
+        font-size: 45px;
+        color: #fff;
+        text-transform: none;
+        text-decoration: none;
+        line-height: 58px;
+        font-weight: bold; }
+        .services-card-wrapper .floating-text .tag-line p:last-child {
+          font-size: 35px;
+          line-height: 45px;
+          font-weight: normal; }
+        @media only screen and (max-width: 1200px) {
+          .services-card-wrapper .floating-text .tag-line p {
+            font-size: 40px;
+            line-height: 50px; }
+            .services-card-wrapper .floating-text .tag-line p:last-child {
+              font-size: 30px;
+              line-height: 40px; } }
+        @media only screen and (max-width: 1023px) {
+          .services-card-wrapper .floating-text .tag-line p {
+            font-size: 35px;
+            line-height: 45px; }
+            .services-card-wrapper .floating-text .tag-line p:last-child {
+              font-size: 25px;
+              line-height: 35px; } }
+        @media only screen and (max-width: 800px) {
+          .services-card-wrapper .floating-text .tag-line p {
+            font-size: 30px;
+            line-height: 30px; }
+            .services-card-wrapper .floating-text .tag-line p:last-child {
+              font-size: 20px;
+              line-height: 25px; } }
       .services-card-wrapper .floating-text .tag-line p {
         margin-bottom: 15px; }
         .services-card-wrapper .floating-text .tag-line p:first-child {
@@ -737,43 +734,68 @@ header {
       .services-card-wrapper .floating-text .service-cards a {
         margin-right: 30px; }
         .services-card-wrapper .floating-text .service-cards a:last-child {
-          margin-right: 0; }
+          margin-right: 0;
+          margin-bottom: 0; }
+        @media only screen and (max-width: 1024px) {
+          .services-card-wrapper .floating-text .service-cards a {
+            margin-right: 20px; } }
+        @media only screen and (max-width: 719px) {
+          .services-card-wrapper .floating-text .service-cards a {
+            margin-right: 20px; } }
+        @media only screen and (min-width: 520px) and (max-width: 580px) {
+          .services-card-wrapper .floating-text .service-cards a {
+            margin-right: 8px; } }
         @media only screen and (max-width: 519px) {
           .services-card-wrapper .floating-text .service-cards a {
             margin: 0 0 20px;
-            display: block; }
-            .services-card-wrapper .floating-text .service-cards a:last-child {
-              margin: 0; } }
+            display: block; } }
       .services-card-wrapper .floating-text .service-cards .card {
-        width: 260px;
-        padding: 20px;
-        border-radius: 5px;
+        width: 300px;
+        padding: 30px;
+        border-radius: 8px;
         display: inline-block;
         background: #fff;
         font-family: "Avenir", Helvetica, Arial, sans-serif;
-        font-size: 17px;
+        font-size: 20px;
         color: #333;
         text-transform: none;
         text-decoration: none;
-        line-height: 20px;
+        line-height: 26px;
         text-align: center;
         cursor: pointer; }
         @media only screen and (max-width: 1024px) {
           .services-card-wrapper .floating-text .service-cards .card {
-            font-size: 13px;
-            padding: 10px;
-            width: 200px; } }
+            font-size: 15px;
+            padding: 15px;
+            width: 213px; } }
         @media only screen and (max-width: 719px) {
           .services-card-wrapper .floating-text .service-cards .card {
             font-size: 13px;
-            padding: 5px;
-            width: 140px; } }
+            padding: 10px;
+            width: 175px;
+            line-height: 17px; } }
+        @media only screen and (min-width: 520px) and (max-width: 579px) {
+          .services-card-wrapper .floating-text .service-cards .card {
+            font-size: 13px;
+            padding: 10px 4px;
+            width: 164px;
+            line-height: 17px; } }
         @media only screen and (max-width: 519px) {
           .services-card-wrapper .floating-text .service-cards .card {
             width: 100%;
+            height: 55px;
             padding: 10px;
-            background: #ddd;
-            color: #333; } }
+            color: #333;
+            border-radius: 0;
+            border: 1px solid #efefef;
+            -webkit-box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
+            -moz-box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
+            box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
+            font-size: 15px;
+            display: flex;
+            justify-content: center; }
+            .services-card-wrapper .floating-text .service-cards .card span {
+              align-self: center; } }
         .services-card-wrapper .floating-text .service-cards .card:hover {
           background: #ff566f;
           color: #fff; }
@@ -794,7 +816,7 @@ header {
   .course-card-list h2,
   .trending-card-list h2 {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     color: #333;
     text-transform: none;
     text-decoration: none;
@@ -981,27 +1003,34 @@ header {
     text-transform: none;
     text-decoration: none; }
     .consulting-wrapper .service-cards .service-details {
-      padding: 20px; }
+      padding: 0 20px; }
+      @media only screen and (max-width: 959px) {
+        .consulting-wrapper .service-cards .service-details {
+          padding: 20px; } }
       .consulting-wrapper .service-cards .service-details h2 {
-        font-size: 22px;
-        line-height: 28px;
+        font-size: 28px;
+        line-height: 30px;
         color: #ff566f; }
         @media only screen and (max-width: 959px) {
           .consulting-wrapper .service-cards .service-details h2 {
-            font-size: 19px;
+            font-size: 22px;
             line-height: 25px; } }
       .consulting-wrapper .service-cards .service-details p {
-        margin: 20px 0;
-        line-height: 18px; }
+        margin: 15px 0 10px;
+        line-height: 22px;
+        font-size: 16px; }
         @media only screen and (max-width: 959px) {
           .consulting-wrapper .service-cards .service-details p {
-            margin: 10px 0; } }
+            margin: 10px 0;
+            line-height: 20px;
+            font-size: 15px; } }
       .consulting-wrapper .service-cards .service-details ul {
         list-style: disc;
         padding-left: 20px; }
         .consulting-wrapper .service-cards .service-details ul li {
           margin-bottom: 4px;
-          line-height: 19px; }
+          line-height: 22px;
+          font-size: 16px; }
     .consulting-wrapper .service-cards .mobile-show {
       display: none; }
     .consulting-wrapper .service-cards .mobile-hide {
@@ -1253,11 +1282,15 @@ header {
 .about-us-wrapper {
   padding: 30px 20px 50px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
   text-transform: none;
   text-decoration: none;
-  line-height: 20px; }
+  line-height: 22px; }
+  @media only screen and (max-width: 959px) {
+    .about-us-wrapper {
+      font-size: 15px;
+      line-height: 20px; } }
   .about-us-wrapper p {
     margin-bottom: 10px; }
   .about-us-wrapper h3 {
@@ -1267,23 +1300,22 @@ header {
     text-align: center; }
   .about-us-wrapper .team-info-wrapper .team-info {
     text-align: center;
-    width: 50%;
+    width: 48%;
     float: left;
     padding: 20px;
     margin-bottom: 30px;
-    border-right: solid 0.5px #ccc; }
+    border: 1px solid #efefef;
+    -webkit-box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
+    -moz-box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
+    box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13); }
     .about-us-wrapper .team-info-wrapper .team-info:last-child {
-      border-right: none; }
+      float: right; }
     @media only screen and (max-width: 719px) {
       .about-us-wrapper .team-info-wrapper .team-info {
         width: 100%;
         float: none;
         padding: 20px;
-        border-bottom: solid 0.5px #ccc;
-        border-right: none;
-        margin-bottom: 0; }
-        .about-us-wrapper .team-info-wrapper .team-info:last-child {
-          border-bottom: none; } }
+        margin-bottom: 30px; } }
     .about-us-wrapper .team-info-wrapper .team-info .about-us-profile-image {
       border-radius: 50%; }
     .about-us-wrapper .team-info-wrapper .team-info .name-wrapper {
@@ -1295,8 +1327,10 @@ header {
       color: #ff566f; }
 
 .contact-form .contact-info {
-  background: #eee;
-  padding-bottom: 30px; }
+  border: 1px solid #efefef;
+  padding-bottom: 30px;
+  text-align: center;
+  margin: 30px 0; }
   .contact-form .contact-info > div {
     width: 50%;
     float: left; }
@@ -1308,8 +1342,20 @@ header {
     font-size: 18px;
     margin-top: 30px; }
   .contact-form .contact-info p {
-    margin: 5px 0 0;
-    font-size: 14px; }
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-transform: none;
+    text-decoration: none;
+    margin-bottom: 10px; }
+    @media only screen and (max-width: 719px) {
+      .contact-form .contact-info p {
+        font-size: 15px; } }
+    .contact-form .contact-info p:last-child {
+      margin-bottom: 0; }
+  .contact-form .contact-info a {
+    color: #ff566f;
+    text-decoration: none; }
 
 footer {
   width: 100%;
@@ -1326,6 +1372,14 @@ footer {
     footer .footer-wrapper .social-icons p {
       display: inline-block;
       margin-right: 30px; }
+      @media only screen and (min-width: 1024px) {
+        footer .footer-wrapper .nav-links p,
+        footer .footer-wrapper .social-icons p {
+          margin-right: 80px; } }
+      @media only screen and (min-width: 960px) and (max-width: 1023px) {
+        footer .footer-wrapper .nav-links p,
+        footer .footer-wrapper .social-icons p {
+          margin-right: 60px; } }
       footer .footer-wrapper .nav-links p:last-child,
       footer .footer-wrapper .social-icons p:last-child {
         margin-right: 0; }

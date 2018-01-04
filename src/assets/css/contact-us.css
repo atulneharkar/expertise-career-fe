@@ -1,5 +1,5 @@
 .contact-form .contact-info {
-  background: #eee;
+  border: 1px solid #efefef;
   padding-bottom: 30px; }
   .contact-form .contact-info > div {
     width: 50%;

@@ -12,7 +12,7 @@ class AboutUs extends Component {
           React, Angular, Node, Mongo, Inonic, React Native and User Experience Design (UX) and Visual Designing (VD). 
         </p>
         <p>
-        	Our motive is to consult students and professional with proper guidance and make them professional in 
+        	Our motive is to provide guidance to students and professional and make them professional in 
           Web development, Mobile apps development, UX and VD.  
         </p>
         <p>
@@ -29,7 +29,7 @@ class AboutUs extends Component {
             </div>
             <p className="description">
               Atul is an experienced Consultant with a demonstrated history of working in the Advertising, Education and Health care industry. 
-              Skilled in Web technologies like Html5, CSS3, Angular 2+, React JS and Redux, Node JS and Mongo DB with Bachelor's degree 
+              Skilled in Web technologies like Angular, React/Redux, Node and Mongo DB with Bachelor's degree 
               focused in Computer Engineering.
             </p>
         	</div>

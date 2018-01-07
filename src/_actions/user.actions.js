@@ -91,25 +91,25 @@ export const updateUser = function(userId, user) {
 }
 
 function uploadProfilePicture(file) {
-  return (dispatch) => {console.log(file[0].size);
+  return (dispatch) => {
     if(file[0].size > 5000000) {
       dispatch({ type: FILE_SIZE_ERROR });
     } else {
       let formData = new FormData();
       formData.append('avatar', file[0]);
       
-      // userService.setAvatar(formData)
-      //   .then(
-      //     user => {
-      //       dispatch({ type: USER_SUCCESS });
-      //       setTimeout(function() {
-      //         history.push("/");
-      //       }, 3000);
-      //     },
-      //     error => {
-      //       dispatch(userError('Unable to connect to server.'));
-      //     }
-      //   );
+      userService.setAvatar(formData)
+        .then(
+          user => {
+            dispatch({ type: USER_SUCCESS });
+            setTimeout(function() {
+              history.push("/");
+            }, 3000);
+          },
+          error => {
+            dispatch(userError('Unable to connect to server.'));
+          }
+        );
     }
   };
 }

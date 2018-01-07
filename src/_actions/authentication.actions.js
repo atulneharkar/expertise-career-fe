@@ -45,8 +45,8 @@ export const forgotPassword = function(user) {
     authenticationService.forgotPassword(user)
       .then(
         user => {
+          dispatch({ type: RESET_LINK_SENT });
           history.push(`/reset-password/${user.otp}/${user.userID}`);
-          // dispatch({ type: RESET_LINK_SENT });
           // history.push('/login');
         },
         error => {

@@ -15,16 +15,11 @@ class OurServicesCardView extends Component {
         
 	        <div className="tag-line">
 	          <p>Excel your business with us.</p>
-	        	<p>Choose a topic, take webinars and become a pro within no time.</p>	        
+	        	<p>Choose a topic, take coaching and become a pro within no time.</p>	        
 	        </div>
 
 	        <div className="service-cards">
-	          <Link to="/consulting">
-		        	<div className="card">
-		        		<span>Skill building webinars and personal coaching</span>
-		        	</div>
-	        	</Link>
-
+	          
 	        	<Link to="/consulting">
 		        	<div className="card">
 		        		<span>Build websites, mobile apps for your business</span>
@@ -34,6 +29,12 @@ class OurServicesCardView extends Component {
 	        	<Link to="/consulting">
 		        	<div className="card">
 		        		<span>Design/development guide for college projects</span>
+		        	</div>
+	        	</Link>
+
+	        	<Link to="/consulting">
+		        	<div className="card">
+		        		<span>Skill building webinars and personal coaching</span>
 		        	</div>
 	        	</Link>
 

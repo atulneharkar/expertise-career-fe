@@ -1,7 +1,13 @@
 .webinar-title-wrapper {
 	margin-bottom: 20px;
 	background: #333;
-	@include full-font($avenir, 14px, #fff);
+	@include full-font($avenir, 16px, #fff);
+	line-height: 22px;
+
+	@media only screen and (max-width: 719px) {
+		font-size: 15px;
+		line-height: 20px;
+	}
 
 	.webinar-title-sub-wrapper {
 		padding: 30px 20px 30px;
@@ -27,7 +33,6 @@
 
 			.highlight-text {
 				margin: 20px 0 30px;
-				line-height: 16px;
 				@media only screen and (max-width: 719px) {
 					margin: 10px 0 20px;
 				}
@@ -49,7 +54,13 @@
 
 .course-details-wrapper {
 	padding: 0 20px 80px;
-	@include full-font($avenir, 14px, #333);
+	@include full-font($avenir, 16px, #333);
+	line-height: 22px;
+
+	@media only screen and (max-width: 719px) {
+		font-size: 15px;
+		line-height: 20px;
+	}
 
 	.mobile-visible {
 		display: none;
@@ -87,7 +98,6 @@
 
 	.about-author-main-wrapper {
 		padding-right: 30px;
-		line-height: 16px;
 
 		.title {
 			font-size: 18px;
@@ -197,7 +207,6 @@
 
         li {
         	margin-bottom: 4px;
-    	    line-height: 19px;
         }
 			}
 		}

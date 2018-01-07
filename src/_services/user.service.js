@@ -19,15 +19,18 @@ function addUser(user) {
     }
     return response.json();
   }).then((userInfo) => {
-      if(userInfo) {
-       localStorage.setItem('userInfo', JSON.stringify(userInfo));
-     }
-     return userInfo;
+    saveUserDataToLocalStorage(userInfo);
+    return userInfo;
   });
 }
 
 function updateUser(userId, user) {
-  return fetch(`${SERVER_URL}/user/${userId}`, setHeader('PUT', user, true)).then((response) => response.json());
+  return fetch(`${SERVER_URL}/user/${userId}`, setHeader('PUT', user, true)).then((response) => {
+    return response.json();
+  }).then((userInfo) => {
+    saveUserDataToLocalStorage(userInfo);
+    return userInfo;
+  });
 }
 
 function getAllUsers() {
@@ -39,5 +42,14 @@ function getUserById(userId) {
 }
 
 function setAvatar(data) {
-  return fetch(`${SERVER_URL}/user/avatar`, setHeader('POST', data, true, true)).then((response) => response.json());
+  return fetch(`${SERVER_URL}/user/avatar`, setHeader('POST', data, true, true)).then((response) => {
+    return response.json();
+  }).then((userInfo) => {
+    saveUserDataToLocalStorage(userInfo);
+    return userInfo;
+  });
+}
+
+function saveUserDataToLocalStorage(userInfo) {
+  localStorage.setItem('userInfo', JSON.stringify(userInfo));
 }

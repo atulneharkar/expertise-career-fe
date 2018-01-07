@@ -6,14 +6,18 @@ import { connect } from 'react-redux';
 import * as actions from '../_actions';
 import { required, email } from '../_helpers';
 import { renderInputField } from '../_components';
+import loaderImg from '../assets/images/loader.gif';
 
 class ForgotPasswordForm extends Component {
 
 	renderAuthResponse() {
 		if(this.props.loading) {
-			return <div class="loading">loading</div>;
+			return <div className="loader">
+				<div className="loader-overlay"></div>
+				<img src={loaderImg} className="loader-img" alt="loader" />
+			</div>;
 		} else if(this.props.resetLinkSent) {
-			return <div class="success-message">Link to reset password has been sent to your Email Id.</div>;
+			/*return <div class="success-message">Link to reset password has been sent to your Email Id.</div>;*/
 		} else if(this.props.errorMessage) {
 			return <div class="error-message">{this.props.errorMessage}</div>;
 		} 

@@ -54,17 +54,16 @@ header {
     width: 100%;
     max-width: 1600px;
     padding: 20px;
-    margin: 0 auto; }
-    header .header-wrapper .main-logo a {
-      font-family: "Avenir", Helvetica, Arial, sans-serif;
-      font-size: 22px;
-      color: #fff;
-      text-transform: none;
-      text-decoration: none; }
-    @media only screen and (max-width: 719px) {
-      header .header-wrapper .main-logo {
-        position: relative;
-        z-index: 9999; } }
+    margin: 0 auto;
+    height: 62px; }
+    header .header-wrapper .main-logo {
+      width: 124px; }
+      header .header-wrapper .main-logo .site-logo {
+        width: 100%; }
+      @media only screen and (max-width: 719px) {
+        header .header-wrapper .main-logo {
+          position: relative;
+          z-index: 9999; } }
     header .header-wrapper .main-nav ul {
       vertical-align: top;
       display: inline-block;
@@ -151,7 +150,7 @@ header {
         background: #333;
         position: absolute;
         left: 0;
-        top: 63px;
+        top: 61px;
         z-index: 9999; }
       header .header-wrapper .main-nav .mobile-menu-show {
         display: block; }
@@ -414,6 +413,21 @@ header {
       .course-form form .file-upload-wrapper .Select {
         padding: 0;
         border: none; }
+        .login-form form .field-wrapper .Select .Select-clear-zone,
+        .login-form form .file-upload-wrapper .Select .Select-clear-zone,
+        .register-form form .field-wrapper .Select .Select-clear-zone,
+        .register-form form .file-upload-wrapper .Select .Select-clear-zone,
+        .reset-pwd-form form .field-wrapper .Select .Select-clear-zone,
+        .reset-pwd-form form .file-upload-wrapper .Select .Select-clear-zone,
+        .forgot-pwd-form form .field-wrapper .Select .Select-clear-zone,
+        .forgot-pwd-form form .file-upload-wrapper .Select .Select-clear-zone,
+        .contact-form form .field-wrapper .Select .Select-clear-zone,
+        .contact-form form .file-upload-wrapper .Select .Select-clear-zone,
+        .trending-form form .field-wrapper .Select .Select-clear-zone,
+        .trending-form form .file-upload-wrapper .Select .Select-clear-zone,
+        .course-form form .field-wrapper .Select .Select-clear-zone,
+        .course-form form .file-upload-wrapper .Select .Select-clear-zone {
+          display: none; }
         .login-form form .field-wrapper .Select .Select-input,
         .login-form form .file-upload-wrapper .Select .Select-input,
         .register-form form .field-wrapper .Select .Select-input,
@@ -645,6 +659,28 @@ header {
   font-size: 12px;
   margin: 5px 0 0 3px; }
 
+.file-size-error {
+  margin: 0 0 20px; }
+
+.loader-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #333;
+  opacity: 0.8;
+  z-index: 9999; }
+
+.loader-img {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 99999;
+  margin: -25px 0 0 -25px; }
+
 .services-card-wrapper {
   position: relative; }
   .services-card-wrapper .main-image {
@@ -677,10 +713,10 @@ header {
           bottom: 120px; } }
       @media only screen and (max-width: 719px) {
         .services-card-wrapper .floating-text .tag-line {
-          bottom: 75px; } }
+          bottom: 270px; } }
       @media only screen and (max-width: 519px) {
         .services-card-wrapper .floating-text .tag-line {
-          bottom: 250px;
+          bottom: 260px;
           width: 90%; } }
       .services-card-wrapper .floating-text .tag-line p {
         font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -708,7 +744,7 @@ header {
             .services-card-wrapper .floating-text .tag-line p:last-child {
               font-size: 25px;
               line-height: 35px; } }
-        @media only screen and (max-width: 800px) {
+        @media only screen and (max-width: 519px) {
           .services-card-wrapper .floating-text .tag-line p {
             font-size: 30px;
             line-height: 30px; }
@@ -727,7 +763,7 @@ header {
       @media only screen and (max-width: 800px) {
         .services-card-wrapper .floating-text .service-cards {
           bottom: 20px; } }
-      @media only screen and (max-width: 519px) {
+      @media only screen and (max-width: 719px) {
         .services-card-wrapper .floating-text .service-cards {
           position: static;
           padding: 20px 20px 0; } }
@@ -770,20 +806,8 @@ header {
             width: 213px; } }
         @media only screen and (max-width: 719px) {
           .services-card-wrapper .floating-text .service-cards .card {
-            font-size: 13px;
-            padding: 10px;
-            width: 175px;
-            line-height: 17px; } }
-        @media only screen and (min-width: 520px) and (max-width: 579px) {
-          .services-card-wrapper .floating-text .service-cards .card {
-            font-size: 13px;
-            padding: 10px 4px;
-            width: 164px;
-            line-height: 17px; } }
-        @media only screen and (max-width: 519px) {
-          .services-card-wrapper .floating-text .service-cards .card {
             width: 100%;
-            height: 55px;
+            height: 65px;
             padding: 10px;
             color: #333;
             border-radius: 0;
@@ -791,7 +815,7 @@ header {
             -webkit-box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
             -moz-box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
             box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
-            font-size: 15px;
+            font-size: 16px;
             display: flex;
             justify-content: center; }
             .services-card-wrapper .floating-text .service-cards .card span {
@@ -973,8 +997,11 @@ header {
       .trending-card-list .trending-card .trending-info .trending-category {
         color: #ff566f; }
 
-.trending-card-list {
+.course-card-list {
   padding-top: 0;
+  padding-bottom: 50px; }
+
+.trending-card-list {
   padding-bottom: 50px; }
 
 .no-course-wrapper,
@@ -984,11 +1011,14 @@ header {
   .no-course-wrapper p,
   .no-trending-wrapper p {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     color: #333;
     text-transform: none;
     text-decoration: none;
     margin-bottom: 10px; }
+    .no-course-wrapper p a,
+    .no-trending-wrapper p a {
+      color: #ff566f; }
 
 .consulting-wrapper {
   padding: 0 20px 50px; }
@@ -1103,10 +1133,15 @@ header {
   margin-bottom: 20px;
   background: #333;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
   text-transform: none;
-  text-decoration: none; }
+  text-decoration: none;
+  line-height: 22px; }
+  @media only screen and (max-width: 719px) {
+    .webinar-title-wrapper {
+      font-size: 15px;
+      line-height: 20px; } }
   .webinar-title-wrapper .webinar-title-sub-wrapper {
     padding: 30px 20px 30px; }
     .webinar-title-wrapper .webinar-title-sub-wrapper .course-title {
@@ -1124,8 +1159,7 @@ header {
           width: 100%;
           padding-right: 0; } }
       .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper .highlight-text {
-        margin: 20px 0 30px;
-        line-height: 16px; }
+        margin: 20px 0 30px; }
         @media only screen and (max-width: 719px) {
           .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper .highlight-text {
             margin: 10px 0 20px; } }
@@ -1142,10 +1176,15 @@ header {
 .course-details-wrapper {
   padding: 0 20px 80px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
   text-transform: none;
-  text-decoration: none; }
+  text-decoration: none;
+  line-height: 22px; }
+  @media only screen and (max-width: 719px) {
+    .course-details-wrapper {
+      font-size: 15px;
+      line-height: 20px; } }
   .course-details-wrapper .mobile-visible {
     display: none; }
   @media only screen and (max-width: 719px) {
@@ -1168,8 +1207,7 @@ header {
         width: 100%;
         float: none; } }
   .course-details-wrapper .about-author-main-wrapper {
-    padding-right: 30px;
-    line-height: 16px; }
+    padding-right: 30px; }
     .course-details-wrapper .about-author-main-wrapper .title {
       font-size: 18px;
       margin: 20px 0; }
@@ -1242,8 +1280,7 @@ header {
       padding-left: 20px;
       margin-bottom: 20px; }
       .course-details-wrapper .webinar-details-wrapper .course-topics ul li {
-        margin-bottom: 4px;
-        line-height: 19px; }
+        margin-bottom: 4px; }
     .course-details-wrapper .webinar-details-wrapper .social-share-icons > div {
       float: left;
       width: 20%;
@@ -1330,14 +1367,13 @@ header {
   border: 1px solid #efefef;
   padding-bottom: 30px;
   text-align: center;
-  margin: 30px 0; }
+  margin: 30px 0;
+  -webkit-box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
+  -moz-box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
+  box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13); }
   .contact-form .contact-info > div {
     width: 50%;
     float: left; }
-    @media only screen and (max-width: 719px) {
-      .contact-form .contact-info > div {
-        width: 100%;
-        float: none; } }
   .contact-form .contact-info .name {
     font-size: 18px;
     margin-top: 30px; }
@@ -1356,6 +1392,9 @@ header {
   .contact-form .contact-info a {
     color: #ff566f;
     text-decoration: none; }
+  .contact-form .contact-info .website-email {
+    margin: 30px 0 0;
+    font-size: 18px; }
 
 footer {
   width: 100%;

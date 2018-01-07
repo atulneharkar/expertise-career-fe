@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import * as actions from '../../_actions';
 import { required, history } from '../../_helpers';
 import { renderInputField, renderSelectField, renderFileInputField, renderTextAreaField } from '../../_components';
+import loaderImg from '../../assets/images/loader.gif';
 
 class CourseForm extends Component {
   constructor(props) {
@@ -52,7 +53,10 @@ class CourseForm extends Component {
 
 	renderQueryResponse() {
 		if(this.props.loading) {
-			return <div className="loading">loading</div>;
+			return <div className="loader">
+				<div className="loader-overlay"></div>
+				<img src={loaderImg} className="loader-img" alt="loader" />
+			</div>;
 		} else if(this.props.errorMessage) {
 			return <div className="error-message">{this.props.errorMessage}</div>;
 		}
@@ -176,9 +180,9 @@ class CourseForm extends Component {
 		      <Field
 		        name="author"
 		        component={renderSelectField}
-		        label="Author"
+		        label="Category"
 		        optionList={this.props.users}
-		        setValue={this.state.courseData.author._id}
+		        setValue={this.state.courseData.author._id || this.state.courseData.author}
 		        onValueChange={(e) => this.handleInputChange(e, 'author')}
 		        // validate={[required]}
 		      />

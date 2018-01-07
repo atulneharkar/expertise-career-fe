@@ -6,6 +6,7 @@ import * as actions from '../_actions';
 import defaultProfileImage from '../assets/images/default-profile-image.png';
 import hamburgerIcon from '../assets/images/hamburger.png';
 import closeIcon from '../assets/images/close.png';
+import logo from '../assets/images/logo.png';
 
 class Header extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class Header extends Component {
   }
 
   renderUserLinks() {
-    if(this.props.authenticated) {
+    if(this.props.admin) {
       return [
         <li key={1}>
           <NavLink to="/my-dashboard" activeClassName="active" onClick={() => this.toggleMobileMenu(false)}>My Dashboard</NavLink>
@@ -113,7 +114,9 @@ class Header extends Component {
     return (
       <header className={(this.props.authenticated) ? 'header-profile-img' : ''}>
         <div className="header-wrapper clearfix">
-          <h1 className="main-logo pull-left" onClick={() => this.toggleMobileMenu(false)}><NavLink to="/">Skill Unfold</NavLink></h1>
+          <h1 className="main-logo pull-left" onClick={() => this.toggleMobileMenu(false)}><NavLink to="/">
+            <img src={logo} alt="site-logo" className="site-logo" />
+          </NavLink></h1>
           <div className="pull-right main-nav clearfix">
             <img src={hamburgerIcon} alt="hamburger icon" className={this.state.mobileMenu ? 'hamburger-hide hamburger-icon' : 'hamburger-icon' } width="32" height="32" onClick={() => this.toggleMobileMenu(true)} />
             <img src={closeIcon} alt="close icon" className={this.state.mobileMenu ? 'close-icon-show close-icon' : 'close-icon' } width="28" height="28" onClick={() => this.toggleMobileMenu(false)} />

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import * as actions from '../_actions';
 import { required } from '../_helpers';
 import { renderInputField, renderHiddenInputField } from '../_components';
+import loaderImg from '../assets/images/loader.gif';
 
 class ResetPasswordForm extends Component {
 	
@@ -16,7 +17,10 @@ class ResetPasswordForm extends Component {
 
   renderAuthResponse() {
 		if(this.props.loading) {
-			return <div class="loading">loading</div>;
+			return <div className="loader">
+				<div className="loader-overlay"></div>
+				<img src={loaderImg} className="loader-img" alt="loader" />
+			</div>;
 		} else if(this.props.errorMessage) {
 			return <div class="error-message">{this.props.errorMessage}</div>;
 		} else if(this.props.resetPasswordSuccess) {

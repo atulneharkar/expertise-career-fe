@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../_actions';
 import { required, email, phoneNumber } from '../../_helpers';
 import { renderInputField, renderTextAreaField } from '../../_components';
+import loaderImg from '../../assets/images/loader.gif';
 
 class ContactUs extends Component {
   constructor(props) {
@@ -22,7 +23,10 @@ class ContactUs extends Component {
 
 	renderQueryResponse() {
 		if(this.props.loading) {
-			return <div className="loading">loading</div>;
+			return <div className="loader">
+				<div className="loader-overlay"></div>
+				<img src={loaderImg} className="loader-img" alt="loader" />
+			</div>;
 		} else if(this.props.successMessage) {
 			return <div className="success-message">Your query sent successfully! Admin will contact you shortly.</div>;
 		} else if(this.props.errorMessage) {
@@ -62,14 +66,13 @@ class ContactUs extends Component {
 			  </h2>
 
 		    <div className="contact-info clearfix">
+		      <p className="website-email"><a href="mailto: info.skillunfold@gmail.com">info.skillunfold@gmail.com</a></p>
 		      <div>
-		        <p className="name">Atul Neharkar</p>
-		        <p><a href="mailto: neharkaratul9@gmail.com">neharkaratul9@gmail.com</a></p>
+		        <p className="name">Atul</p>
 		        <p>8767067878</p>
 		      </div>
 		      <div>
-		        <p className="name">Mahesh Shinde</p>
-		        <p><a href="mailto: mahesh.shinde99@gmail.com">mahesh.shinde99@gmail.com</a></p>
+		        <p className="name">Mahesh</p>
 		        <p>98273782293</p>
 		      </div>
 		    </div>

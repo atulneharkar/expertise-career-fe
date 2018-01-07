@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import * as actions from '../../_actions';
 import { required, history } from '../../_helpers';
 import { renderInputField, renderSelectField, renderFileInputField } from '../../_components';
+import loaderImg from '../../assets/images/loader.gif';
 
 class TrendingForm extends Component {
   constructor(props) {
@@ -44,7 +45,10 @@ class TrendingForm extends Component {
 
 	renderQueryResponse() {
 		if(this.props.loading) {
-			return <div className="loading">loading</div>;
+			return <div className="loader">
+				<div className="loader-overlay"></div>
+				<img src={loaderImg} className="loader-img" alt="loader" />
+			</div>;
 		} else if(this.props.errorMessage) {
 			return <div className="error-message">{this.props.errorMessage}</div>;
 		}

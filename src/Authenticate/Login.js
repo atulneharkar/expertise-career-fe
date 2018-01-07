@@ -8,6 +8,7 @@ import GoogleLogin from 'react-google-login';
 import * as actions from '../_actions';
 import { required, email, history } from '../_helpers';
 import { renderInputField } from '../_components';
+import loaderImg from '../assets/images/loader.gif';
 
 class LoginForm extends Component {
 
@@ -31,7 +32,10 @@ class LoginForm extends Component {
 
   renderAuthResponse() {
 		if(this.props.loading) {
-			return <div className="loading">loading</div>;
+			return <div className="loader">
+				<div className="loader-overlay"></div>
+				<img src={loaderImg} className="loader-img" alt="loader" />
+			</div>;
 		} else if(this.props.errorMessage) {
 			return <div className="error-message">{this.props.errorMessage}</div>;
 		} 
@@ -69,7 +73,7 @@ class LoginForm extends Component {
 		return (
 			<div className="login-form">
 			  <h2 className="form-text">
-			  	Learning from experts is now easy, register and join the webinar at <span>Skill Unfold</span>.
+			  	Learning from experts is now easy, register and join the webinar at <span>Skillunfold</span>.
 			  </h2>
 				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 				  <p className="form-title">Sign In</p>

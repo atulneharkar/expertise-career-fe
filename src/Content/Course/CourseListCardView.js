@@ -32,8 +32,8 @@ class CourseListCardView extends Component {
     } else {
     	return (
     	  <div className="no-course-wrapper">
-	    		<p>We have no course active currently.</p>
-	    		<p>For consulting <Link to="/contact-us">Contact Us</Link>.</p>
+	    		<p>We are in a process of creating webinars. Stay tuned!</p>
+	    		<p>For personal coaching <Link to="/contact-us">Contact Us</Link>.</p>
     		</div>
     	);
     }

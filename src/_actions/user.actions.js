@@ -6,7 +6,8 @@ import {
   FETCH_USER,
   USER_ERROR,
   USER_SUCCESS,
-  USER_LOADING
+  USER_LOADING,
+  FILE_SIZE_ERROR
 } from '../_constants';
 
 import { userService } from '../_services';
@@ -79,9 +80,7 @@ export const updateUser = function(userId, user) {
             dispatch(getUserList());
           } else {
             dispatch({ type: USER_SUCCESS });
-            setTimeout(function() {
-              history.push("/");
-            }, 3000);
+            history.push("/");
           }
         },
         error => {
@@ -92,22 +91,26 @@ export const updateUser = function(userId, user) {
 }
 
 function uploadProfilePicture(file) {
-  return (dispatch) => {
-    let formData = new FormData();
-    formData.append('avatar', file[0]);
-    
-    userService.setAvatar(formData)
-      .then(
-        user => {
-          dispatch({ type: USER_SUCCESS });
-          setTimeout(function() {
-            history.push("/");
-          }, 3000);
-        },
-        error => {
-          dispatch(userError('Unable to connect to server.'));
-        }
-      );
+  return (dispatch) => {console.log(file[0].size);
+    if(file[0].size > 5000000) {
+      dispatch({ type: FILE_SIZE_ERROR });
+    } else {
+      let formData = new FormData();
+      formData.append('avatar', file[0]);
+      
+      // userService.setAvatar(formData)
+      //   .then(
+      //     user => {
+      //       dispatch({ type: USER_SUCCESS });
+      //       setTimeout(function() {
+      //         history.push("/");
+      //       }, 3000);
+      //     },
+      //     error => {
+      //       dispatch(userError('Unable to connect to server.'));
+      //     }
+      //   );
+    }
   };
 }
 

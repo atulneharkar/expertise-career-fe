@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../_actions';
 import { required, email, phoneNumber, history } from '../../_helpers';
 import { renderInputField, renderFileInputField } from '../../_components';
+import loaderImg from '../../assets/images/loader.gif';
 
 class UserForm extends Component {
 	constructor(props) {
@@ -24,7 +25,10 @@ class UserForm extends Component {
 
 	renderUserResponse() {
 		if(this.props.loading) {
-			return <div className="loading">loading</div>;
+			return <div className="loader">
+				<div className="loader-overlay"></div>
+				<img src={loaderImg} className="loader-img" alt="loader" />
+			</div>;
 		} else if(this.props.errorMessage) {
 			return <div className="error-message">{this.props.errorMessage}</div>;
 		} else if(this.props.successMessage) {
@@ -106,6 +110,12 @@ class UserForm extends Component {
   	}
   }
 
+  renderFileSizeError() {
+  	if(this.props.fileSizeError) {
+  		return <div className="error-msg file-size-error">File size must be less than 5 MB.</div>;
+  	}
+  }
+
   render() {
 		const { handleSubmit } = this.props;
 
@@ -153,6 +163,7 @@ class UserForm extends Component {
 	          component={renderFileInputField}
 	          label="Upload Profile Picture"
 	        />
+	        {this.renderFileSizeError()}
 		      <div>
 		        <button type="submit" className="submit-btn-link">{this.state.submitButtonText}</button>
 
@@ -171,7 +182,9 @@ const mapStateToProps = (state) => ({
   successMessage: state.authentication.userSuccess,
   authenticated: state.authentication.isAuthenticated,
   userData: state.user.userDetail,
-  interestList: state.user.interestList
+  interestList: state.user.interestList,
+  loading: state.user.userLoading,
+  fileSizeError: state.user.fileSizeError
 });
 
 UserForm = connect(

@@ -956,7 +956,27 @@ header {
       .trending-card-list .trending-card .course-info .trending-title,
       .trending-card-list .trending-card .trending-info .course-title,
       .trending-card-list .trending-card .trending-info .trending-title {
-        font-size: 20px; }
+        font-size: 16px;
+        line-height: 22px; }
+        @media only screen and (max-width: 719px) {
+          .course-card-list .course-card .course-info .course-title,
+          .course-card-list .course-card .course-info .trending-title,
+          .course-card-list .course-card .trending-info .course-title,
+          .course-card-list .course-card .trending-info .trending-title,
+          .course-card-list .trending-card .course-info .course-title,
+          .course-card-list .trending-card .course-info .trending-title,
+          .course-card-list .trending-card .trending-info .course-title,
+          .course-card-list .trending-card .trending-info .trending-title,
+          .trending-card-list .course-card .course-info .course-title,
+          .trending-card-list .course-card .course-info .trending-title,
+          .trending-card-list .course-card .trending-info .course-title,
+          .trending-card-list .course-card .trending-info .trending-title,
+          .trending-card-list .trending-card .course-info .course-title,
+          .trending-card-list .trending-card .course-info .trending-title,
+          .trending-card-list .trending-card .trending-info .course-title,
+          .trending-card-list .trending-card .trending-info .trending-title {
+            font-size: 15px;
+            line-height: 20px; } }
       .course-card-list .course-card .course-info .course-author,
       .course-card-list .course-card .trending-info .course-author,
       .course-card-list .trending-card .course-info .course-author,

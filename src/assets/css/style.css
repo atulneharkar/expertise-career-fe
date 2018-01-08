@@ -886,7 +886,9 @@ header {
       -moz-transition: all 0.15s ease-in-out;
       -o-transition: all 0.15s ease-in-out;
       transition: all 0.15s ease-in-out;
-      box-shadow: -2px 2px 0 0 rgba(0, 0, 0, 0.05); }
+      border: .5px solid #efefef;
+      box-shadow: -2px 2px 0 0 rgba(0, 0, 0, 0.05);
+      padding: 1px; }
       .course-card-list .course-card a:hover,
       .course-card-list .trending-card a:hover,
       .trending-card-list .course-card a:hover,
@@ -903,8 +905,6 @@ header {
     .trending-card-list .trending-card .course-info,
     .trending-card-list .trending-card .trending-info {
       padding: 10px;
-      border: 0.5px solid #efefef;
-      border-top: none;
       margin-top: -2px;
       font-family: "Avenir", Helvetica, Arial, sans-serif;
       font-size: 13px;

@@ -24,14 +24,14 @@ class UserForm extends Component {
 	}
 
 	renderUserResponse() {
-		if(this.props.loading) {
+		if(this.props.userLoading) {
 			return <div className="loader">
 				<div className="loader-overlay"></div>
 				<img src={loaderImg} className="loader-img" alt="loader" />
 			</div>;
-		} else if(this.props.errorMessage) {
-			return <div className="error-message">{this.props.errorMessage}</div>;
-		} else if(this.props.successMessage) {
+		} else if(this.props.userErrorMessage) {
+			return <div className="error-message">{this.props.userErrorMessage}</div>;
+		} else if(this.props.userSuccessMessage) {
 			if(this.state.userId) {
 				return <div className="success-message">User updated successfully!</div>;
 			} else {
@@ -178,12 +178,12 @@ class UserForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  errorMessage: state.authentication.userError,
-  successMessage: state.authentication.userSuccess,
+  userErrorMessage: state.authentication.userError,
+  userSuccessMessage: state.authentication.userSuccess,
   authenticated: state.authentication.isAuthenticated,
   userData: state.user.userDetail,
   interestList: state.user.interestList,
-  loading: state.user.userLoading,
+  userLoading: state.user.userLoading,
   fileSizeError: state.user.fileSizeError
 });
 

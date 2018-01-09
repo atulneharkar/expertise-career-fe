@@ -44,13 +44,13 @@ class TrendingForm extends Component {
   }
 
 	renderQueryResponse() {
-		if(this.props.loading) {
+		if(this.props.trendingLoading) {
 			return <div className="loader">
 				<div className="loader-overlay"></div>
 				<img src={loaderImg} className="loader-img" alt="loader" />
 			</div>;
-		} else if(this.props.errorMessage) {
-			return <div className="error-message">{this.props.errorMessage}</div>;
+		} else if(this.props.trendingErrorMessage) {
+			return <div className="error-message">{this.props.trendingErrorMessage}</div>;
 		}
 	}
 
@@ -140,8 +140,8 @@ class TrendingForm extends Component {
 
 const mapStateToProps = (state) => ({
 	trendingData: state.trending.trendingDetail,
-  errorMessage: state.trending.trendingError,
-  loading: state.trending.trendingLoading,
+  trendingErrorMessage: state.trending.trendingError,
+  trendingLoading: state.trending.trendingLoading,
   trendingCategory: state.trending.trendingCategory
 });
 

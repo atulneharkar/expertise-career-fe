@@ -22,15 +22,10 @@ class ContactUs extends Component {
 	}
 
 	renderQueryResponse() {
-		if(this.props.loading) {
-			return <div className="loader">
-				<div className="loader-overlay"></div>
-				<img src={loaderImg} className="loader-img" alt="loader" />
-			</div>;
-		} else if(this.props.successMessage) {
+		if(this.props.contactSuccessMessage) {
 			return <div className="success-message">Your query sent successfully! Admin will contact you shortly.</div>;
-		} else if(this.props.errorMessage) {
-			return <div className="error-message">{this.props.errorMessage}</div>;
+		} else if(this.props.contactErrorMessage) {
+			return <div className="error-message">{this.props.contactErrorMessage}</div>;
 		}
 	}
 
@@ -73,7 +68,7 @@ class ContactUs extends Component {
 		      </div>
 		      <div>
 		        <p className="name">Mahesh</p>
-		        <p>98273782293</p>
+		        <p>9769956112</p>
 		      </div>
 		    </div>
 
@@ -125,9 +120,9 @@ class ContactUs extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  errorMessage: state.contactUs.queryError,
-  loading: state.contactUs.queryLoading,
-  successMessage: state.contactUs.querySuccess
+  contactErrorMessage: state.contactUs.queryError,
+  contactLoading: state.contactUs.queryLoading,
+  contactSuccessMessage: state.contactUs.querySuccess
 });
 
 ContactUs = connect(

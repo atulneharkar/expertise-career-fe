@@ -52,13 +52,13 @@ class CourseForm extends Component {
   }
 
 	renderQueryResponse() {
-		if(this.props.loading) {
+		if(this.props.courseLoading) {
 			return <div className="loader">
 				<div className="loader-overlay"></div>
 				<img src={loaderImg} className="loader-img" alt="loader" />
 			</div>;
-		} else if(this.props.errorMessage) {
-			return <div className="error-message">{this.props.errorMessage}</div>;
+		} else if(this.props.courseErrorMessage) {
+			return <div className="error-message">{this.props.courseErrorMessage}</div>;
 		}
 	}
 
@@ -208,8 +208,8 @@ class CourseForm extends Component {
 
 const mapStateToProps = (state) => ({
 	courseData: state.course.courseDetail,
-  errorMessage: state.course.courseError,
-  loading: state.course.courseLoading,
+  courseErrorMessage: state.course.courseError,
+  courseLoading: state.course.courseLoading,
   courseCategory: state.course.courseCategory,
   courseType: state.course.courseType,
   users: state.course.users

@@ -11,47 +11,19 @@ footer {
 	  padding: 0 20px;
     margin: 4px auto 0;
 
-	  .nav-links,
+	  .copy-right-text {
+	  	@include full-font($avenir, 13px, #333);
+	  	margin-top: 9px; 
+	  }
+
 	  .social-icons {
-		  p {
-		  	display: inline-block;
-		  	margin-right: 30px;
+	  	p {
+	  		float: left;
 
-		  	@media only screen and (min-width: 1024px) {
-					margin-right: 80px;
-				}
-
-				@media only screen and (min-width: 960px) and (max-width: 1023px) {
-					margin-right: 60px;
-				}
-
-		  	&:last-child {
-		  		margin-right: 0;
-		  	}
-
-		  	a {
-		  		@include full-font($avenir, 12px, #333);
-
-			    &:hover,
-			    &.active {
-			    	color: #ff566f;
-			    }
-			  }
-		  }
-	  }
-
-	  .nav-links {
-	    margin-top: 7px;
-
-	    @media only screen and (max-width: 519px) {
-	    	p {
-	    		margin-right: 10px;
-	    	}
-	    }
-	  }
-
-	  .social-icons p {
-	  	margin-right: 10px;
+	  		&:first-child {
+	  			margin-right: 10px;
+	  		}
+	  	}
 	  }
   }
 }

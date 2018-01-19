@@ -1,5 +1,6 @@
 .services-card-wrapper {
 	position: relative;
+  padding-top: 62px;
 
 	.main-image {
 		width: 100%;
@@ -22,15 +23,23 @@
     position: relative;
 
 		.tag-line {
-			width: 590px;
+			width: 650px;
       padding-left: 20px;
 			position: absolute;
 			bottom: 200px;
 			left: 0;
 
+      @media only screen and (max-width: 1200px) {
+        bottom: 160px;
+      }
+
       @media only screen and (max-width: 1023px) {
         width: 465px;
         bottom: 135px;
+      }
+
+      @media only screen and (max-width: 959px) {
+        bottom: 122px;
       }
 
       @media only screen and (max-width: 800px) {
@@ -38,11 +47,10 @@
       }
 
       @media only screen and (max-width: 719px) {
-        bottom: 270px;
+        bottom: 280px;
       }
 
       @media only screen and (max-width: 519px) {
-        bottom: 260px;
         width: 90%;
       }
 
@@ -51,7 +59,7 @@
         line-height: 58px;
         font-weight: bold;
 
-        &:last-child {
+        &.sub-tag-line {
           font-size: 35px;
           line-height: 45px;
           font-weight: normal;
@@ -61,7 +69,7 @@
           font-size: 40px;
           line-height: 50px;
 
-          &:last-child {
+          &.sub-tag-line {
             font-size: 30px;
             line-height: 40px;
           }
@@ -71,9 +79,19 @@
           font-size: 35px;
           line-height: 45px;
 
-          &:last-child {
+          &.sub-tag-line {
             font-size: 25px;
             line-height: 35px;
+          }
+        }
+
+        @media only screen and (min-width: 720px) and (max-width: 850px) {
+          font-size: 28px;
+          line-height: 25px;
+
+          &.sub-tag-line {
+            font-size: 20px;
+            line-height: 25px;
           }
         }
 
@@ -81,7 +99,7 @@
           font-size: 30px;
           line-height: 30px;
 
-          &:last-child {
+          &.sub-tag-line {
             font-size: 20px;
             line-height: 25px;
           }
@@ -91,10 +109,35 @@
 
 	    p {
   	    margin-bottom: 15px;
+
   	    &:first-child {
   	    	color: #ff566f;
   	    }
+
+        @media only screen and (max-width: 959px) {
+          margin-bottom: 5px;
+        }
+
 	    }
+
+      .contact-us-btn {
+        padding: 15px;
+        background: #ff566f;
+        margin-top: 5px;
+        display: inline-block;
+        border-radius: 7px;
+        @include full-font($avenir, 20px, #fff);
+
+        &:hover {
+          background: #fff;
+          color: #333;
+        }
+
+        @media only screen and (max-width: 1023px) {
+          padding: 10px;
+          font-size: 16px;
+        }
+      }
 		}
 
 		.service-cards {
@@ -103,7 +146,7 @@
       bottom: 40px;
 			text-align: center;
 
-      @media only screen and (max-width: 800px) {
+      @media only screen and (max-width: 959px) {
         bottom: 20px;
       }
 
@@ -146,8 +189,14 @@
 	      background: #fff;
 	      @include full-font($avenir, 20px, #333);
         line-height: 26px;
-	      text-align: center;
+	      text-align: left;
 	      cursor: pointer;
+
+        @media only screen and (max-width: 1200px) {
+          font-size: 18px;
+          padding: 20px;
+          padding-right: 30px;
+        }
 
         @media only screen and (max-width: 1024px) {
           font-size: 15px;
@@ -166,6 +215,7 @@
           -moz-box-shadow: -10px 10px 22px -6px rgba(51,51,51,0.13);
           box-shadow: -10px 10px 22px -6px rgba(51,51,51,0.13);
           font-size: 16px;
+          position: relative;
 
           display: flex;
           justify-content: center;
@@ -174,10 +224,43 @@
           }
         }
 
+        .left-arrow-white {
+          display: none;
+        }
+
 	      &:hover {
 	      	background: #ff566f;
           color: #fff;
+
+          .left-arrow-white {
+            display: block;
+          }
+
+          .left-arrow {
+            display: none;
+          }
 	      }
+
+        img {
+          width: 10px;
+          height: 20px;
+          margin: -8px -18px 0 0;
+          float: right;
+
+          @media only screen and (max-width: 1200px) {
+            margin: -8px -13px 0 0;
+          }
+
+          @media only screen and (max-width: 1024px) {
+            margin: -8px -8px 0 0;
+          }
+
+          @media only screen and (max-width: 719px) {
+            position: absolute;
+            right: 15px;
+            top: 30px;
+          }
+        }
       }
 		}
 	}
@@ -191,6 +274,24 @@
 .course-card-list,
 .trending-card-list {
   padding: 30px 5px 0;
+
+  .trending-filter {
+    float: right;
+    @include full-font($avenir, 16px, #333);
+    margin: 0 15px 20px 0;
+
+    @media only screen and (max-width: 719px) {
+      font-size: 15px;
+    }
+
+    select {
+      height: 30px;
+      padding: 4px 10px;
+      border: solid 0.5px #e6e6e6;
+      border-radius: 4px;
+      background: #fff;
+    }
+  }
 
   img {
   	width: 100%;
@@ -211,20 +312,6 @@
   .course-card,
   .trending-card {
   	margin-bottom: 30px;
-
-    &:nth-child(4n+2) {
-      clear: left;
-    }
-
-    @media only screen and (max-width: 1199px) {
-      &:nth-child(3n+2) {
-        clear: left;
-      }
-
-      &:nth-child(4n+2) {
-        clear: none;
-      }
-    }
 
     @media only screen and (max-width: 719px) {
       width: 100%;
@@ -297,6 +384,13 @@
   			color: #ff566f;
   		}
   	}
+
+    .trending-info {
+      min-height: 85px;
+      @media only screen and (max-width: 719px) {
+        min-height: auto;
+      }
+    }
   }
 }
 

@@ -9,7 +9,8 @@ export const trendingService = {
     getAllTrendings,
     getTrendingById,
     setTrendingImage,
-    removeTrending
+    removeTrending,
+    getTrendingByCategory
 };
 
 function addTrending(trending) {
@@ -22,6 +23,10 @@ function updateTrending(trendingId, trending) {
 
 function getAllTrendings() {
   return fetch(`${SERVER_URL}/trending/list/all`, setHeader('GET', null, true)).then((response) => response.json());
+}
+
+function getTrendingByCategory(category) {
+  return fetch(`${SERVER_URL}/trending/list/${category}`, setHeader('GET', null, true)).then((response) => response.json());
 }
 
 function getTrendingById(trendingId) {

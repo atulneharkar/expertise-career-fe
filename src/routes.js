@@ -11,8 +11,10 @@ import ForgotPassword from './Authenticate/ForgotPassword';
 import ResetPassword from './Authenticate/ResetPassword';
 import UserForm from './Content/User/UserForm';
 import OurServicesDetails from './Content/OurServices/OurServicesDetails';
+import Blogs from './Content/Blogs/BlogList';
 import AboutUs from './Content/AboutUs/AboutUs';
 import ContactUs from './Content/ContactUs/ContactUs';
+import CollegeProjects from './Content/CollegeProjects/CollegeProjects';
 import CourseDetails from './Content/Course/CourseDetails';
 
 import UserDashboard from './Content/UserDashboard/UserDashboard';
@@ -41,9 +43,11 @@ class Routes extends Component {
         <Route path='/register' component={UserForm}/>
         <Route path='/forgot-password' component={ForgotPassword}/>
         <Route path='/reset-password/:otp/:userId' component={ResetPassword}/>
-        <Route path='/consulting' component={OurServicesDetails}/>
+        <Route path='/our-services' component={OurServicesDetails}/>
         <Route path='/about-us' component={AboutUs}/>
+        <Route path='/blogs' component={Blogs}/>
         <Route path='/contact-us' component={ContactUs}/>
+        <Route path='/college-projects' component={CollegeProjects}/>
         <Route path='/webinar/:courseId' component={CourseDetails}/>
 
         <PrivateRoute path='/my-dashboard' authenticated={this.isAuthenticated()} component={UserDashboard}/>

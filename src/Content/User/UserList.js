@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../_actions';
 import AdminSubNav from '../AdminDashboard/AdminSubNav';
+import defaultProfileImage from '../../assets/images/default-profile-image.png';
 
 class UserList extends Component {
 	componentWillMount() {
@@ -38,7 +39,7 @@ class UserList extends Component {
       );
     } else {
       return (
-        <img alt="Profile Piocture" src="default.img" width="50" height="50" />
+        <img alt="Profile Piocture" src={defaultProfileImage} width="50" height="50" />
       );
     }
   }
@@ -63,8 +64,6 @@ class UserList extends Component {
           <td>{user.name}</td>
           <td>{user.phone}</td>
           <td>{user.email}</td>
-          <td>{user.dob}</td>
-          <td>{user.designation}</td>
           <td>
             {this.renderSelectRole(user.role, user._id)}
           </td>
@@ -86,8 +85,6 @@ class UserList extends Component {
   	            <th>Name</th>
   	            <th>Phone</th>
   	            <th>Email</th>
-  	            <th>Date Of Birth</th>
-  	            <th>Interest</th>
   	            <th>Role</th>
   	            <th>Status</th>
   	            <th>Delete</th>

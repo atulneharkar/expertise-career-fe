@@ -49,7 +49,13 @@ blockquote, q {
   src: url("../fonts/avenir-next-regular.ttf"); }
 
 header {
-  background: #333; }
+  background: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62px;
+  z-index: 1; }
   header .header-wrapper {
     width: 100%;
     max-width: 1600px;
@@ -67,7 +73,7 @@ header {
     header .header-wrapper .main-nav ul {
       vertical-align: top;
       display: inline-block;
-      margin-top: 4px; }
+      margin-top: 2px; }
       @media only screen and (max-width: 719px) {
         header .header-wrapper .main-nav ul {
           width: 100%;
@@ -102,7 +108,10 @@ header {
               display: block;
               padding-bottom: 20px; } }
     header .header-wrapper .main-nav .sign-in-btn {
-      margin-top: 7px;
+      padding: 10px;
+      background: #ff566f;
+      border-radius: 4px;
+      margin-top: -5px;
       display: inline-block;
       font-family: "Avenir", Helvetica, Arial, sans-serif;
       font-size: 12px;
@@ -110,15 +119,17 @@ header {
       text-transform: none;
       text-decoration: none; }
       header .header-wrapper .main-nav .sign-in-btn:hover {
-        color: #ff566f; }
+        background: #fff;
+        color: #333; }
         @media only screen and (max-width: 719px) {
           header .header-wrapper .main-nav .sign-in-btn:hover {
             color: #fff; } }
       @media only screen and (max-width: 719px) {
         header .header-wrapper .main-nav .sign-in-btn {
-          width: 100%;
+          width: 100px;
           text-align: center;
-          margin: 0;
+          margin: 0 auto;
+          display: block;
           padding: 15px;
           border-radius: 3px;
           background: #ff566f;
@@ -212,7 +223,7 @@ header {
             border-radius: 3px;
             float: left;
             background: #fff;
-            color: #0033ff;
+            color: #333;
             text-align: center;
             text-decoration: none; }
             @media only screen and (max-width: 719px) {
@@ -249,7 +260,7 @@ header {
 .trending-form,
 .course-form {
   width: 500px;
-  padding: 30px 0 70px;
+  padding: 92px 0 70px;
   margin: 0 auto; }
   @media only screen and (max-width: 719px) {
     .login-form,
@@ -261,7 +272,7 @@ header {
     .course-form {
       width: 100%;
       max-width: 430px;
-      padding: 30px 20px 80px; } }
+      padding: 92px 20px 80px; } }
   .login-form .form-text,
   .register-form .form-text,
   .reset-pwd-form .form-text,
@@ -682,7 +693,8 @@ header {
   margin: -25px 0 0 -25px; }
 
 .services-card-wrapper {
-  position: relative; }
+  position: relative;
+  padding-top: 62px; }
   .services-card-wrapper .main-image {
     width: 100%; }
     @media only screen and (max-width: 719px) {
@@ -699,24 +711,29 @@ header {
     margin: 0 auto;
     position: relative; }
     .services-card-wrapper .floating-text .tag-line {
-      width: 590px;
+      width: 650px;
       padding-left: 20px;
       position: absolute;
       bottom: 200px;
       left: 0; }
+      @media only screen and (max-width: 1200px) {
+        .services-card-wrapper .floating-text .tag-line {
+          bottom: 160px; } }
       @media only screen and (max-width: 1023px) {
         .services-card-wrapper .floating-text .tag-line {
           width: 465px;
           bottom: 135px; } }
+      @media only screen and (max-width: 959px) {
+        .services-card-wrapper .floating-text .tag-line {
+          bottom: 122px; } }
       @media only screen and (max-width: 800px) {
         .services-card-wrapper .floating-text .tag-line {
           bottom: 120px; } }
       @media only screen and (max-width: 719px) {
         .services-card-wrapper .floating-text .tag-line {
-          bottom: 270px; } }
+          bottom: 280px; } }
       @media only screen and (max-width: 519px) {
         .services-card-wrapper .floating-text .tag-line {
-          bottom: 260px;
           width: 90%; } }
       .services-card-wrapper .floating-text .tag-line p {
         font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -726,7 +743,7 @@ header {
         text-decoration: none;
         line-height: 58px;
         font-weight: bold; }
-        .services-card-wrapper .floating-text .tag-line p:last-child {
+        .services-card-wrapper .floating-text .tag-line p.sub-tag-line {
           font-size: 35px;
           line-height: 45px;
           font-weight: normal; }
@@ -734,33 +751,61 @@ header {
           .services-card-wrapper .floating-text .tag-line p {
             font-size: 40px;
             line-height: 50px; }
-            .services-card-wrapper .floating-text .tag-line p:last-child {
+            .services-card-wrapper .floating-text .tag-line p.sub-tag-line {
               font-size: 30px;
               line-height: 40px; } }
         @media only screen and (max-width: 1023px) {
           .services-card-wrapper .floating-text .tag-line p {
             font-size: 35px;
             line-height: 45px; }
-            .services-card-wrapper .floating-text .tag-line p:last-child {
+            .services-card-wrapper .floating-text .tag-line p.sub-tag-line {
               font-size: 25px;
               line-height: 35px; } }
+        @media only screen and (min-width: 720px) and (max-width: 850px) {
+          .services-card-wrapper .floating-text .tag-line p {
+            font-size: 28px;
+            line-height: 25px; }
+            .services-card-wrapper .floating-text .tag-line p.sub-tag-line {
+              font-size: 20px;
+              line-height: 25px; } }
         @media only screen and (max-width: 519px) {
           .services-card-wrapper .floating-text .tag-line p {
             font-size: 30px;
             line-height: 30px; }
-            .services-card-wrapper .floating-text .tag-line p:last-child {
+            .services-card-wrapper .floating-text .tag-line p.sub-tag-line {
               font-size: 20px;
               line-height: 25px; } }
       .services-card-wrapper .floating-text .tag-line p {
         margin-bottom: 15px; }
         .services-card-wrapper .floating-text .tag-line p:first-child {
           color: #ff566f; }
+        @media only screen and (max-width: 959px) {
+          .services-card-wrapper .floating-text .tag-line p {
+            margin-bottom: 5px; } }
+      .services-card-wrapper .floating-text .tag-line .contact-us-btn {
+        padding: 15px;
+        background: #ff566f;
+        margin-top: 5px;
+        display: inline-block;
+        border-radius: 7px;
+        font-family: "Avenir", Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        color: #fff;
+        text-transform: none;
+        text-decoration: none; }
+        .services-card-wrapper .floating-text .tag-line .contact-us-btn:hover {
+          background: #fff;
+          color: #333; }
+        @media only screen and (max-width: 1023px) {
+          .services-card-wrapper .floating-text .tag-line .contact-us-btn {
+            padding: 10px;
+            font-size: 16px; } }
     .services-card-wrapper .floating-text .service-cards {
       width: 100%;
       position: absolute;
       bottom: 40px;
       text-align: center; }
-      @media only screen and (max-width: 800px) {
+      @media only screen and (max-width: 959px) {
         .services-card-wrapper .floating-text .service-cards {
           bottom: 20px; } }
       @media only screen and (max-width: 719px) {
@@ -798,8 +843,13 @@ header {
         text-transform: none;
         text-decoration: none;
         line-height: 26px;
-        text-align: center;
+        text-align: left;
         cursor: pointer; }
+        @media only screen and (max-width: 1200px) {
+          .services-card-wrapper .floating-text .service-cards .card {
+            font-size: 18px;
+            padding: 20px;
+            padding-right: 30px; } }
         @media only screen and (max-width: 1024px) {
           .services-card-wrapper .floating-text .service-cards .card {
             font-size: 15px;
@@ -817,13 +867,36 @@ header {
             -moz-box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
             box-shadow: -10px 10px 22px -6px rgba(51, 51, 51, 0.13);
             font-size: 16px;
+            position: relative;
             display: flex;
             justify-content: center; }
             .services-card-wrapper .floating-text .service-cards .card span {
               align-self: center; } }
+        .services-card-wrapper .floating-text .service-cards .card .left-arrow-white {
+          display: none; }
         .services-card-wrapper .floating-text .service-cards .card:hover {
           background: #ff566f;
           color: #fff; }
+          .services-card-wrapper .floating-text .service-cards .card:hover .left-arrow-white {
+            display: block; }
+          .services-card-wrapper .floating-text .service-cards .card:hover .left-arrow {
+            display: none; }
+        .services-card-wrapper .floating-text .service-cards .card img {
+          width: 10px;
+          height: 20px;
+          margin: -8px -18px 0 0;
+          float: right; }
+          @media only screen and (max-width: 1200px) {
+            .services-card-wrapper .floating-text .service-cards .card img {
+              margin: -8px -13px 0 0; } }
+          @media only screen and (max-width: 1024px) {
+            .services-card-wrapper .floating-text .service-cards .card img {
+              margin: -8px -8px 0 0; } }
+          @media only screen and (max-width: 719px) {
+            .services-card-wrapper .floating-text .service-cards .card img {
+              position: absolute;
+              right: 15px;
+              top: 30px; } }
 
 .wrapper {
   max-width: 1200px;
@@ -832,6 +905,26 @@ header {
 .course-card-list,
 .trending-card-list {
   padding: 30px 5px 0; }
+  .course-card-list .trending-filter,
+  .trending-card-list .trending-filter {
+    float: right;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-transform: none;
+    text-decoration: none;
+    margin: 0 15px 20px 0; }
+    @media only screen and (max-width: 719px) {
+      .course-card-list .trending-filter,
+      .trending-card-list .trending-filter {
+        font-size: 15px; } }
+    .course-card-list .trending-filter select,
+    .trending-card-list .trending-filter select {
+      height: 30px;
+      padding: 4px 10px;
+      border: solid 0.5px #e6e6e6;
+      border-radius: 4px;
+      background: #fff; }
   .course-card-list img,
   .trending-card-list img {
     width: 100%; }
@@ -854,22 +947,6 @@ header {
   .trending-card-list .course-card,
   .trending-card-list .trending-card {
     margin-bottom: 30px; }
-    .course-card-list .course-card:nth-child(4n+2),
-    .course-card-list .trending-card:nth-child(4n+2),
-    .trending-card-list .course-card:nth-child(4n+2),
-    .trending-card-list .trending-card:nth-child(4n+2) {
-      clear: left; }
-    @media only screen and (max-width: 1199px) {
-      .course-card-list .course-card:nth-child(3n+2),
-      .course-card-list .trending-card:nth-child(3n+2),
-      .trending-card-list .course-card:nth-child(3n+2),
-      .trending-card-list .trending-card:nth-child(3n+2) {
-        clear: left; }
-      .course-card-list .course-card:nth-child(4n+2),
-      .course-card-list .trending-card:nth-child(4n+2),
-      .trending-card-list .course-card:nth-child(4n+2),
-      .trending-card-list .trending-card:nth-child(4n+2) {
-        clear: none; } }
     @media only screen and (max-width: 719px) {
       .course-card-list .course-card,
       .course-card-list .trending-card,
@@ -1017,6 +1094,17 @@ header {
       .trending-card-list .trending-card .course-info .trending-category,
       .trending-card-list .trending-card .trending-info .trending-category {
         color: #ff566f; }
+    .course-card-list .course-card .trending-info,
+    .course-card-list .trending-card .trending-info,
+    .trending-card-list .course-card .trending-info,
+    .trending-card-list .trending-card .trending-info {
+      min-height: 85px; }
+      @media only screen and (max-width: 719px) {
+        .course-card-list .course-card .trending-info,
+        .course-card-list .trending-card .trending-info,
+        .trending-card-list .course-card .trending-info,
+        .trending-card-list .trending-card .trending-info {
+          min-height: auto; } }
 
 .course-card-list {
   padding-top: 0;
@@ -1042,7 +1130,7 @@ header {
       color: #ff566f; }
 
 .consulting-wrapper {
-  padding: 0 20px 50px; }
+  padding: 92px 20px 50px; }
   .consulting-wrapper .service-cards {
     border: solid 0.5px #efefef;
     margin: 30px 0;
@@ -1101,9 +1189,151 @@ header {
         .consulting-wrapper .service-cards .service-details {
           width: 100%;
           float: none !important; } }
+  .consulting-wrapper .college-projects-link {
+    color: #ff566f;
+    text-decoration: none; }
+
+.blog-wrapper {
+  padding: 92px 20px 80px;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  text-transform: none;
+  text-decoration: none;
+  line-height: 22px; }
+  @media only screen and (max-width: 959px) {
+    .blog-wrapper {
+      font-size: 15px;
+      line-height: 20px; } }
+  .blog-wrapper .article-wrapper .article-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 30px; }
+  .blog-wrapper .article-wrapper .author-details {
+    margin-bottom: 20px; }
+    @media only screen and (max-width: 479px) {
+      .blog-wrapper .article-wrapper .author-details {
+        text-align: center; } }
+    .blog-wrapper .article-wrapper .author-details .author-image {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 15px; }
+      @media only screen and (max-width: 479px) {
+        .blog-wrapper .article-wrapper .author-details .author-image {
+          margin-bottom: 10px; } }
+    .blog-wrapper .article-wrapper .author-details .author-description {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 13px; }
+      @media only screen and (max-width: 479px) {
+        .blog-wrapper .article-wrapper .author-details .author-description {
+          display: block; } }
+    .blog-wrapper .article-wrapper .author-details p {
+      margin: 0; }
+  .blog-wrapper .article-wrapper .main-img,
+  .blog-wrapper .article-wrapper p {
+    margin-bottom: 20px; }
+  .blog-wrapper .article-wrapper .main-img {
+    width: 100%; }
+  .blog-wrapper .article-wrapper .score-images img {
+    width: 300px; }
+    .blog-wrapper .article-wrapper .score-images img:first-child {
+      width: 334px; }
+    @media only screen and (max-width: 719px) {
+      .blog-wrapper .article-wrapper .score-images img {
+        display: block;
+        width: 280px;
+        margin: 0 auto; }
+        .blog-wrapper .article-wrapper .score-images img:first-child {
+          width: 280px;
+          margin: 0 auto 20px; } }
+  .blog-wrapper .article-wrapper .sub-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0 10px; }
+  .blog-wrapper .article-wrapper a {
+    text-decoration: none;
+    color: #ff566f; }
+  .blog-wrapper .article-wrapper .social-share-icons > div {
+    float: left;
+    margin-right: 10px; }
+    .blog-wrapper .article-wrapper .social-share-icons > div:last-child {
+      margin-right: 0; }
+
+.college-projects-wrapper {
+  padding: 92px 20px 50px;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  text-transform: none;
+  text-decoration: none;
+  line-height: 22px; }
+  @media only screen and (max-width: 959px) {
+    .college-projects-wrapper {
+      font-size: 15px;
+      line-height: 20px; } }
+  .college-projects-wrapper p {
+    margin-bottom: 10px; }
+  .college-projects-wrapper .project-heading {
+    margin: 0 0 15px;
+    font-weight: bold;
+    color: #ff566f;
+    font-size: 18px;
+    text-align: center; }
+    @media only screen and (max-width: 959px) {
+      .college-projects-wrapper .project-heading {
+        font-size: 17px; } }
+  .college-projects-wrapper ul {
+    list-style: disc;
+    padding-left: 20px;
+    font-weight: normal;
+    color: #333; }
+    .college-projects-wrapper ul li {
+      margin: 5px 0;
+      font-size: 16px; }
+      @media only screen and (max-width: 959px) {
+        .college-projects-wrapper ul li {
+          font-size: 15px; } }
+  .college-projects-wrapper .sub-heading {
+    margin-bottom: 15px; }
+    .college-projects-wrapper .sub-heading p {
+      margin-bottom: 2px; }
+    .college-projects-wrapper .sub-heading li {
+      font-weight: bold; }
+  .college-projects-wrapper .project-list-wrapper {
+    margin: 30px 0; }
+    .college-projects-wrapper .project-list-wrapper .projects {
+      width: 48.5%;
+      float: left;
+      border: solid 0.5px #efefef;
+      padding: 20px;
+      box-shadow: -4px 4px 0 0 rgba(0, 0, 0, 0.05); }
+      .college-projects-wrapper .project-list-wrapper .projects:last-child {
+        float: right; }
+      @media only screen and (max-width: 719px) {
+        .college-projects-wrapper .project-list-wrapper .projects {
+          float: none !important;
+          width: 100%; }
+          .college-projects-wrapper .project-list-wrapper .projects:first-child {
+            margin-bottom: 30px; } }
+      .college-projects-wrapper .project-list-wrapper .projects img {
+        width: 100%; }
+
+.page-heading {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #333;
+  text-transform: none;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px; }
 
 .admin-dashboard-wrapper {
-  padding: 20px 15px 70px;
+  padding: 92px 15px 70px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   font-size: 13px;
   color: #333;
@@ -1338,7 +1568,7 @@ header {
   display: block; }
 
 .about-us-wrapper {
-  padding: 30px 20px 50px;
+  padding: 92px 20px 50px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   font-size: 16px;
   color: #333;
@@ -1353,7 +1583,7 @@ header {
     margin-bottom: 10px; }
   .about-us-wrapper h3 {
     margin: 30px 0 20px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center; }
   .about-us-wrapper .team-info-wrapper .team-info {
@@ -1428,36 +1658,14 @@ footer {
     max-width: 1600px;
     padding: 0 20px;
     margin: 4px auto 0; }
-    footer .footer-wrapper .nav-links p,
+    footer .footer-wrapper .copy-right-text {
+      font-family: "Avenir", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: #333;
+      text-transform: none;
+      text-decoration: none;
+      margin-top: 9px; }
     footer .footer-wrapper .social-icons p {
-      display: inline-block;
-      margin-right: 30px; }
-      @media only screen and (min-width: 1024px) {
-        footer .footer-wrapper .nav-links p,
-        footer .footer-wrapper .social-icons p {
-          margin-right: 80px; } }
-      @media only screen and (min-width: 960px) and (max-width: 1023px) {
-        footer .footer-wrapper .nav-links p,
-        footer .footer-wrapper .social-icons p {
-          margin-right: 60px; } }
-      footer .footer-wrapper .nav-links p:last-child,
-      footer .footer-wrapper .social-icons p:last-child {
-        margin-right: 0; }
-      footer .footer-wrapper .nav-links p a,
-      footer .footer-wrapper .social-icons p a {
-        font-family: "Avenir", Helvetica, Arial, sans-serif;
-        font-size: 12px;
-        color: #333;
-        text-transform: none;
-        text-decoration: none; }
-        footer .footer-wrapper .nav-links p a:hover, footer .footer-wrapper .nav-links p a.active,
-        footer .footer-wrapper .social-icons p a:hover,
-        footer .footer-wrapper .social-icons p a.active {
-          color: #ff566f; }
-    footer .footer-wrapper .nav-links {
-      margin-top: 7px; }
-      @media only screen and (max-width: 519px) {
-        footer .footer-wrapper .nav-links p {
-          margin-right: 10px; } }
-    footer .footer-wrapper .social-icons p {
-      margin-right: 10px; }
+      float: left; }
+      footer .footer-wrapper .social-icons p:first-child {
+        margin-right: 10px; }

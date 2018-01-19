@@ -27,18 +27,41 @@ class TrendingListCardView extends Component {
     } else {
     	return (
     	  <div className="no-trending-wrapper">
-	    		<p>We have no trending active currently.</p>
-	    		<p>For consulting <Link to="/contact-us">Contact Us</Link>.</p>
+	    		<p>Resources matching the selected category not found.</p>
     		</div>
     	);
     }
+  }
+
+  handleTrendingChange(event) {
+    const selectedTrendingCategory = event.target.value;
+  	this.props.getTrendingByCategory(selectedTrendingCategory);
+  }
+
+  renderSelectTrending() {
+    return(
+      <select 
+        onChange={(e) => this.handleTrendingChange(e)}>
+        <option>All</option>
+        <option value="UX">UX</option>
+        <option value="VD">VD</option>
+        <option value="Back End">Back End</option>
+        <option value="Front End">Front End</option>
+        <option value="General">General</option>
+      </select>
+    );
   }
 
   render() {
 
 		return (
 			<div className="wrapper trending-card-list clearfix">
-			  <h2>Useful resources</h2>
+			  <h2>
+			    Useful resources 
+			  </h2>
+			  <div className="clearfix">
+			    <p className="trending-filter">Filter by: {this.renderSelectTrending()}</p>
+			  </div>
         {this.renderTrendingCardTemplate()}
       </div>
 		);

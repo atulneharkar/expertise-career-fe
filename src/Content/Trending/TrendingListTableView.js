@@ -51,7 +51,7 @@ class TrendingListTableView extends Component {
   	            <th></th>
   	            <th>Title</th>
   	            <th>Link</th>
-  	            <th>Trending Category</th>
+                <th>Category</th>
   	            <th>Edit</th>
   	            <th>Delete</th>
   	          </tr>

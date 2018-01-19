@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../assets/images/main-image.png';
 import logoMobile from '../../assets/images/main-image720-500.png';
+import leftArrow from '../../assets/images/left-arrow.png';
+import leftArrowWhite from '../../assets/images/left-arrow-white.png';
 
 class OurServicesCardView extends Component {
   render() {
@@ -15,26 +17,33 @@ class OurServicesCardView extends Component {
         
 	        <div className="tag-line">
 	          <p>Excel your business with us.</p>
-	        	<p>Choose a topic, take coaching and become a pro within no time.</p>	        
+	        	<p className="sub-tag-line">Want to build a website for your business but don't have a digital team?</p>	 
+	        	<NavLink to="/contact-us" className="contact-us-btn">Contact Us</NavLink>    
 	        </div>
 
 	        <div className="service-cards">
 	          
-	        	<Link to="/consulting">
+	        	<Link to="/our-services">
 		        	<div className="card">
-		        		<span>Build websites, mobile apps for your business</span>
+		        		<span>Build websites and mobile apps</span>
+		        		<img src={leftArrow} alt="left-arrow" className="left-arrow" />
+		        		<img src={leftArrowWhite} alt="left-arrow-white" className="left-arrow-white" />
 		        	</div>
 	        	</Link>
 
-	        	<Link to="/consulting">
+	        	<Link to="/college-projects">
 		        	<div className="card">
-		        		<span>Design/development guide for college projects</span>
+		        		<span>Development of college projects</span>
+		        		<img src={leftArrow} alt="left-arrow" className="left-arrow" />
+		        		<img src={leftArrowWhite} alt="left-arrow-white" className="left-arrow-white" />
 		        	</div>
 	        	</Link>
 
-	        	<Link to="/consulting">
+	        	<Link to="/our-services">
 		        	<div className="card">
-		        		<span>Skill building webinars and personal coaching</span>
+		        		<span>Webinars and personal coaching</span>
+		        		<img src={leftArrow} alt="left-arrow" className="left-arrow" />
+		        		<img src={leftArrowWhite} alt="left-arrow-white" className="left-arrow-white" />
 		        	</div>
 	        	</Link>
 

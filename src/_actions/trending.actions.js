@@ -47,6 +47,23 @@ export const getTrendingList = function() {
    };
 }
 
+export const getTrendingByCategory = function(category) {
+  return (dispatch) => {
+    trendingService.getTrendingByCategory(category)
+      .then(
+        trendings => {
+          dispatch({ 
+            type: FETCH_TRENDINGS,
+            payload: trendings
+          });
+        },
+        error => {
+          dispatch(trendingError('Unable to connect to server.'));
+        }
+      );
+   };
+}
+
 export const getTrendingById = function(trendingId) {
  return (dispatch) => {
     trendingService.getTrendingById(trendingId)

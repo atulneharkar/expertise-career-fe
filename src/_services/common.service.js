@@ -20,8 +20,16 @@ function getCategory() {
       label: 'VD'
     },
     {
-      value: 'FE',
-      label: 'FE'
+      value: 'Front End',
+      label: 'Front End'
+    },
+    {
+      value: 'Back End',
+      label: 'Back End'
+    },
+    {
+      value: 'General',
+      label: 'General'
     }]
   );
 }

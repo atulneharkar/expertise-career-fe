@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import collegeProject from '../../assets/images/college-project.jpeg';
 import webinarSessions from '../../assets/images/webinar-sessions.png';
@@ -8,7 +9,7 @@ class OurServicesDetails extends Component {
   render() {
     return (
       <div className="wrapper consulting-wrapper">
-
+        <h2 className="page-heading">Our Services</h2>
         <div id="business-websites" className="service-cards clearfix">
           <img src={websitesAndMobileApps} alt="websites and mobile apps" />
           <div className="service-details">
@@ -39,6 +40,7 @@ class OurServicesDetails extends Component {
               <li>Preparing presentations</li>
               <li>Make understand all the aspects of the project from techinal perspective</li>
               <li>Development and testing the projects</li>
+              <li><NavLink to="/college-projects" className="college-projects-link">Click here</NavLink> to view project list</li>
             </ul>
           </div>
           <img src={collegeProject} alt="college project" className="mobile-hide" />

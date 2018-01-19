@@ -60,12 +60,18 @@ class Header extends Component {
   renderDefaultLinks() {
     return [
       <li key={3}>
-        <NavLink to="/consulting" activeClassName="active" onClick={() => this.toggleMobileMenu(false)}>Consulting</NavLink>
+        <NavLink to="/our-services" activeClassName="active" onClick={() => this.toggleMobileMenu(false)}>Our Services</NavLink>
       </li>,
       <li key={4}>
-        <NavLink to="/about-us" activeClassName="active" onClick={() => this.toggleMobileMenu(false)}>About</NavLink>
+        <NavLink to="/college-projects" activeClassName="active" onClick={() => this.toggleMobileMenu(false)}>College Projects</NavLink>
       </li>,
       <li key={5}>
+        <NavLink to="/blogs" activeClassName="active" onClick={() => this.toggleMobileMenu(false)}>Blogs</NavLink>
+      </li>,
+      <li key={6}>
+        <NavLink to="/about-us" activeClassName="active" onClick={() => this.toggleMobileMenu(false)}>About</NavLink>
+      </li>,
+      <li key={7}>
         <NavLink to="/contact-us" activeClassName="active" onClick={() => this.toggleMobileMenu(false)}>Contact</NavLink>
       </li>
     ];

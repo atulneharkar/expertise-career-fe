@@ -1,0 +1,87 @@
+.college-projects-wrapper {
+  padding: 92px 20px 50px;
+  @include full-font($avenir, 16px, #333);
+  line-height: 22px;
+
+  @media only screen and (max-width: 959px) {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  .project-heading {
+    margin: 0 0 15px;
+    font-weight: bold;
+    color: #ff566f;
+    font-size: 18px;
+    text-align: center;
+
+    @media only screen and (max-width: 959px) {
+      font-size: 17px;
+    }
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 20px;
+    font-weight: normal;
+    color: #333;
+
+    li {
+      margin: 5px 0;
+      font-size: 16px;
+
+      @media only screen and (max-width: 959px) {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .sub-heading {
+    margin-bottom: 15px;
+    p {
+      margin-bottom: 2px;
+    }
+    li {
+      font-weight: bold;
+    }
+  }
+
+  .project-list-wrapper {
+    margin: 30px 0;
+    .projects {
+      width: 48.5%;
+      float: left;
+      border: solid 0.5px #efefef;
+      padding: 20px;
+      box-shadow: -4px 4px 0 0 rgba(0, 0, 0, 0.05);
+
+      &:last-child {
+        float: right;
+      }
+
+      @media only screen and (max-width: 719px) {
+        float: none !important;
+        width: 100%;
+
+        &:first-child {
+          margin-bottom: 30px;
+        }
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.page-heading {
+  @include full-font($avenir, 20px, #333);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}

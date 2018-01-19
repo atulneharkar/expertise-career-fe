@@ -4,6 +4,7 @@ class AboutUs extends Component {
   render() {
     return (
       <div className="wrapper about-us-wrapper clearfix">
+        <h2 className="page-heading">About Us</h2>
         <p>
       	  We are IT professionals with 5+ years of experience in Web development with technologies like HTML, CSS, JavaScript, 
           React, Angular, Node, Mongo, Ionic, React Native and User Experience Design (UX) and Visual Designing (VD). 
@@ -38,7 +39,7 @@ class AboutUs extends Component {
             </div>
             <p className="description">
               Mahesh is a Sr. Ux in a multi national IT firm. Studied Mechanical Engineering and Post Grad from NID as Automotive Designer. 
-              Work experiences include entrepreneurship, working as UX designer from last  6+ Years. He has worked in service and product sector. 
+              Work experiences include entrepreneurship, working as UX designer from last  5+ Years. He has worked in service and product sector. 
             </p>
         	</div>
         </div>

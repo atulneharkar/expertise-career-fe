@@ -4,6 +4,8 @@ import libraryImg from '../../assets/images/library.jpg';
 import employeeImg from '../../assets/images/employee-management.jpg';
 import foodImg from '../../assets/images/online-food-ordering.jpg';
 import timesheetImg from '../../assets/images/timesheet.jpg';
+import shopManagementImg from '../../assets/images/shopManagement.jpg';
+import shoppingCartImg from '../../assets/images/shopping.jpg';
 
 class CollegeProjects extends Component {
   render() {
@@ -65,6 +67,19 @@ class CollegeProjects extends Component {
           </div>
 
           <div className="projects">
+            <p className="project-heading">Shop Management</p>
+            <img src={shopManagementImg} alt="shopManagementImg" />
+            <ul>
+              <li>This tool will hold record of all the stocks purchased and sold till date by the shop owner with the profit</li>
+              <li>Dashboard will show quantity and amount of stock purchased/sold date wise</li>
+              <li>Admin panel to add categories, products/stocks, purchase and sold info</li>
+              <li>Secured authentication with user list panel view for admins and only admin role will be able to login the app</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="project-list-wrapper clearfix">
+          <div className="projects">
             <p className="project-heading">Timesheet application</p>
             <img src={timesheetImg} alt="timesheetImg" />
             <ul>
@@ -72,6 +87,17 @@ class CollegeProjects extends Component {
               <li>Admin or finance department can review timesheets submitted by employees and based on the hours entered they can charge money to clients</li>
               <li>Employees will have an option of submitting the timesheet daywise or for the entire week at once</li>
               <li>Employee dashboard will show a graph of their work/engagement based on the hours submitted by them</li>
+            </ul>
+          </div>
+
+          <div className="projects">
+            <p className="project-heading">Shopping Cart</p>
+            <img src={shoppingCartImg} alt="shoppingImg" />
+            <ul>
+              <li>Users can browse products of different categories</li>
+              <li>Ability to add products to cart and submit order</li>
+              <li>User can view previous orders submitted, ask query/submit case via query form</li>
+              <li>Admin has ability to add products, view submitted orders/queries from users</li>
             </ul>
           </div>
         </div>

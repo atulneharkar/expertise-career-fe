@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import OurServicesCardView from '../OurServices/OurServicesCardView';
-//import CourseListCardView from '../Course/CourseListCardView';
+import CourseListCardView from '../Course/CourseListCardView';
 import TrendingListCardView from '../Trending/TrendingListCardView';
 
 import * as actions from '../../_actions';
@@ -12,6 +12,7 @@ class Home extends Component {
 		return (
 			<div>
 				<OurServicesCardView />
+				<CourseListCardView />
 				<TrendingListCardView />
 			</div>
 		);

@@ -1108,15 +1108,14 @@ header {
 
 .course-card-list {
   padding-top: 0;
-  padding-bottom: 50px; }
+  padding-top: 30px; }
 
 .trending-card-list {
   padding-bottom: 50px; }
 
 .no-course-wrapper,
 .no-trending-wrapper {
-  padding: 0 15px;
-  margin-bottom: 30px; }
+  padding: 0 15px; }
   .no-course-wrapper p,
   .no-trending-wrapper p {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -1378,7 +1377,8 @@ header {
   line-height: 21px; }
 
 .user-dashboard {
-  padding-bottom: 70px; }
+  padding-bottom: 70px;
+  padding-top: 92px; }
 
 .webinar-title-wrapper {
   margin-bottom: 20px;
@@ -1388,7 +1388,8 @@ header {
   color: #fff;
   text-transform: none;
   text-decoration: none;
-  line-height: 22px; }
+  line-height: 22px;
+  padding-top: 62px; }
   @media only screen and (max-width: 719px) {
     .webinar-title-wrapper {
       font-size: 15px;
@@ -1410,7 +1411,7 @@ header {
           width: 100%;
           padding-right: 0; } }
       .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper .highlight-text {
-        margin: 20px 0 30px; }
+        margin: 5px 0 30px; }
         @media only screen and (max-width: 719px) {
           .webinar-title-wrapper .webinar-title-sub-wrapper .author-name-wrapper .highlight-text {
             margin: 10px 0 20px; } }
@@ -1460,20 +1461,22 @@ header {
   .course-details-wrapper .about-author-main-wrapper {
     padding-right: 30px; }
     .course-details-wrapper .about-author-main-wrapper .title {
-      font-size: 18px;
+      font-weight: bold;
+      font-size: 20px;
       margin: 20px 0; }
     .course-details-wrapper .about-author-main-wrapper .basic-info {
       text-align: center; }
     .course-details-wrapper .about-author-main-wrapper .about-us-profile-image {
       border-radius: 50%; }
     .course-details-wrapper .about-author-main-wrapper .name-wrapper {
+      color: #ff566f;
       margin: 10px 0;
       font-size: 17px; }
     .course-details-wrapper .about-author-main-wrapper .description {
       text-align: left; }
     .course-details-wrapper .about-author-main-wrapper .general-faq h3 {
       font-weight: bold;
-      font-size: 15px;
+      font-size: 20px;
       margin: 30px 0 10px; }
       @media only screen and (max-width: 719px) {
         .course-details-wrapper .about-author-main-wrapper .general-faq h3 {
@@ -1517,6 +1520,8 @@ header {
         text-decoration: none;
         border-radius: 4px;
         font-size: 20px; }
+      .course-details-wrapper .webinar-details-wrapper .course-price .add-cursor-pointer {
+        cursor: pointer; }
       .course-details-wrapper .webinar-details-wrapper .course-price p {
         margin-top: 15px;
         width: 40%;
@@ -1524,6 +1529,7 @@ header {
         font-size: 24px;
         color: #ff566f; }
     .course-details-wrapper .webinar-details-wrapper .course-topics h3 {
+      font-weight: bold;
       font-size: 20px;
       margin-bottom: 10px; }
     .course-details-wrapper .webinar-details-wrapper .course-topics ul {

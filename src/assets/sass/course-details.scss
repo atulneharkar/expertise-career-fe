@@ -3,6 +3,7 @@
 	background: #333;
 	@include full-font($avenir, 16px, #fff);
 	line-height: 22px;
+  padding-top: 62px;
 
 	@media only screen and (max-width: 719px) {
 		font-size: 15px;
@@ -32,7 +33,7 @@
 			}
 
 			.highlight-text {
-				margin: 20px 0 30px;
+				margin: 5px 0 30px;
 				@media only screen and (max-width: 719px) {
 					margin: 10px 0 20px;
 				}
@@ -100,7 +101,8 @@
 		padding-right: 30px;
 
 		.title {
-			font-size: 18px;
+			font-weight: bold;
+			font-size: 20px;
 			margin: 20px 0;
 		}
 
@@ -113,6 +115,7 @@
 		}
 
 		.name-wrapper {
+			color: #ff566f;
 			margin: 10px 0;
 			font-size: 17px;
 		}
@@ -124,7 +127,7 @@
 		.general-faq {
 			h3 {
 				font-weight: bold;
-				font-size: 15px;
+				font-size: 20px;
 				margin: 30px 0 10px;
 
 				@media only screen and (max-width: 719px) {
@@ -185,6 +188,10 @@
         font-size: 20px;
 			}
 
+			.add-cursor-pointer {
+				cursor: pointer;
+			}
+
 			p {
 		    margin-top: 15px;
 				width: 40%;
@@ -196,6 +203,7 @@
 
 		.course-topics {
 			h3 {
+				font-weight: bold;
 				font-size: 20px;
 				margin-bottom: 10px;
 			}

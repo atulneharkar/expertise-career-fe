@@ -34,8 +34,8 @@ function removeCourse(courseId) {
   return fetch(`${SERVER_URL}/course/${courseId}`, setHeader('DELETE', null, true)).then((response) => response.json());
 }
 
-function userCourse(courseId, userId, action) {
-  return fetch(`${SERVER_URL}/course/userCourse/${courseId}/${userId}/${action}`, setHeader('PUT', null, true)).then((response) => response.json());
+function userCourse(courseId, userId) {
+  return fetch(`${SERVER_URL}/course/userCourse/${courseId}/${userId}`, setHeader('PUT', null, true)).then((response) => response.json());
 }
 
 function setCourseImage(data, courseId) {

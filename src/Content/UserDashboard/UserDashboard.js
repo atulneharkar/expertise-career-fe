@@ -24,8 +24,8 @@ class UserDashboard extends Component {
 			      		<p className="course-title">{course.title}</p>
 			      		<p className="course-author">with {course.author.name}</p>
 			      		<div className="clearfix">
-			      		  <p className="course-date">{course.courseDate}</p>
-			      		  <p className="course-price">Rs {course.coursePrice}</p>
+			      		  <p className="course-date">{course.courseDate} {course.slot}</p>
+			      		  <p className="course-price">FREE</p>
 			      		</div>
 		      		</div>
 	      		</Link>

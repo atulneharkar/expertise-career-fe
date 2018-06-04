@@ -30,20 +30,52 @@ class CourseDetails extends Component {
     super(props);
 
     this.state = {
-      courseRegister: false
+      courseRegister: false,
+      courseRegisterStatus: false,
+      courseId: '',
+      userId: ''
     };
   }
 
 	componentWillMount() {
-		const courseId = this.props.match.params.courseId;
+		const courseId = this.props.match.params.courseId || '';
 		this.props.getCourseById(courseId);
+
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    const userId = (userInfo) ? userInfo._id : '';
+
+    this.setState({ courseId, userId });
+
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.courseData) {
+      this.checkIfCourseRegistered(nextProps.courseData);
+    }
+  }
+
+  //logic to check is course already registered
+  checkIfCourseRegistered(courseData) {
+    if(courseData) {
+      (courseData.registeredUsers).map((user) => {
+        if(user._id === (this.state.userId)) {
+          this.setState({ courseRegisterStatus: true });
+        }
+      });
+    }
   }
 
   toggleCourseRegister(courseRegister) {
     if(this.props.authenticated) {
-      this.setState({ courseRegister });
+      //this.setState({ courseRegister });
+
+      this.setState({ courseRegisterStatus: true });
+
+      //logic to add course to user list
+      this.props.userCourse(this.state.courseId, this.state.userId);
+
     } else {
-      history.push(`/login?redirectUrl=/webinar/${this.props.match.params.courseId}`);
+      history.push(`/login?redirectUrl=/webinar/${this.state.courseId}`);
     }
   }
 
@@ -54,7 +86,7 @@ class CourseDetails extends Component {
         <div className="webinar-title-sub-wrapper wrapper">
           <h2 className="course-title">{course.title}</h2>
           <div className="author-name-wrapper">
-            <p className="highlight-text">Learn the best way to become a # 1 Uxer within no time!</p>
+            <p className="highlight-text">Learn the best way to become #1 Uxer within no time!</p>
             <p className="author-name">With Mahesh Shinde</p>
             <p className="author-designation">Sr. UX Designer (6+ Years of UX Design Experience)</p>
           </div>
@@ -65,7 +97,7 @@ class CourseDetails extends Component {
 
   renderSyllabus(syllabus) {
     let index = 0;
-    return syllabus.split(';').map((list) => {
+    return syllabus.split('&;').map((list) => {
       return (
         <li key={index++}>{list}</li>
       );
@@ -85,8 +117,9 @@ class CourseDetails extends Component {
             <p><span>Webinar time:</span> {course.slot}</p>
           </div>
           <div className="course-price clearfix">
-            <p>Rs {course.coursePrice} /-</p>
-            <span onClick={() => this.toggleCourseRegister(true)} className="register-course-btn">Take Webinar</span>
+            <p>FREE</p>
+            <span onClick={() => this.toggleCourseRegister(true)} className={this.state.courseRegisterStatus ? 'hide' : 'register-course-btn add-cursor-pointer'}>Register</span>
+            <span className={this.state.courseRegisterStatus ? 'register-course-btn' : 'hide'}>Already Registered</span>
           </div>
           <div className="course-topics">
             <h3>Topics Covered</h3>

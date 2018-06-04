@@ -24,11 +24,13 @@ function addUser(user) {
   });
 }
 
-function updateUser(userId, user) {
+function updateUser(userId, user, updateType) {
   return fetch(`${SERVER_URL}/user/${userId}`, setHeader('PUT', user, true)).then((response) => {
     return response.json();
   }).then((userInfo) => {
-    saveUserDataToLocalStorage(userInfo);
+    if(updateType === 'self') {
+      saveUserDataToLocalStorage(userInfo);
+    }
     return userInfo;
   });
 }
@@ -41,11 +43,13 @@ function getUserById(userId) {
   return fetch(`${SERVER_URL}/user/${userId}`, setHeader('GET', null, true)).then((response) => response.json());
 }
 
-function setAvatar(data) {
+function setAvatar(data, updateType) {
   return fetch(`${SERVER_URL}/user/avatar`, setHeader('POST', data, true, true)).then((response) => {
     return response.json();
   }).then((userInfo) => {
-    saveUserDataToLocalStorage(userInfo);
+    if(updateType === 'self') {
+      saveUserDataToLocalStorage(userInfo);
+    }
     return userInfo;
   });
 }

@@ -67,15 +67,15 @@ export const getUserById = function(userId) {
    };
 }
 
-export const updateUser = function(userId, user) {
+export const updateUser = function(userId, user, updateType = '') {
   const _user = user;
   return (dispatch) => {
     dispatch({ type: USER_LOADING });
-    userService.updateUser(userId, user)
+    userService.updateUser(userId, user, updateType)
       .then(
         user => {
           if(_user.avatar) {
-            dispatch(uploadProfilePicture(_user.avatar));
+            dispatch(uploadProfilePicture(_user.avatar, updateType));
           } else if(_user.role || _user.status) {
             dispatch(getUserList());
           } else {
@@ -90,7 +90,7 @@ export const updateUser = function(userId, user) {
    };
 }
 
-function uploadProfilePicture(file) {
+function uploadProfilePicture(file, updateType) {
   return (dispatch) => {
     if(file[0].size > 5000000) {
       dispatch({ type: FILE_SIZE_ERROR });
@@ -98,7 +98,7 @@ function uploadProfilePicture(file) {
       let formData = new FormData();
       formData.append('avatar', file[0]);
       
-      userService.setAvatar(formData)
+      userService.setAvatar(formData, updateType)
         .then(
           user => {
             dispatch({ type: USER_SUCCESS });

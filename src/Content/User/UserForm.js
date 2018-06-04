@@ -84,7 +84,7 @@ class UserForm extends Component {
 
 	handleFormSubmit(props) {
     if(this.props.authenticated) {
-      this.props.updateUser(this.state.userId, props);
+      this.props.updateUser(this.state.userId, props, 'self');
     } else {
       this.props.addUser(props);
     }

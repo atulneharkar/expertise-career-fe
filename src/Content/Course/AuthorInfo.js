@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import aboutUsMaheshImg from '../../assets/images/about-us-atul.jpg';
+import aboutUsMaheshImg from '../../assets/images/mahesh.jpg';
 
 class AuthorInfo extends Component {
   render() {
@@ -9,7 +9,7 @@ class AuthorInfo extends Component {
 
         <p className="title">About the Author</p>
         <div className="basic-info">
-          <img src={aboutUsMaheshImg} alt="profile pic" width="80" height="80" className="about-us-profile-image" />
+          <img src={aboutUsMaheshImg} alt="profile pic" width="200" height="200" className="about-us-profile-image" />
           <p className="name-wrapper">Mahesh Shinde</p>
           <p className="description">
             Mahesh Shinde is a Sr. Ux in a multi national IT firm. Studied Mechanical Engineering and Post Grad from NID as Automotive Designer. 
@@ -22,7 +22,7 @@ class AuthorInfo extends Component {
             What do I need to have before taking the webinar?
           </h3>
           <p>
-            You need to have a laptop/ tablet or mobile to access Gooogle Hangout as the session will happen on hangout link provided at the top or sent 
+            You need to have a laptop/ tablet or mobile to access Gooogle Hangout as the session will happen on hangout link sent 
             in your email. A pen and paper for jotting down points. And ofcourse, a good network connectivity.
           </p>
         </div>

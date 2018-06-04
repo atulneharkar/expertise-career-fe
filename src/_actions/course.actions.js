@@ -80,12 +80,12 @@ export const removeCourse = function(courseId) {
    };
 }
 
-export const userCourse = function(courseId, userId, action) {
+export const userCourse = function(courseId, userId) {
   return (dispatch) => {
-    courseService.userCourse(courseId, userId, action)
+    courseService.userCourse(courseId, userId)
       .then(
         course => {
-          dispatch(getCourseList());
+          dispatch(getCourseById(courseId));
         },
         error => {
           dispatch(courseError('Unable to connect to server.'));

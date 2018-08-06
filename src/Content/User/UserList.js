@@ -64,7 +64,6 @@ class UserList extends Component {
           <td>{user.name}</td>
           <td>{user.phone}</td>
           <td>{user.email}</td>
-          <td></td>
           <td>
             {this.renderSelectRole(user.role, user._id)}
           </td>
@@ -86,7 +85,6 @@ class UserList extends Component {
   	            <th>Name</th>
   	            <th>Phone</th>
   	            <th>Email</th>
-                <th>Registered courses</th>
   	            <th>Role</th>
   	            <th>Status</th>
   	            <th>Delete</th>

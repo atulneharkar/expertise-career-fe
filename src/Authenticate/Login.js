@@ -103,27 +103,6 @@ class LoginForm extends Component {
 		      	<p>Don’t have an account? <Link to="/register">Register</Link></p>
 		      </div>
 
-		      <hr />
-		      <p className="text-center">Or</p>
-
-		      <div className="facebook-login">
-		        <FacebookLogin
-					    appId="142550689703247"
-					    autoLoad={false}
-					    fields="name,email,picture"
-					    textButton="Sign In with Facebook"
-					    callback={this.responseFacebook.bind(this)} />
-				  </div>
-
-				  <div className="google-login">
-				    <GoogleLogin
-					    clientId="448540267236-vhbef0r7l8o8hmqe5gb87sraf95bgasv.apps.googleusercontent.com"
-					    buttonText="Sign In with Google"
-					    autoLoad={false} 
-					    onSuccess={this.responseGoogle.bind(this)}
-					    onFailure={this.responseGoogle.bind(this)} />
-				  </div>
-
 				</form>
 			</div>
 		);
